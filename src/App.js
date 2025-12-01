@@ -56,10 +56,17 @@ const BSGymWebsite = () => {
       >
         <div className="container mx-auto px-4 flex justify-between items-center">
           <div
-            className="flex items-center gap-2 cursor-pointer group"
+            className="flex items-center gap-3 cursor-pointer group"
             onClick={() => scrollToSection("home")}
           >
-            <h1 className="text-2xl font-bold tracking-tighter text-white group-hover:opacity-90 transition-opacity">
+            {/* Logo Image - 請確保 public 資料夾內有 logo.png */}
+            <img
+              src="/logo.png"
+              alt="B.S Logo"
+              className="h-12 w-auto object-contain transition-transform group-hover:scale-105"
+              onError={(e) => (e.target.style.display = "none")}
+            />
+            <h1 className="text-2xl font-bold tracking-tighter text-white group-hover:opacity-90 transition-opacity flex items-center gap-1">
               B.S <span className="text-orange-500">力線體</span>
             </h1>
           </div>
@@ -500,7 +507,7 @@ const BSGymWebsite = () => {
               ]}
             />
 
-            {/* Coach Lu */}
+            {/* Coach Lu - Adjusted Image Position (Center) */}
             <CoachCard
               name="呂承諺"
               title="教練"
@@ -519,9 +526,10 @@ const BSGymWebsite = () => {
                 "泰拳、散打",
                 "筋膜舒緩、肌肉放鬆",
               ]}
+              imgPosition="object-center"
             />
 
-            {/* Coach Fan */}
+            {/* Coach Fan - Adjusted Image Position (Center) */}
             <CoachCard
               name="范哲瑋"
               title="教練"
@@ -547,9 +555,10 @@ const BSGymWebsite = () => {
                 "一日桃園高雄單日騎行 365 公里",
                 "單車北進、單車西進武嶺 2023年第一屆台灣大力士",
               ]}
+              imgPosition="object-center"
             />
 
-            {/* Coach Chen Zhi (New) */}
+            {/* Coach Chen Zhi (New) - Adjusted Image Position (Center) */}
             <CoachCard
               name="陳麒智"
               title="教練"
@@ -587,6 +596,7 @@ const BSGymWebsite = () => {
                 "2022 總統盃單項臥舉 銅牌",
                 "2023 新北市出力館盃單項臥舉 銅牌",
               ]}
+              imgPosition="object-center"
             />
 
             {/* Coach Zhang Li (New) */}
@@ -594,7 +604,7 @@ const BSGymWebsite = () => {
               name="張立"
               title="教練 / 全立格鬥館長"
               image="/coach-li.jpg"
-              lineId="歡迎洽詢官方LINE"
+              lineId="@989qoqeb"
               phone=""
               certifications={["中華民國泰拳C級教練", "ACE-CPT私人教練證照"]}
               expertise={["泰拳", "散打", "MMA綜合格鬥", "肌力訓練"]}
@@ -964,6 +974,7 @@ const CoachCard = ({
   achievements,
   customAction,
   isSpecial,
+  imgPosition,
 }) => (
   <div
     className={`bg-neutral-800 rounded-2xl overflow-hidden border transition-all hover:shadow-xl group flex flex-col h-full ${
@@ -972,12 +983,14 @@ const CoachCard = ({
         : "border-neutral-700/50 hover:border-orange-500/30"
     }`}
   >
-    <div className="h-96 overflow-hidden relative bg-neutral-700">
+    <div className="h-80 overflow-hidden relative bg-neutral-700">
       {/* Added onError to handle broken images gracefully */}
       <img
         src={image}
         alt={name}
-        className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105 filter brightness-95 group-hover:brightness-100"
+        className={`w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 filter brightness-95 group-hover:brightness-100 ${
+          imgPosition || "object-top"
+        }`}
         onError={(e) => {
           e.target.src = "https://via.placeholder.com/800x600?text=Coach+Image";
         }}
@@ -990,11 +1003,12 @@ const CoachCard = ({
     <div className="p-6 flex-grow flex flex-col gap-6 relative">
       {/* Special MMA Prompt (Only for Zhang Li) */}
       {isSpecial && (
-        <div className="absolute -top-10 right-6 bg-red-600 text-white px-4 py-2 rounded-full font-bold text-sm shadow-lg animate-bounce flex items-center gap-1 z-10">
+        <div className="absolute -top-10 right-6 bg-red-600 text-white px-4 py-2 rounded-full font-bold text-sm shadow-lg animate-bounce flex items-center gap-1 z-10 border-2 border-white/20">
           <img
             src="https://i.imgur.com/0Z9Z0Z0.png"
-            alt="MMA Glove"
-            className="w-5 h-5"
+            alt="MMA"
+            className="w-5 h-5 invert brightness-0"
+            onError={(e) => (e.target.style.display = "none")}
           />
           想練 MMA ?
         </div>
