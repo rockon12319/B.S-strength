@@ -488,15 +488,15 @@ const BSGymWebsite = () => {
                 "筋膜舒緩、痠痛緩解",
               ]}
               achievements={[
-                "106年 WAKO踢拳擊錦標賽 冠軍",
-                "106年 桃園市長盃散打搏擊 冠軍",
-                "105年 WAKO踢拳擊全國錦標賽 亞軍",
-                "105年 全國乙組散打搏擊錦標賽 亞軍",
-                "104年 全國乙組散打搏擊錦標賽 亞軍",
-                "104年 桃園市長盃散打 亞軍",
-                "114年 桃園泰拳市長盃泰拳錦標賽優勝",
-                "114年 桃園市鑫利通盃泰拳優勝",
-                "113年 桃園市第五屆泰拳交流賽優勝",
+                "2017年 WAKO踢拳擊錦標賽 冠軍",
+                "2017年 桃園市長盃散打搏擊 冠軍",
+                "2016年 WAKO踢拳擊全國錦標賽 亞軍",
+                "2016年 全國乙組散打搏擊錦標賽 亞軍",
+                "2015年 全國乙組散打搏擊錦標賽 亞軍",
+                "2015年 桃園市長盃散打 亞軍",
+                "2025年 桃園泰拳市長盃泰拳錦標賽優勝",
+                "2025年 桃園市鑫利通盃泰拳優勝",
+                "2024年 桃園市第五屆泰拳交流賽優勝",
               ]}
             />
 
@@ -542,11 +542,10 @@ const BSGymWebsite = () => {
                 "提升日常動作能力",
               ]}
               achievements={[
-                "2023年 第一屆台灣大力士",
                 "42公里 馬陵生態園區山地馬拉松 分組第二名",
                 "25公里 北北基山地超半程馬拉松 分組第三名",
                 "一日桃園高雄單日騎行 365 公里",
-                "單車北進、單車西進武嶺",
+                "單車北進、單車西進武嶺 2023年第一屆台灣大力士",
               ]}
             />
 
@@ -593,7 +592,7 @@ const BSGymWebsite = () => {
             {/* Coach Zhang Li (New) */}
             <CoachCard
               name="張立"
-              title="教練"
+              title="教練 / 全立格鬥館長"
               image="/coach-li.jpg"
               lineId="歡迎洽詢官方LINE"
               phone=""
@@ -614,6 +613,10 @@ const BSGymWebsite = () => {
                 "2011 陽明盃散打56公斤冠軍",
                 "2011 全國散打56公斤冠軍",
               ]}
+              customAction={{
+                text: "想練MMA? 去全立格鬥找張立",
+                url: "https://www.google.com/maps/place/%E5%85%A8+%E7%AB%8B+%E6%A0%BC+%E9%AC%A5/@24.9630095,121.2603245,985m/data=!3m2!1e3!4b1!4m6!3m5!1s0x346819f83462c0b1:0x52cc93ee6224fa3c!8m2!3d24.9630047!4d121.2628994!16s%2Fg%2F11x0c6ypq0?authuser=0&entry=ttu&g_ep=EgoyMDI1MTEyMy4xIKXMDSoASAFQAw%3D%3D",
+              }}
             />
           </div>
         </div>
@@ -948,7 +951,7 @@ const ScheduleItem = ({ day, time, title, color }) => (
   </div>
 );
 
-// Updated CoachCard Component to include Achievements
+// Updated CoachCard Component to include Achievements and Custom Action
 const CoachCard = ({
   name,
   title,
@@ -958,14 +961,15 @@ const CoachCard = ({
   lineId,
   phone,
   achievements,
+  customAction,
 }) => (
   <div className="bg-neutral-800 rounded-2xl overflow-hidden border border-neutral-700/50 hover:border-orange-500/30 transition-all hover:shadow-xl group flex flex-col h-full">
-    <div className="h-64 overflow-hidden relative bg-neutral-700">
+    <div className="h-80 overflow-hidden relative bg-neutral-700">
       {/* Added onError to handle broken images gracefully */}
       <img
         src={image}
         alt={name}
-        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 filter brightness-90 group-hover:brightness-100"
+        className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105 filter brightness-90 group-hover:brightness-100"
         onError={(e) => {
           e.target.src = "https://via.placeholder.com/800x600?text=Coach+Image";
         }}
@@ -1035,6 +1039,20 @@ const CoachCard = ({
               className="text-orange-500 hover:underline font-mono"
             >
               {phone}
+            </a>
+          </div>
+        )}
+        {/* Custom Action Button */}
+        {customAction && (
+          <div className="mt-3">
+            <a
+              href={customAction.url}
+              target="_blank"
+              rel="noreferrer noopener"
+              className="block w-full text-center bg-red-600 hover:bg-red-700 text-white py-2 rounded-lg text-sm font-bold transition-colors flex items-center justify-center gap-2 shadow-lg"
+            >
+              <MapPin size={16} />
+              {customAction.text}
             </a>
           </div>
         )}
