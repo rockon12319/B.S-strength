@@ -19,6 +19,7 @@ import {
   ExternalLink,
   Camera,
   Trophy,
+  Flame,
 } from "lucide-react";
 
 const BSGymWebsite = () => {
@@ -59,12 +60,17 @@ const BSGymWebsite = () => {
             className="flex items-center gap-3 cursor-pointer group"
             onClick={() => scrollToSection("home")}
           >
-            {/* Logo Image - 請確保 public 資料夾內有 logo.png */}
+            {/* Logo Image - 請將您的商標命名為 mark.jpg 並放入 public 資料夾 */}
             <img
-              src="/logo.png"
+              src="/mark.jpg"
               alt="B.S Logo"
-              className="h-12 w-auto object-contain transition-transform group-hover:scale-105"
-              onError={(e) => (e.target.style.display = "none")}
+              className="h-14 w-auto object-contain transition-transform group-hover:scale-105 rounded-full border-2 border-orange-500/20"
+              onError={(e) => {
+                e.target.style.display = "none"; // 如果沒圖就隱藏
+                // 備用方案: 如果 mark.jpg 沒讀到，試試看 logo.png
+                if (e.target.src.includes("mark.jpg"))
+                  e.target.src = "/logo.png";
+              }}
             />
             <h1 className="text-2xl font-bold tracking-tighter text-white group-hover:opacity-90 transition-opacity flex items-center gap-1">
               B.S <span className="text-orange-500">力線體</span>
@@ -505,9 +511,10 @@ const BSGymWebsite = () => {
                 "2025年 桃園市鑫利通盃泰拳優勝",
                 "2024年 桃園市第五屆泰拳交流賽優勝",
               ]}
+              imgPosition="object-top"
             />
 
-            {/* Coach Lu - Adjusted Image Position (Center) */}
+            {/* Coach Lu - Updated Position to object-top */}
             <CoachCard
               name="呂承諺"
               title="教練"
@@ -526,10 +533,10 @@ const BSGymWebsite = () => {
                 "泰拳、散打",
                 "筋膜舒緩、肌肉放鬆",
               ]}
-              imgPosition="object-center"
+              imgPosition="object-top"
             />
 
-            {/* Coach Fan - Adjusted Image Position (Center) */}
+            {/* Coach Fan - Updated Position to object-top */}
             <CoachCard
               name="范哲瑋"
               title="教練"
@@ -555,10 +562,10 @@ const BSGymWebsite = () => {
                 "一日桃園高雄單日騎行 365 公里",
                 "單車北進、單車西進武嶺 2023年第一屆台灣大力士",
               ]}
-              imgPosition="object-center"
+              imgPosition="object-top"
             />
 
-            {/* Coach Chen Zhi (New) - Adjusted Image Position (Center) */}
+            {/* Coach Chen Zhi - Updated Position to object-top */}
             <CoachCard
               name="陳麒智"
               title="教練"
@@ -596,10 +603,10 @@ const BSGymWebsite = () => {
                 "2022 總統盃單項臥舉 銅牌",
                 "2023 新北市出力館盃單項臥舉 銅牌",
               ]}
-              imgPosition="object-center"
+              imgPosition="object-top"
             />
 
-            {/* Coach Zhang Li (New) */}
+            {/* Coach Zhang Li - New Special Badge */}
             <CoachCard
               name="張立"
               title="教練 / 全立格鬥館長"
@@ -627,7 +634,7 @@ const BSGymWebsite = () => {
                 text: "想練MMA? 去全立格鬥找張立",
                 url: "https://www.google.com/maps/place/%E5%85%A8+%E7%AB%8B+%E6%A0%BC+%E9%AC%A5/@24.9630095,121.2603245,985m/data=!3m2!1e3!4b1!4m6!3m5!1s0x346819f83462c0b1:0x52cc93ee6224fa3c!8m2!3d24.9630047!4d121.2628994!16s%2Fg%2F11x0c6ypq0?authuser=0&entry=ttu&g_ep=EgoyMDI1MTEyMy4xIKXMDSoASAFQAw%3D%3D",
               }}
-              isSpecial={true} // Add this prop to flag the special card
+              isSpecial={true}
             />
           </div>
         </div>
@@ -983,7 +990,7 @@ const CoachCard = ({
         : "border-neutral-700/50 hover:border-orange-500/30"
     }`}
   >
-    <div className="h-80 overflow-hidden relative bg-neutral-700">
+    <div className="h-[30rem] overflow-hidden relative bg-neutral-700">
       {/* Added onError to handle broken images gracefully */}
       <img
         src={image}
@@ -1003,19 +1010,19 @@ const CoachCard = ({
     <div className="p-6 flex-grow flex flex-col gap-6 relative">
       {/* Special MMA Prompt (Only for Zhang Li) */}
       {isSpecial && (
-        <div className="absolute -top-10 right-6 bg-red-600 text-white px-4 py-2 rounded-full font-bold text-sm shadow-lg animate-bounce flex items-center gap-1 z-10 border-2 border-white/20">
-          <img
-            src="https://i.imgur.com/0Z9Z0Z0.png"
-            alt="MMA"
-            className="w-5 h-5 invert brightness-0"
-            onError={(e) => (e.target.style.display = "none")}
-          />
-          想練 MMA ?
+        <div className="flex items-center gap-2 mb-2">
+          <span className="relative flex h-3 w-3">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span>
+          </span>
+          <span className="text-red-500 font-bold tracking-wider text-sm">
+            想練 MMA ?
+          </span>
         </div>
       )}
 
       {/* Certifications */}
-      <div className={isSpecial ? "mt-4" : ""}>
+      <div>
         <h4 className="flex items-center gap-2 font-bold text-white mb-3">
           <Award size={18} className="text-yellow-500" /> 主要證照
         </h4>
