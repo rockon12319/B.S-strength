@@ -18,12 +18,14 @@ import {
   Star,
   ExternalLink,
   Camera,
+  Trophy,
 } from "lucide-react";
 
 const BSGymWebsite = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
+  // Handle scroll for navbar styling
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
@@ -464,11 +466,11 @@ const BSGymWebsite = () => {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Coach Chen */}
+            {/* Coach Chen Shun */}
             <CoachCard
               name="陳麒舜"
               title="總教練 / 格鬥教練"
-              image="https://images.unsplash.com/photo-1599058945522-28d584b6f0ff?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+              image="/coach-shun.jpg"
               lineId="rockon12319"
               phone="0936-662-435"
               certifications={[
@@ -485,13 +487,24 @@ const BSGymWebsite = () => {
                 "泰拳、散打、柔術、綜合格鬥",
                 "筋膜舒緩、痠痛緩解",
               ]}
+              achievements={[
+                "106年 WAKO踢拳擊錦標賽 冠軍",
+                "106年 桃園市長盃散打搏擊 冠軍",
+                "105年 WAKO踢拳擊全國錦標賽 亞軍",
+                "105年 全國乙組散打搏擊錦標賽 亞軍",
+                "104年 全國乙組散打搏擊錦標賽 亞軍",
+                "104年 桃園市長盃散打 亞軍",
+                "114年 桃園泰拳市長盃泰拳錦標賽優勝",
+                "114年 桃園市鑫利通盃泰拳優勝",
+                "113年 桃園市第五屆泰拳交流賽優勝",
+              ]}
             />
 
             {/* Coach Lu */}
             <CoachCard
               name="呂承諺"
               title="教練"
-              image="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+              image="/coach-yan.jpg"
               lineId="ian3457"
               phone="0986-903-826"
               certifications={[
@@ -512,7 +525,7 @@ const BSGymWebsite = () => {
             <CoachCard
               name="范哲瑋"
               title="教練"
-              image="https://images.unsplash.com/photo-1534367507873-d2d7e24c797f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+              image="/coach-wei.jpg"
               lineId="fan_jhewei"
               phone="0979-509-068"
               certifications={[
@@ -527,6 +540,79 @@ const BSGymWebsite = () => {
                 "銀髮族抗老化訓練",
                 "改善肌力不足導致的痠痛",
                 "提升日常動作能力",
+              ]}
+              achievements={[
+                "2023年 第一屆台灣大力士",
+                "42公里 馬陵生態園區山地馬拉松 分組第二名",
+                "25公里 北北基山地超半程馬拉松 分組第三名",
+                "一日桃園高雄單日騎行 365 公里",
+                "單車北進、單車西進武嶺",
+              ]}
+            />
+
+            {/* Coach Chen Zhi (New) */}
+            <CoachCard
+              name="陳麒智"
+              title="教練"
+              image="/coach-zhi.jpg"
+              lineId="歡迎洽詢官方LINE"
+              phone=""
+              certifications={[
+                "ACE 美國國家運動協會私人教練認證",
+                "AFAA 美國有氧體適能協會兒童體適能研習證書",
+                "TRX-STC 懸吊訓練師",
+                "Afaa-WT國際重量訓練指導員",
+                "台灣運動保健協會-硬式壺鈴教練",
+                "G動學 (上肢整合、下肢整合、動作概論呼吸與核心)",
+                "Dr.John Rusin無痛表現訓練",
+                "馬力舉重 Level 1",
+                "怪獸訓練中心 (動作控制、課程設計、年長者訓練研習)",
+              ]}
+              expertise={[
+                "肌力與體能訓練",
+                "兒童體適能",
+                "懸吊訓練",
+                "壺鈴訓練",
+                "動作控制與矯正",
+              ]}
+              achievements={[
+                "2015 WAKO踢拳道國錦標賽 金牌",
+                "2015 桃園市市長盃博擊錦標賽 銀牌",
+                "2014 全國業餘泰拳錦標賽 銅牌",
+                "2014 WAKO 踢拳道全國錦標賽 銅牌",
+                "2013 北大盃全國大專散打搏擊錦標賽 銀牌",
+                "2013 桃園市市長盃博擊錦標賽 銀牌",
+                "2013 全國散打搏擊錦標賽 銀牌",
+                "2013 海峽兩岸暨港澳地區泰拳邀請賽國家代表選手第四名",
+                "2012 全國業餘泰拳錦標賽 銀牌",
+                "2022 總統盃單項臥舉 銅牌",
+                "2023 新北市出力館盃單項臥舉 銅牌",
+              ]}
+            />
+
+            {/* Coach Zhang Li (New) */}
+            <CoachCard
+              name="張立"
+              title="教練"
+              image="/coach-li.jpg"
+              lineId="歡迎洽詢官方LINE"
+              phone=""
+              certifications={["中華民國泰拳C級教練", "ACE-CPT私人教練證照"]}
+              expertise={["泰拳", "散打", "MMA綜合格鬥", "肌力訓練"]}
+              achievements={[
+                "2025 參加AMMA雛量級國手選拔冠軍",
+                "2024 參加AMMA雛量級亞錦賽",
+                "2020-2024 WOTD MMA雛量級7連勝",
+                "2017 桃園縣縣長盃60公斤冠軍",
+                "2015 全國業餘泰拳60公斤冠軍",
+                "2015 兩岸四地泰拳邀請賽57公斤銅牌",
+                "2014 兩岸四地泰拳邀請賽54公斤銀牌",
+                "2014 參加IFMA世界大學泰拳比賽",
+                "2013 全國業餘泰拳60公斤亞軍",
+                "2012 全國業餘泰拳54公斤亞軍",
+                "2012 參加IFMA世界業餘泰拳60公斤",
+                "2011 陽明盃散打56公斤冠軍",
+                "2011 全國散打56公斤冠軍",
               ]}
             />
           </div>
@@ -862,6 +948,7 @@ const ScheduleItem = ({ day, time, title, color }) => (
   </div>
 );
 
+// Updated CoachCard Component to include Achievements
 const CoachCard = ({
   name,
   title,
@@ -870,21 +957,27 @@ const CoachCard = ({
   expertise,
   lineId,
   phone,
+  achievements,
 }) => (
   <div className="bg-neutral-800 rounded-2xl overflow-hidden border border-neutral-700/50 hover:border-orange-500/30 transition-all hover:shadow-xl group flex flex-col h-full">
     <div className="h-64 overflow-hidden relative bg-neutral-700">
+      {/* Added onError to handle broken images gracefully */}
       <img
         src={image}
         alt={name}
         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 filter brightness-90 group-hover:brightness-100"
+        onError={(e) => {
+          e.target.src = "https://via.placeholder.com/800x600?text=Coach+Image";
+        }}
       />
       <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-neutral-900 to-transparent p-4 pt-12">
         <h3 className="text-2xl font-bold text-white">{name}</h3>
         <p className="text-orange-500 font-medium">{title}</p>
       </div>
     </div>
-    <div className="p-6 flex-grow flex flex-col">
-      <div className="mb-6">
+    <div className="p-6 flex-grow flex flex-col gap-6">
+      {/* Certifications */}
+      <div>
         <h4 className="flex items-center gap-2 font-bold text-white mb-3">
           <Award size={18} className="text-yellow-500" /> 主要證照
         </h4>
@@ -895,9 +988,24 @@ const CoachCard = ({
         </ul>
       </div>
 
-      <div className="mb-6 flex-grow">
+      {/* Achievements (Optional) */}
+      {achievements && achievements.length > 0 && (
+        <div>
+          <h4 className="flex items-center gap-2 font-bold text-white mb-3">
+            <Trophy size={18} className="text-orange-500" /> 特殊戰績 / 經歷
+          </h4>
+          <ul className="text-sm text-gray-400 space-y-1 list-disc list-inside max-h-48 overflow-y-auto pr-2 custom-scrollbar">
+            {achievements.map((ach, i) => (
+              <li key={i}>{ach}</li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      {/* Expertise */}
+      <div className="flex-grow">
         <h4 className="flex items-center gap-2 font-bold text-white mb-3">
-          <Activity size={18} className="text-orange-500" /> 專長領域
+          <Activity size={18} className="text-blue-500" /> 專長領域
         </h4>
         <div className="flex flex-wrap gap-2">
           {expertise.map((exp, i) => (
@@ -911,22 +1019,25 @@ const CoachCard = ({
         </div>
       </div>
 
+      {/* Contact Info */}
       <div className="pt-4 border-t border-neutral-700 mt-auto">
         <div className="flex justify-between items-center text-sm mb-2">
           <span className="text-gray-500">LINE ID</span>
-          <span className="text-white font-mono bg-neutral-900 px-2 py-1 rounded select-all">
+          <span className="text-white font-mono bg-neutral-900 px-2 py-1 rounded select-all text-xs md:text-sm">
             {lineId}
           </span>
         </div>
-        <div className="flex justify-between items-center text-sm">
-          <span className="text-gray-500">電話</span>
-          <a
-            href={`tel:${phone.replace(/-/g, "")}`}
-            className="text-orange-500 hover:underline font-mono"
-          >
-            {phone}
-          </a>
-        </div>
+        {phone && (
+          <div className="flex justify-between items-center text-sm">
+            <span className="text-gray-500">電話</span>
+            <a
+              href={`tel:${phone.replace(/-/g, "")}`}
+              className="text-orange-500 hover:underline font-mono"
+            >
+              {phone}
+            </a>
+          </div>
+        )}
       </div>
     </div>
   </div>
