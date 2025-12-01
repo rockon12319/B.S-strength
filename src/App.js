@@ -617,6 +617,7 @@ const BSGymWebsite = () => {
                 text: "想練MMA? 去全立格鬥找張立",
                 url: "https://www.google.com/maps/place/%E5%85%A8+%E7%AB%8B+%E6%A0%BC+%E9%AC%A5/@24.9630095,121.2603245,985m/data=!3m2!1e3!4b1!4m6!3m5!1s0x346819f83462c0b1:0x52cc93ee6224fa3c!8m2!3d24.9630047!4d121.2628994!16s%2Fg%2F11x0c6ypq0?authuser=0&entry=ttu&g_ep=EgoyMDI1MTEyMy4xIKXMDSoASAFQAw%3D%3D",
               }}
+              isSpecial={true} // Add this prop to flag the special card
             />
           </div>
         </div>
@@ -962,26 +963,45 @@ const CoachCard = ({
   phone,
   achievements,
   customAction,
+  isSpecial,
 }) => (
-  <div className="bg-neutral-800 rounded-2xl overflow-hidden border border-neutral-700/50 hover:border-orange-500/30 transition-all hover:shadow-xl group flex flex-col h-full">
-    <div className="h-80 overflow-hidden relative bg-neutral-700">
+  <div
+    className={`bg-neutral-800 rounded-2xl overflow-hidden border transition-all hover:shadow-xl group flex flex-col h-full ${
+      isSpecial
+        ? "border-orange-500 shadow-orange-500/20 shadow-lg transform hover:-translate-y-2"
+        : "border-neutral-700/50 hover:border-orange-500/30"
+    }`}
+  >
+    <div className="h-96 overflow-hidden relative bg-neutral-700">
       {/* Added onError to handle broken images gracefully */}
       <img
         src={image}
         alt={name}
-        className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105 filter brightness-90 group-hover:brightness-100"
+        className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105 filter brightness-95 group-hover:brightness-100"
         onError={(e) => {
           e.target.src = "https://via.placeholder.com/800x600?text=Coach+Image";
         }}
       />
-      <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-neutral-900 to-transparent p-4 pt-12">
-        <h3 className="text-2xl font-bold text-white">{name}</h3>
-        <p className="text-orange-500 font-medium">{title}</p>
+      <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-neutral-900 via-neutral-900/70 to-transparent p-6 pt-20">
+        <h3 className="text-3xl font-bold text-white mb-1">{name}</h3>
+        <p className="text-orange-500 font-medium text-lg">{title}</p>
       </div>
     </div>
-    <div className="p-6 flex-grow flex flex-col gap-6">
+    <div className="p-6 flex-grow flex flex-col gap-6 relative">
+      {/* Special MMA Prompt (Only for Zhang Li) */}
+      {isSpecial && (
+        <div className="absolute -top-10 right-6 bg-red-600 text-white px-4 py-2 rounded-full font-bold text-sm shadow-lg animate-bounce flex items-center gap-1 z-10">
+          <img
+            src="https://i.imgur.com/0Z9Z0Z0.png"
+            alt="MMA Glove"
+            className="w-5 h-5"
+          />
+          想練 MMA ?
+        </div>
+      )}
+
       {/* Certifications */}
-      <div>
+      <div className={isSpecial ? "mt-4" : ""}>
         <h4 className="flex items-center gap-2 font-bold text-white mb-3">
           <Award size={18} className="text-yellow-500" /> 主要證照
         </h4>
@@ -1044,14 +1064,14 @@ const CoachCard = ({
         )}
         {/* Custom Action Button */}
         {customAction && (
-          <div className="mt-3">
+          <div className="mt-4">
             <a
               href={customAction.url}
               target="_blank"
               rel="noreferrer noopener"
-              className="block w-full text-center bg-red-600 hover:bg-red-700 text-white py-2 rounded-lg text-sm font-bold transition-colors flex items-center justify-center gap-2 shadow-lg"
+              className="block w-full text-center bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white py-3 rounded-xl font-bold transition-all flex items-center justify-center gap-2 shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
             >
-              <MapPin size={16} />
+              <MapPin size={18} />
               {customAction.text}
             </a>
           </div>
