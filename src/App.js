@@ -901,7 +901,7 @@ const BSGymWebsite = () => {
                 <MessageCircle size={18} /> 加 LINE 諮詢
               </a>
               <a
-                href="tel:0936662435"
+                href="tel:0936624385"
                 className="sm:w-auto bg-black/20 text-white px-6 py-3 rounded-lg font-medium hover:bg-black/30 transition-colors flex items-center justify-center gap-2 border border-white/10"
               >
                 <Phone size={18} /> 撥打電話
