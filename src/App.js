@@ -924,7 +924,7 @@ const BSGymWebsite = () => {
                 B.S 力線體
               </h2>
               <p className="mb-1">桃園市桃園區壽星街60號1樓</p>
-              <p>0936-662-435</p>
+              <p>0936-624-385</p>
             </div>
             <div className="text-center md:text-right">
               <p>
