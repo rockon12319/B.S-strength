@@ -20,6 +20,7 @@ import {
   Camera,
   Trophy,
   Flame,
+  BookOpen,
 } from "lucide-react";
 
 const BSGymWebsite = () => {
@@ -60,14 +61,13 @@ const BSGymWebsite = () => {
             className="flex items-center gap-3 cursor-pointer group"
             onClick={() => scrollToSection("home")}
           >
-            {/* Logo Image - 請將您的商標命名為 mark.jpg 並放入 public 資料夾 */}
+            {/* Logo Image */}
             <img
               src="/mark.jpg"
               alt="B.S Logo"
               className="h-14 w-auto object-contain transition-transform group-hover:scale-105 rounded-full border-2 border-orange-500/20"
               onError={(e) => {
-                e.target.style.display = "none"; // 如果沒圖就隱藏
-                // 備用方案: 如果 mark.jpg 沒讀到，試試看 logo.png
+                e.target.style.display = "none";
                 if (e.target.src.includes("mark.jpg"))
                   e.target.src = "/logo.png";
               }}
@@ -479,7 +479,7 @@ const BSGymWebsite = () => {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Coach Chen Shun */}
+            {/* Coach Chen Shun - Updated Order and Details */}
             <CoachCard
               name="陳麒舜"
               title="總教練 / 格鬥教練"
@@ -493,6 +493,9 @@ const BSGymWebsite = () => {
                 "EMT1 初級救護技術員",
                 "台灣保健運動協會-硬式壺鈴授課教練",
                 "IHA 國際保健協會運動按摩技術員",
+                "中華民國泰國拳協會C級運動裁判證",
+                "G動學上、下肢整合研習",
+                "怪獸訓練 (教練俱樂部第11期、動作控制、課程設計)",
               ]}
               expertise={[
                 "肌力與體能訓練",
@@ -501,20 +504,20 @@ const BSGymWebsite = () => {
                 "筋膜舒緩、痠痛緩解",
               ]}
               achievements={[
-                "2017年 WAKO踢拳擊錦標賽 冠軍",
-                "2017年 桃園市長盃散打搏擊 冠軍",
-                "2016年 WAKO踢拳擊全國錦標賽 亞軍",
-                "2016年 全國乙組散打搏擊錦標賽 亞軍",
-                "2015年 全國乙組散打搏擊錦標賽 亞軍",
                 "2015年 桃園市長盃散打 亞軍",
-                "2025年 桃園泰拳市長盃泰拳錦標賽優勝",
-                "2025年 桃園市鑫利通盃泰拳優勝",
+                "2015年 全國乙組散打搏擊錦標賽 亞軍",
+                "2016年 全國乙組散打搏擊錦標賽 亞軍",
+                "2016年 WAKO踢拳擊全國錦標賽 亞軍",
+                "2017年 桃園市長盃散打搏擊 冠軍",
+                "2017年 WAKO踢拳擊錦標賽 冠軍",
                 "2024年 桃園市第五屆泰拳交流賽優勝",
+                "2025年 桃園市鑫利通盃泰拳優勝",
+                "2025年 桃園泰拳市長盃泰拳錦標賽優勝",
               ]}
               imgPosition="object-top"
             />
 
-            {/* Coach Lu - Updated Position to object-top */}
+            {/* Coach Lu - Updated Info */}
             <CoachCard
               name="呂承諺"
               title="教練"
@@ -526,6 +529,7 @@ const BSGymWebsite = () => {
                 "G動學上肢整合(肌動學、骨頭學、解剖學)",
                 "G動學下肢整合",
                 "IHA 國際保健協會運動按摩技術員",
+                "怪獸訓練-動作控制、學習、檢測與矯正",
               ]}
               expertise={[
                 "肌力與體能訓練",
@@ -533,10 +537,14 @@ const BSGymWebsite = () => {
                 "泰拳、散打",
                 "筋膜舒緩、肌肉放鬆",
               ]}
+              achievements={[
+                "2020 全國乙組散打 第三名",
+                "2021 全國乙組散打 冠軍",
+              ]}
               imgPosition="object-top"
             />
 
-            {/* Coach Fan - Updated Position to object-top */}
+            {/* Coach Fan - Completely Updated Info */}
             <CoachCard
               name="范哲瑋"
               title="教練"
@@ -544,11 +552,19 @@ const BSGymWebsite = () => {
               lineId="fan_jhewei"
               phone="0979-509-068"
               certifications={[
-                "怪獸訓練：B級、丙級",
-                "抗老化肌力與體能認證",
-                "動作控制、課程設計",
-                "怪獸訓練俱樂部第11期/研究班13、14期",
-                "台灣保健協會硬式壺鈴教練",
+                "怪獸訓練證照：抗老化肌力與體能教練認證",
+                "怪獸訓練證照：B級肌力與體能教練認證",
+                "中華民國運動教練學會-丙級肌力與體能教練（何立安教官授課）",
+                "亞洲教練科學會-肌力與體能B級教練證",
+                "台灣保健運動協會-硬式壺鈴授證教練",
+              ]}
+              education={[
+                "KAT-私人教練培訓班",
+                "G動學 動作概論呼吸與核心",
+                "怪獸訓練-動作控制、學習、檢測與矯正",
+                "怪獸訓練-體能教練俱樂部第十一期",
+                "怪獸訓練-體能教練研究班第十三、十四期",
+                "怪獸訓練-課程設計、技術、課表、週期及身心準備",
               ]}
               expertise={[
                 "肌力與體能訓練",
@@ -560,12 +576,13 @@ const BSGymWebsite = () => {
                 "42公里 馬陵生態園區山地馬拉松 分組第二名",
                 "25公里 北北基山地超半程馬拉松 分組第三名",
                 "一日桃園高雄單日騎行 365 公里",
-                "單車北進、單車西進武嶺 2023年第一屆台灣大力士",
+                "單車北進、單車西進武嶺",
+                "2023年 第一屆台灣大力士比賽完賽",
               ]}
               imgPosition="object-top"
             />
 
-            {/* Coach Chen Zhi - Updated Position to object-top */}
+            {/* Coach Chen Zhi - Updated Year Order */}
             <CoachCard
               name="陳麒智"
               title="教練"
@@ -591,22 +608,22 @@ const BSGymWebsite = () => {
                 "動作控制與矯正",
               ]}
               achievements={[
-                "2015 WAKO踢拳道國錦標賽 金牌",
-                "2015 桃園市市長盃博擊錦標賽 銀牌",
-                "2014 全國業餘泰拳錦標賽 銅牌",
-                "2014 WAKO 踢拳道全國錦標賽 銅牌",
-                "2013 北大盃全國大專散打搏擊錦標賽 銀牌",
-                "2013 桃園市市長盃博擊錦標賽 銀牌",
-                "2013 全國散打搏擊錦標賽 銀牌",
-                "2013 海峽兩岸暨港澳地區泰拳邀請賽國家代表選手第四名",
                 "2012 全國業餘泰拳錦標賽 銀牌",
+                "2013 海峽兩岸暨港澳地區泰拳邀請賽國家代表選手第四名",
+                "2013 全國散打搏擊錦標賽 銀牌",
+                "2013 桃園市市長盃博擊錦標賽 銀牌",
+                "2013 北大盃全國大專散打搏擊錦標賽 銀牌",
+                "2014 WAKO 踢拳道全國錦標賽 銅牌",
+                "2014 全國業餘泰拳錦標賽 銅牌",
+                "2015 桃園市市長盃博擊錦標賽 銀牌",
+                "2015 WAKO踢拳道國錦標賽 金牌",
                 "2022 總統盃單項臥舉 銅牌",
                 "2023 新北市出力館盃單項臥舉 銅牌",
               ]}
               imgPosition="object-top"
             />
 
-            {/* Coach Zhang Li - New Special Badge */}
+            {/* Coach Zhang Li - Updated Year Order */}
             <CoachCard
               name="張立"
               title="教練 / 全立格鬥館長"
@@ -616,19 +633,19 @@ const BSGymWebsite = () => {
               certifications={["中華民國泰拳C級教練", "ACE-CPT私人教練證照"]}
               expertise={["泰拳", "散打", "MMA綜合格鬥", "肌力訓練"]}
               achievements={[
-                "2025 參加AMMA雛量級國手選拔冠軍",
-                "2024 參加AMMA雛量級亞錦賽",
-                "2020-2024 WOTD MMA雛量級7連勝",
-                "2017 桃園縣縣長盃60公斤冠軍",
-                "2015 全國業餘泰拳60公斤冠軍",
-                "2015 兩岸四地泰拳邀請賽57公斤銅牌",
-                "2014 兩岸四地泰拳邀請賽54公斤銀牌",
-                "2014 參加IFMA世界大學泰拳比賽",
-                "2013 全國業餘泰拳60公斤亞軍",
-                "2012 全國業餘泰拳54公斤亞軍",
-                "2012 參加IFMA世界業餘泰拳60公斤",
-                "2011 陽明盃散打56公斤冠軍",
                 "2011 全國散打56公斤冠軍",
+                "2011 陽明盃散打56公斤冠軍",
+                "2012 參加IFMA世界業餘泰拳60公斤",
+                "2012 全國業餘泰拳54公斤亞軍",
+                "2013 全國業餘泰拳60公斤亞軍",
+                "2014 參加IFMA世界大學泰拳比賽",
+                "2014 兩岸四地泰拳邀請賽54公斤銀牌",
+                "2015 兩岸四地泰拳邀請賽57公斤銅牌",
+                "2015 全國業餘泰拳60公斤冠軍",
+                "2017 桃園縣縣長盃60公斤冠軍",
+                "2020-2024 WOTD MMA雛量級7連勝",
+                "2024 參加AMMA雛量級亞錦賽",
+                "2025 參加AMMA雛量級國手選拔冠軍",
               ]}
               customAction={{
                 text: "想練MMA? 去全立格鬥找張立",
@@ -975,6 +992,7 @@ const CoachCard = ({
   title,
   image,
   certifications,
+  education,
   expertise,
   lineId,
   phone,
@@ -1032,6 +1050,20 @@ const CoachCard = ({
           ))}
         </ul>
       </div>
+
+      {/* Education (Optional) */}
+      {education && education.length > 0 && (
+        <div>
+          <h4 className="flex items-center gap-2 font-bold text-white mb-3">
+            <BookOpen size={18} className="text-green-500" /> 進修課程
+          </h4>
+          <ul className="text-sm text-gray-400 space-y-1 list-disc list-inside">
+            {education.map((edu, i) => (
+              <li key={i}>{edu}</li>
+            ))}
+          </ul>
+        </div>
+      )}
 
       {/* Achievements (Optional) */}
       {achievements && achievements.length > 0 && (
