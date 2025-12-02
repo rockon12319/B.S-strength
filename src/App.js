@@ -485,7 +485,7 @@ const BSGymWebsite = () => {
               title="總教練 / 格鬥教練"
               image="/coach-shun.jpg"
               lineId="rockon12319"
-              phone="0936-662-435"
+              phone="0936-624-385"
               certifications={[
                 "ACE-CPT 國際私人教練",
                 "CTSSN 運動營養專認證",
@@ -821,7 +821,7 @@ const BSGymWebsite = () => {
                     </div>
                     <div>
                       <h4 className="font-bold text-white">電話</h4>
-                      <p className="text-gray-400 font-mono">0936-662-435</p>
+                      <p className="text-gray-400 font-mono">0936-624-385</p>
                     </div>
                   </div>
 
