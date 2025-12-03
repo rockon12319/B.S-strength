@@ -482,7 +482,7 @@ const BSGymWebsite = () => {
             {/* Coach Chen Shun - Updated Order and Details */}
             <CoachCard
               name="陳麒舜"
-              title="總教練 / 格鬥教練"
+              title="教練 / 格鬥教練"
               image="/coach-shun.jpg"
               lineId="rockon12319"
               phone="0936-624-385"
