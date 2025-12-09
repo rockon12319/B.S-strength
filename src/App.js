@@ -6,21 +6,16 @@ import {
   Phone,
   Instagram,
   Facebook,
-  Dumbbell,
-  Activity,
-  User,
   ChevronDown,
   MessageCircle,
   CalendarCheck,
   Award,
-  Users,
   ArrowRight,
   Star,
   ExternalLink,
-  Camera,
-  Trophy,
-  Flame,
   BookOpen,
+  Trophy,
+  Activity,
 } from "lucide-react";
 
 const BSGymWebsite = () => {
@@ -185,16 +180,21 @@ const BSGymWebsite = () => {
         )}
       </nav>
 
-      {/* Hero Section */}
+      {/* Hero Section - Image Updated */}
       <section
         id="home"
         className="relative h-screen flex items-center justify-center overflow-hidden"
       >
         <div className="absolute inset-0 z-0">
           <img
-            src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
-            alt="桃園健身房肌力訓練"
-            className="w-full h-full object-cover opacity-30"
+            src="/yoyi.jpg"
+            alt="桃園健身房肌力訓練 B.S 力線體"
+            className="w-full h-full object-cover opacity-40"
+            onError={(e) => {
+              // Fallback if yoyi.jpg fails
+              e.target.src =
+                "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80";
+            }}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-neutral-900 via-neutral-900/40 to-neutral-900/60"></div>
         </div>
@@ -227,7 +227,7 @@ const BSGymWebsite = () => {
         </div>
       </section>
 
-      {/* Features / About Section */}
+      {/* Features / About Section - Images Updated */}
       <section id="about" className="py-24 bg-neutral-900">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
@@ -251,17 +251,17 @@ const BSGymWebsite = () => {
 
           <div className="grid md:grid-cols-3 gap-8 mt-12">
             <FeatureCard
-              icon={<Dumbbell size={40} className="text-orange-500" />}
+              image="/Pistol Squat.jpg"
               title="肌力與體能專業"
               description="我們不只追求體態線條，更重視身體的實質強壯。隨著年齡增長，肌肉與神經系統會自然退化，但人體具備『適應壓力』的能力。透過科學化的壓力刺激（訓練），能有效強化骨質、神經與肌肉，不僅延緩老化、預防退化，更能提升運動表現。"
             />
             <FeatureCard
-              icon={<Activity size={40} className="text-orange-500" />}
+              image="/fight.jpg"
               title="格鬥與防身"
               description="結合散打、泰拳與綜合格鬥（MMA）元素，提供高強度的體能訓練與實用的防身技巧。不僅能釋放壓力，更能訓練反應速度與協調性。"
             />
             <FeatureCard
-              icon={<User size={40} className="text-orange-500" />}
+              image="/oldtraning.jpg"
               title="全年齡層教學"
               description="從兒童體適能到銀髮族抗老化訓練。我們深知不同年齡層的需求，提供安全且循序漸進的指導，讓運動成為全家人的健康習慣。"
             />
@@ -363,93 +363,117 @@ const BSGymWebsite = () => {
 
             {/* Pricing Table */}
             <div className="space-y-6">
-              {/* Private Training */}
-              <div className="bg-neutral-900 p-8 rounded-2xl shadow-xl border border-neutral-700/50 relative overflow-hidden group hover:border-orange-500/30 transition-colors">
-                <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-                  <User size={120} />
+              {/* Private Training - Image Updated */}
+              <div className="relative bg-neutral-900 rounded-2xl shadow-xl border border-neutral-700/50 overflow-hidden group hover:border-orange-500/30 transition-colors">
+                {/* Background Image Overlay */}
+                <div className="absolute inset-0 z-0">
+                  <img
+                    src="/1V1.jpg"
+                    alt="一對一私人教練"
+                    className="w-full h-full object-cover opacity-20 group-hover:opacity-30 transition-opacity duration-500"
+                    onError={(e) => {
+                      e.target.style.display = "none"; // Hide if broken
+                    }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-r from-neutral-900 via-neutral-900/95 to-neutral-900/60"></div>
                 </div>
-                <h3 className="text-2xl font-bold mb-6 flex items-center gap-2">
-                  <span className="bg-orange-600 w-2 h-8 rounded-full"></span>
-                  私人教練課程
-                </h3>
 
-                <div className="space-y-6">
-                  <div className="border-b border-neutral-800 pb-4">
-                    <h4 className="text-lg font-bold text-orange-400 mb-2">
-                      一對一私人教練
-                    </h4>
-                    <div className="flex justify-between items-center mb-1">
-                      <span className="text-gray-400">單堂體驗</span>
-                      <span className="text-xl font-bold">$1,800</span>
-                    </div>
-                    <div className="flex justify-between items-center">
-                      <span className="text-gray-400">十堂課程</span>
-                      <span className="text-xl font-bold">$15,000</span>
-                    </div>
-                  </div>
+                <div className="relative z-10 p-8">
+                  <h3 className="text-2xl font-bold mb-6 flex items-center gap-2">
+                    <span className="bg-orange-600 w-2 h-8 rounded-full"></span>
+                    私人教練課程
+                  </h3>
 
-                  <div>
-                    <h4 className="text-lg font-bold text-orange-400 mb-2">
-                      一對二私人教練{" "}
-                      <span className="text-xs font-normal text-gray-500 ml-2">
-                        (需評估)
-                      </span>
-                    </h4>
-                    <div className="flex justify-between items-center mb-1">
-                      <span className="text-gray-400">單堂體驗</span>
-                      <span className="text-xl font-bold">$2,400</span>
+                  <div className="space-y-6">
+                    <div className="border-b border-neutral-700/50 pb-4">
+                      <h4 className="text-lg font-bold text-orange-400 mb-2">
+                        一對一私人教練
+                      </h4>
+                      <div className="flex justify-between items-center mb-1">
+                        <span className="text-gray-400">單堂體驗</span>
+                        <span className="text-xl font-bold">$1,800</span>
+                      </div>
+                      <div className="flex justify-between items-center">
+                        <span className="text-gray-400">十堂課程</span>
+                        <span className="text-xl font-bold">$15,000</span>
+                      </div>
                     </div>
-                    <div className="flex justify-between items-center">
-                      <span className="text-gray-400">十堂課程</span>
-                      <span className="text-xl font-bold">$20,000</span>
+
+                    <div>
+                      <h4 className="text-lg font-bold text-orange-400 mb-2">
+                        一對二私人教練{" "}
+                        <span className="text-xs font-normal text-gray-500 ml-2">
+                          (需評估)
+                        </span>
+                      </h4>
+                      <div className="flex justify-between items-center mb-1">
+                        <span className="text-gray-400">單堂體驗</span>
+                        <span className="text-xl font-bold">$2,400</span>
+                      </div>
+                      <div className="flex justify-between items-center">
+                        <span className="text-gray-400">十堂課程</span>
+                        <span className="text-xl font-bold">$20,000</span>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* Group Classes */}
-              <div className="bg-neutral-900 p-8 rounded-2xl shadow-xl border border-neutral-700/50 relative overflow-hidden group hover:border-green-500/30 transition-colors">
-                <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-                  <Users size={120} />
+              {/* Group Classes - Image Updated */}
+              <div className="relative bg-neutral-900 rounded-2xl shadow-xl border border-neutral-700/50 overflow-hidden group hover:border-green-500/30 transition-colors">
+                {/* Background Image Overlay */}
+                <div className="absolute inset-0 z-0">
+                  <img
+                    src="/daily.jpg"
+                    alt="肌力團體班"
+                    className="w-full h-full object-cover opacity-20 group-hover:opacity-30 transition-opacity duration-500"
+                    onError={(e) => {
+                      e.target.style.display = "none"; // Hide if broken
+                    }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-r from-neutral-900 via-neutral-900/95 to-neutral-900/60"></div>
                 </div>
-                <h3 className="text-2xl font-bold mb-6 flex items-center gap-2">
-                  <span className="bg-green-600 w-2 h-8 rounded-full"></span>
-                  肌力團體班
-                </h3>
 
-                <div className="space-y-4">
-                  <div className="flex justify-between items-center border-b border-neutral-800 pb-2">
-                    <div>
-                      <span className="block font-bold">初階肌力班</span>
-                      <span className="text-xs text-gray-500">
-                        八堂課 / 為期八週
+                <div className="relative z-10 p-8">
+                  <h3 className="text-2xl font-bold mb-6 flex items-center gap-2">
+                    <span className="bg-green-600 w-2 h-8 rounded-full"></span>
+                    肌力團體班
+                  </h3>
+
+                  <div className="space-y-4">
+                    <div className="flex justify-between items-center border-b border-neutral-700/50 pb-2">
+                      <div>
+                        <span className="block font-bold">初階肌力班</span>
+                        <span className="text-xs text-gray-500">
+                          八堂課 / 為期八週
+                        </span>
+                      </div>
+                      <span className="text-xl font-bold text-green-400">
+                        $3,600
                       </span>
                     </div>
-                    <span className="text-xl font-bold text-green-400">
-                      $3,600
-                    </span>
-                  </div>
-                  <div className="flex justify-between items-center border-b border-neutral-800 pb-2">
-                    <div>
-                      <span className="block font-bold">進階肌力班</span>
-                      <span className="text-xs text-gray-500">
-                        八堂課 / 為期八週
+                    <div className="flex justify-between items-center border-b border-neutral-700/50 pb-2">
+                      <div>
+                        <span className="block font-bold">進階肌力班</span>
+                        <span className="text-xs text-gray-500">
+                          八堂課 / 為期八週
+                        </span>
+                      </div>
+                      <span className="text-xl font-bold text-green-400">
+                        $3,600
                       </span>
                     </div>
-                    <span className="text-xl font-bold text-green-400">
-                      $3,600
-                    </span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <div>
-                      <span className="block font-bold">長者肌力班</span>
-                      <span className="text-xs text-gray-500">
-                        八堂課 / 為期八週
+                    <div className="flex justify-between items-center">
+                      <div>
+                        <span className="block font-bold">長者肌力班</span>
+                        <span className="text-xs text-gray-500">
+                          八堂課 / 為期八週
+                        </span>
+                      </div>
+                      <span className="text-xl font-bold text-green-400">
+                        $3,600
                       </span>
                     </div>
-                    <span className="text-xl font-bold text-green-400">
-                      $3,600
-                    </span>
                   </div>
                 </div>
               </div>
@@ -479,7 +503,7 @@ const BSGymWebsite = () => {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Coach Chen Shun - Updated Order and Details */}
+            {/* Coach Chen Shun */}
             <CoachCard
               name="陳麒舜"
               title="教練 / 格鬥教練"
@@ -517,7 +541,7 @@ const BSGymWebsite = () => {
               imgPosition="object-top"
             />
 
-            {/* Coach Lu - Updated Info */}
+            {/* Coach Lu */}
             <CoachCard
               name="呂承諺"
               title="教練"
@@ -544,7 +568,7 @@ const BSGymWebsite = () => {
               imgPosition="object-top"
             />
 
-            {/* Coach Fan - Completely Updated Info */}
+            {/* Coach Fan */}
             <CoachCard
               name="范哲瑋"
               title="教練"
@@ -582,7 +606,7 @@ const BSGymWebsite = () => {
               imgPosition="object-top"
             />
 
-            {/* Coach Chen Zhi - Updated Year Order */}
+            {/* Coach Chen Zhi */}
             <CoachCard
               name="陳麒智"
               title="教練"
@@ -623,7 +647,7 @@ const BSGymWebsite = () => {
               imgPosition="object-top"
             />
 
-            {/* Coach Zhang Li - Updated Year Order */}
+            {/* Coach Zhang Li */}
             <CoachCard
               name="張立"
               title="教練 / 全立格鬥館長"
@@ -954,17 +978,34 @@ const BSGymWebsite = () => {
 };
 
 // Sub-components
-const FeatureCard = ({ icon, title, description }) => (
-  <div className="bg-neutral-800 p-8 rounded-2xl border border-neutral-700/50 hover:border-orange-500/50 transition-all hover:-translate-y-1 hover:shadow-2xl hover:shadow-orange-500/10 group h-full flex flex-col">
-    <div className="mb-6 bg-neutral-900 w-16 h-16 rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:bg-neutral-800 transition-all duration-300 shadow-inner">
-      {icon}
+
+// Updated FeatureCard to support images instead of icons
+const FeatureCard = ({ image, title, description }) => (
+  <div className="bg-neutral-800 rounded-2xl border border-neutral-700/50 hover:border-orange-500/50 transition-all hover:-translate-y-1 hover:shadow-2xl hover:shadow-orange-500/10 group h-full flex flex-col overflow-hidden">
+    <div className="w-full h-48 overflow-hidden relative">
+      <img
+        src={image}
+        alt={title}
+        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 group-hover:brightness-110"
+        onError={(e) => {
+          // Fallback to a dark placeholder if image missing
+          e.target.style.display = "none";
+        }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-neutral-800 to-transparent opacity-80"></div>
+      <div className="absolute bottom-4 left-6">
+        {/* Optional: Put an icon overlay here if needed, currently clean */}
+      </div>
     </div>
-    <h3 className="text-xl font-bold mb-4 text-white group-hover:text-orange-500 transition-colors">
-      {title}
-    </h3>
-    <p className="text-gray-400 leading-relaxed text-justify flex-grow">
-      {description}
-    </p>
+
+    <div className="p-8 pt-6 flex-grow flex flex-col relative z-10">
+      <h3 className="text-xl font-bold mb-4 text-white group-hover:text-orange-500 transition-colors">
+        {title}
+      </h3>
+      <p className="text-gray-400 leading-relaxed text-justify flex-grow">
+        {description}
+      </p>
+    </div>
   </div>
 );
 
@@ -986,7 +1027,7 @@ const ScheduleItem = ({ day, time, title, color }) => (
   </div>
 );
 
-// Updated CoachCard Component to include Achievements and Custom Action
+// Updated CoachCard Component
 const CoachCard = ({
   name,
   title,
@@ -1009,7 +1050,6 @@ const CoachCard = ({
     }`}
   >
     <div className="h-[30rem] overflow-hidden relative bg-neutral-700">
-      {/* Added onError to handle broken images gracefully */}
       <img
         src={image}
         alt={name}
@@ -1026,7 +1066,6 @@ const CoachCard = ({
       </div>
     </div>
     <div className="p-6 flex-grow flex flex-col gap-6 relative">
-      {/* Special MMA Prompt (Only for Zhang Li) */}
       {isSpecial && (
         <div className="flex items-center gap-2 mb-2">
           <span className="relative flex h-3 w-3">
@@ -1039,7 +1078,6 @@ const CoachCard = ({
         </div>
       )}
 
-      {/* Certifications */}
       <div>
         <h4 className="flex items-center gap-2 font-bold text-white mb-3">
           <Award size={18} className="text-yellow-500" /> 主要證照
@@ -1051,7 +1089,6 @@ const CoachCard = ({
         </ul>
       </div>
 
-      {/* Education (Optional) */}
       {education && education.length > 0 && (
         <div>
           <h4 className="flex items-center gap-2 font-bold text-white mb-3">
@@ -1065,7 +1102,6 @@ const CoachCard = ({
         </div>
       )}
 
-      {/* Achievements (Optional) */}
       {achievements && achievements.length > 0 && (
         <div>
           <h4 className="flex items-center gap-2 font-bold text-white mb-3">
@@ -1079,7 +1115,6 @@ const CoachCard = ({
         </div>
       )}
 
-      {/* Expertise */}
       <div className="flex-grow">
         <h4 className="flex items-center gap-2 font-bold text-white mb-3">
           <Activity size={18} className="text-blue-500" /> 專長領域
@@ -1096,7 +1131,6 @@ const CoachCard = ({
         </div>
       </div>
 
-      {/* Contact Info */}
       <div className="pt-4 border-t border-neutral-700 mt-auto">
         <div className="flex justify-between items-center text-sm mb-2">
           <span className="text-gray-500">LINE ID</span>
@@ -1115,7 +1149,6 @@ const CoachCard = ({
             </a>
           </div>
         )}
-        {/* Custom Action Button */}
         {customAction && (
           <div className="mt-4">
             <a
