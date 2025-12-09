@@ -180,7 +180,7 @@ const BSGymWebsite = () => {
         )}
       </nav>
 
-      {/* Hero Section - Image Updated */}
+      {/* Hero Section - Image Brightness Increased */}
       <section
         id="home"
         className="relative h-screen flex items-center justify-center overflow-hidden"
@@ -189,7 +189,7 @@ const BSGymWebsite = () => {
           <img
             src="/yoyi.jpg"
             alt="桃園健身房肌力訓練 B.S 力線體"
-            className="w-full h-full object-cover opacity-40"
+            className="w-full h-full object-cover opacity-60" // Changed from opacity-40 to opacity-60
             onError={(e) => {
               // Fallback if yoyi.jpg fails
               e.target.src =
@@ -363,14 +363,14 @@ const BSGymWebsite = () => {
 
             {/* Pricing Table */}
             <div className="space-y-6">
-              {/* Private Training - Image Updated */}
+              {/* Private Training - Image Brightness Increased */}
               <div className="relative bg-neutral-900 rounded-2xl shadow-xl border border-neutral-700/50 overflow-hidden group hover:border-orange-500/30 transition-colors">
                 {/* Background Image Overlay */}
                 <div className="absolute inset-0 z-0">
                   <img
                     src="/1V1.jpg"
                     alt="一對一私人教練"
-                    className="w-full h-full object-cover opacity-20 group-hover:opacity-30 transition-opacity duration-500"
+                    className="w-full h-full object-cover opacity-40 group-hover:opacity-50 transition-opacity duration-500" // Changed from opacity-20 to opacity-40, and hover to 50
                     onError={(e) => {
                       e.target.style.display = "none"; // Hide if broken
                     }}
@@ -419,14 +419,14 @@ const BSGymWebsite = () => {
                 </div>
               </div>
 
-              {/* Group Classes - Image Updated */}
+              {/* Group Classes - Image Brightness Increased */}
               <div className="relative bg-neutral-900 rounded-2xl shadow-xl border border-neutral-700/50 overflow-hidden group hover:border-green-500/30 transition-colors">
                 {/* Background Image Overlay */}
                 <div className="absolute inset-0 z-0">
                   <img
                     src="/daily.jpg"
                     alt="肌力團體班"
-                    className="w-full h-full object-cover opacity-20 group-hover:opacity-30 transition-opacity duration-500"
+                    className="w-full h-full object-cover opacity-40 group-hover:opacity-50 transition-opacity duration-500" // Changed from opacity-20 to opacity-40, and hover to 50
                     onError={(e) => {
                       e.target.style.display = "none"; // Hide if broken
                     }}
@@ -979,10 +979,11 @@ const BSGymWebsite = () => {
 
 // Sub-components
 
-// Updated FeatureCard to support images instead of icons
+// Updated FeatureCard with larger image container
 const FeatureCard = ({ image, title, description }) => (
   <div className="bg-neutral-800 rounded-2xl border border-neutral-700/50 hover:border-orange-500/50 transition-all hover:-translate-y-1 hover:shadow-2xl hover:shadow-orange-500/10 group h-full flex flex-col overflow-hidden">
-    <div className="w-full h-48 overflow-hidden relative">
+    {/* Increased height from h-48 to h-96 for larger image presence */}
+    <div className="w-full h-96 overflow-hidden relative">
       <img
         src={image}
         alt={title}
