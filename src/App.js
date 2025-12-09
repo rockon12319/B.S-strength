@@ -370,7 +370,7 @@ const BSGymWebsite = () => {
                   <img
                     src="/1V1.jpg"
                     alt="一對一私人教練"
-                    className="w-full h-full object-cover opacity-60 group-hover:opacity-50 transition-opacity duration-500" // Changed from opacity-20 to opacity-60, and hover to 50
+                    className="w-full h-full object-cover opacity-80 group-hover:opacity-50 transition-opacity duration-500" // Changed from opacity-20 to opacity-80, and hover to 50
                     onError={(e) => {
                       e.target.style.display = "none"; // Hide if broken
                     }}
@@ -426,7 +426,7 @@ const BSGymWebsite = () => {
                   <img
                     src="/daily.jpg"
                     alt="肌力團體班"
-                    className="w-full h-full object-cover opacity-60 group-hover:opacity-50 transition-opacity duration-500" // Changed from opacity-20 to opacity-60, and hover to 50
+                    className="w-full h-full object-cover opacity-80 group-hover:opacity-50 transition-opacity duration-500" // Changed from opacity-20 to opacity-80, and hover to 50
                     onError={(e) => {
                       e.target.style.display = "none"; // Hide if broken
                     }}
