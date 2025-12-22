@@ -205,8 +205,8 @@ const BSGymWebsite = () => {
               桃園專業肌力與體能訓練
             </h2>
             <h1 className="text-5xl md:text-7xl font-extrabold text-white leading-tight mb-6 tracking-tight">
-              科學化訓練 <br />
-              打造<span className="text-orange-500">強韌身體</span>
+              任何人與年紀都需要肌力訓練 <br />
+              趁現在開始<span className="text-orange-500">肌力儲蓄</span>
             </h1>
             <p className="text-lg md:text-xl text-gray-300 mb-8 leading-relaxed max-w-2xl">
               B.S 力線體專注於真正的力量建立。從競技運動員到銀髮族抗老化，
