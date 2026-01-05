@@ -20,20 +20,53 @@ import {
   User,
   Clock,
   Tag,
+  Sparkles, // Added for the new service icon
 } from "lucide-react";
 
 // --- Dummy Data for Articles (SEO Focused) ---
 const BLOG_POSTS = [
   {
+    id: 4, // New Article ID
+    title: "訓練後的恢復關鍵！全新「運動按摩」服務上線",
+    excerpt:
+      "為什麼練完會痠痛很久？除了休息，你還需要更主動的恢復。B.S 推出專業運動按摩，結合油壓與動態伸展，讓你的肌肉找回彈性...",
+    date: "2025-01-06",
+    author: "B.S 團隊",
+    category: "運動恢復",
+    tags: ["#運動按摩", "#肌力訓練", "#筋膜放鬆", "#桃園運動按摩"],
+    image: "/massage2.jpg", // New Image
+    content: `
+      <p>許多人在高強度的肌力訓練或格鬥課程後，往往忽略了「恢復」的重要性。其實，訓練只是破壞，真正的變強發生在修復的過程。</p>
+      <br/>
+      <h3 class="text-xl font-bold text-orange-500 mb-2">為什麼你需要運動按摩？</h3>
+      <p>不同於一般的休閒按摩，<strong>運動按摩 (Sports Massage)</strong> 更專注於肌肉的張力平衡與關節活動度。透過專業的手法，我們能協助您：</p>
+      <ul class="list-disc pl-5 space-y-2 text-gray-300 my-4">
+        <li>改善訓練後的延遲性肌肉痠痛 (DOMS)</li>
+        <li>放鬆緊繃的筋膜，恢復肌肉彈性</li>
+        <li>增加關節活動角度，提升運動表現</li>
+      </ul>
+      <br/>
+      <h3 class="text-xl font-bold text-orange-500 mb-2">B.S 的運動按摩有什麼不同？</h3>
+      <p>我們的服務不僅僅是「按壓」。在 <strong>70分鐘</strong> 的完整課程中，我們結合了：</p>
+      <ol class="list-decimal pl-5 space-y-2 text-gray-300 my-4">
+        <li><strong>深層油壓：</strong>利用精油介質，進行深層肌肉推展。</li>
+        <li><strong>伸展運動：</strong>被動式的拉伸，放鬆平常難以伸展的死角。</li>
+        <li><strong>觀念導正：</strong>教練會告訴你為什麼會緊繃，以及回家該如何自我保養。</li>
+      </ol>
+      <br/>
+      <p>現在預約體驗價只要 <strong>$1,200</strong>，讓身體重新開機，為了下一次更強的訓練做準備！</p>
+    `,
+  },
+  {
     id: 1,
     title: "為什麼桃園人都在找肌力訓練？對抗老化從現在開始",
     excerpt:
       "隨著年齡增長，肌肉流失是不可避免的過程。但在桃園，越來越多人意識到「肌力儲蓄」的重要性。這篇文章告訴你為什麼你需要開始訓練...",
-    date: "2025-10-05",
+    date: "2025-01-05",
     author: "B.S 教練團隊",
     category: "肌力訓練",
     tags: ["#桃園健身房", "#肌力訓練", "#抗老化訓練"],
-    image: "/daily.jpg", // Using existing image
+    image: "/daily.jpg",
     content: `
       <p>隨著年齡增長，肌肉流失是不可避免的過程，這在醫學上稱為「肌少症」。但在桃園，越來越多人意識到「肌力儲蓄」的重要性。這篇文章告訴你為什麼你需要開始訓練。</p>
       <br/>
@@ -50,20 +83,20 @@ const BLOG_POSTS = [
     id: 2,
     title: "格鬥不只是打架！泰拳與散打帶給你的身體改變",
     excerpt:
-      "想要釋放壓力同時燃燒脂肪嗎？格鬥訓練不僅能提升心肺功能，更能訓練反應與協調性。經驗豐富的麒舜教練與全立格鬥館長張立帶你認識這項迷人的運動...",
-    date: "2025-12-28",
-    author: "麒舜 教練 張立 教練",
+      "想要釋放壓力同時燃燒脂肪嗎？格鬥訓練不僅能提升心肺功能，更能訓練反應與協調性。全立格鬥館長帶你認識這項迷人的運動...",
+    date: "2024-12-28",
+    author: "張立 教練",
     category: "格鬥教學",
     tags: ["#桃園泰拳", "#散打", "#格鬥教學", "#MMA"],
-    image: "/fight.jpg", // Using existing image
+    image: "/fight.jpg",
     content: `
-      <p>想要釋放壓力同時燃燒脂肪嗎？格鬥訓練不僅能提升心肺功能，更能訓練反應與協調性，讓我們平常擁有防身的能力。</p>
+      <p>想要釋放壓力同時燃燒脂肪嗎？格鬥訓練不僅能提升心肺功能，更能訓練反應與協調性。</p>
       <br/>
       <h3 class="text-xl font-bold text-orange-500 mb-2">全身性的協調運動</h3>
       <p>泰拳與散打不只是動手動腳，它需要核心的旋轉、下肢的推蹬以及上肢的擺動。這是一個極高效率的全身性運動。</p>
       <br/>
       <h3 class="text-xl font-bold text-orange-500 mb-2">釋放壓力的最佳出口</h3>
-      <p>現代人生活壓力大，擊打沙袋或手靶時的快感，是最好的紓壓方式。在 B.S 力線體，我們有專業的格鬥教練和全立格鬥館長，提供從基礎站姿到實戰技巧的完整教學。</p>
+      <p>現代人生活壓力大，擊打沙袋或手靶時的快感，是最好的紓壓方式。在 B.S 力線體，我們有專業的格鬥教練（全立格鬥），提供從基礎站姿到實戰技巧的完整教學。</p>
     `,
   },
   {
@@ -71,11 +104,11 @@ const BLOG_POSTS = [
     title: "銀髮族運動更要注意！專業教練告訴你如何安全增肌",
     excerpt:
       "長輩怕跌倒？越不動越容易跌倒！透過科學化的評估與指導，銀髮族也能安全地變強壯，找回生活的自主權...",
-    date: "2025-12-15",
+    date: "2024-12-15",
     author: "范哲瑋 教練",
     category: "銀髮族訓練",
     tags: ["#銀髮族訓練", "#桃園肌力", "#專業教練"],
-    image: "/oldtraning.jpg", // Using existing image
+    image: "/oldtraning.jpg",
     content: `
       <p>長輩怕跌倒？其實，越不動越容易因為肌力不足而跌倒！透過科學化的評估與指導，銀髮族也能安全地變強壯。</p>
       <br/>
@@ -587,7 +620,8 @@ const HomePageContent = ({ scrollToSection }) => {
             <p className="text-gray-400">透明的價格，專業的品質，無強迫推銷</p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-start">
+          {/* Updated Grid for 3 items: lg:grid-cols-3 */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
             {/* Weekly Schedule */}
             <div className="bg-neutral-900 p-6 rounded-2xl shadow-xl border border-neutral-700/50">
               <div className="flex items-center gap-3 mb-6">
@@ -671,10 +705,10 @@ const HomePageContent = ({ scrollToSection }) => {
               </div>
             </div>
 
-            {/* Pricing Table */}
+            {/* Pricing Table - Private */}
             <div className="space-y-6">
-              {/* Private Training - Image Brightness Increased */}
-              <div className="relative bg-neutral-900 rounded-2xl shadow-xl border border-neutral-700/50 overflow-hidden group hover:border-orange-500/30 transition-colors">
+              {/* Private Training */}
+              <div className="relative bg-neutral-900 rounded-2xl shadow-xl border border-neutral-700/50 overflow-hidden group hover:border-orange-500/30 transition-colors h-full">
                 {/* Background Image Overlay */}
                 <div className="absolute inset-0 z-0">
                   <img
@@ -682,7 +716,7 @@ const HomePageContent = ({ scrollToSection }) => {
                     alt="一對一私人教練"
                     className="w-full h-full object-cover opacity-80 group-hover:opacity-50 transition-opacity duration-500"
                     onError={(e) => {
-                      e.target.style.display = "none"; // Hide if broken
+                      e.target.style.display = "none";
                     }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-r from-neutral-900 via-neutral-900/95 to-neutral-900/60"></div>
@@ -728,17 +762,19 @@ const HomePageContent = ({ scrollToSection }) => {
                   </div>
                 </div>
               </div>
+            </div>
 
-              {/* Group Classes - Image Brightness Increased */}
+            {/* Pricing Table - Group & Massage */}
+            <div className="space-y-6">
+              {/* Group Classes */}
               <div className="relative bg-neutral-900 rounded-2xl shadow-xl border border-neutral-700/50 overflow-hidden group hover:border-green-500/30 transition-colors">
-                {/* Background Image Overlay */}
                 <div className="absolute inset-0 z-0">
                   <img
                     src="/daily.jpg"
                     alt="肌力團體班"
                     className="w-full h-full object-cover opacity-80 group-hover:opacity-50 transition-opacity duration-500"
                     onError={(e) => {
-                      e.target.style.display = "none"; // Hide if broken
+                      e.target.style.display = "none";
                     }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-r from-neutral-900 via-neutral-900/95 to-neutral-900/60"></div>
@@ -782,6 +818,48 @@ const HomePageContent = ({ scrollToSection }) => {
                       </div>
                       <span className="text-xl font-bold text-green-400">
                         $3,600
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* New Service: Sports Massage */}
+              <div className="relative bg-neutral-900 rounded-2xl shadow-xl border border-neutral-700/50 overflow-hidden group hover:border-purple-500/30 transition-colors">
+                <div className="absolute inset-0 z-0">
+                  <img
+                    src="/massage1.jpg"
+                    alt="運動按摩"
+                    className="w-full h-full object-cover opacity-80 group-hover:opacity-50 transition-opacity duration-500"
+                    onError={(e) => {
+                      e.target.style.display = "none";
+                    }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-r from-neutral-900 via-neutral-900/95 to-neutral-900/60"></div>
+                </div>
+
+                <div className="relative z-10 p-8">
+                  <h3 className="text-2xl font-bold mb-6 flex items-center gap-2">
+                    <span className="bg-purple-600 w-2 h-8 rounded-full"></span>
+                    運動按摩修復
+                  </h3>
+
+                  <div className="space-y-4">
+                    <div className="flex justify-between items-center">
+                      <div>
+                        <span className="block font-bold flex items-center gap-2">
+                          運動按摩{" "}
+                          <Sparkles size={14} className="text-purple-400" />
+                        </span>
+                        <span className="text-xs text-gray-400 block mb-1">
+                          70分鐘 / 油壓
+                        </span>
+                        <span className="text-xs text-gray-500 block">
+                          包含伸展運動與觀念導正
+                        </span>
+                      </div>
+                      <span className="text-xl font-bold text-purple-400">
+                        $1,200
                       </span>
                     </div>
                   </div>
