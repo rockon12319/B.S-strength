@@ -20,21 +20,44 @@ import {
   User,
   Clock,
   Tag,
-  Sparkles, // Added for the new service icon
+  Sparkles,
 } from "lucide-react";
 
 // --- Dummy Data for Articles (SEO Focused) ---
 const BLOG_POSTS = [
   {
-    id: 4, // New Article ID
+    id: 5,
+    title: "投資健康，是這輩子回報率最高的事：一場「穩賺不賠」的人生經營",
+    excerpt:
+      "在這個變動的時代，我們研究各種投資標的，卻常忽略了最重要的資產——「身體」。健身不只是為了變好看，更是一場守護生活品質的長期抗戰...",
+    date: "2026-01-24",
+    author: "呂承諺 教練",
+    category: "教練觀點",
+    tags: ["#肌力訓練", "#抗老化訓練", "#投資健康", "#呂承諺教練"],
+    image: "smart.png", // 呂教練的文章圖片
+    content: `
+      <p>在這個變動的時代，我們研究各種投資標的，卻常忽略了最重要的資產——「身體」。</p>
+      <br/>
+      <h3 class="text-xl font-bold text-orange-500 mb-2">健身，不只是為了「變好看」</h3>
+      <p>很多人認為健身是為了追求外在，但其實，它是一場守護生活品質的長期抗戰。</p>
+      <br/>
+      <h3 class="text-xl font-bold text-orange-500 mb-2">對抗老化，守護尊嚴</h3>
+      <p>隨著年齡增長，肌肉會以每年 1% 到 2% 的速度流失。現在開始健身，是為了確保在未來的日子裡，我們依然能行動自如、步履輕盈，優雅且體面地老去。</p>
+      <br/>
+      <h3 class="text-xl font-bold text-orange-500 mb-2">大腦升級，高效生活</h3>
+      <p>科學證實，規律運動能有效促進血液循環，強化專注力與決策力。這也是為什麼許多頂尖企業家無論多忙，都會排入健身行程——因為健康的身體，是保持清醒大腦與高效產出的終極秘訣。</p>
+    `,
+  },
+  {
+    id: 4,
     title: "訓練後的恢復關鍵！全新「運動按摩」服務上線",
     excerpt:
       "為什麼練完會痠痛很久？除了休息，你還需要更主動的恢復。B.S 推出專業運動按摩，結合油壓與動態伸展，讓你的肌肉找回彈性...",
-    date: "2025-10-06",
+    date: "2025-01-06",
     author: "呂承諺 教練",
     category: "運動恢復",
     tags: ["#運動按摩", "#肌力訓練", "#筋膜放鬆", "#桃園運動按摩"],
-    image: "/massage2.jpg", // New Image
+    image: "/massage2.jpg",
     content: `
       <p>許多人在高強度的肌力訓練或格鬥課程後，往往忽略了「恢復」的重要性。其實，訓練只是破壞，真正的變強發生在修復的過程。</p>
       <br/>
@@ -63,7 +86,7 @@ const BLOG_POSTS = [
     excerpt:
       "隨著年齡增長，肌肉流失是不可避免的過程。但在桃園，越來越多人意識到「肌力儲蓄」的重要性。這篇文章告訴你為什麼你需要開始訓練...",
     date: "2025-01-05",
-    author: "B.S 教練團隊",
+    author: "陳麒舜 教練",
     category: "肌力訓練",
     tags: ["#桃園健身房", "#肌力訓練", "#抗老化訓練"],
     image: "/daily.jpg",
@@ -117,29 +140,6 @@ const BLOG_POSTS = [
       <br/>
       <h3 class="text-xl font-bold text-orange-500 mb-2">找回生活的自主權</h3>
       <p>訓練的最終目的，是讓長輩在日常生活中更輕鬆。不管是去市場買菜、還是出國旅遊走更遠的路，強壯的身體都是最好的本錢。</p>
-    `,
-  },
-  {
-    id: 5,
-    title: "投資健康，是這輩子回報率最高的事：一場「穩賺不賠」的人生經營",
-    excerpt:
-      "在這個變動的時代，我們研究各種投資標的，卻常忽略了最重要的資產——「身體」。健身不只是為了變好看，更是一場守護生活品質的長期抗戰...",
-    date: "2025-01-24", // 假設是上週五
-    author: "呂承諺 教練",
-    category: "教練觀點",
-    tags: ["#肌力訓練", "#抗老化訓練", "#投資健康", "#呂承諺教練"],
-    image: "smart.png",
-    content: `
-      <p>在這個變動的時代，我們研究各種投資標的，卻常忽略了最重要的資產——「身體」。</p>
-      <br/>
-      <h3 class="text-xl font-bold text-orange-500 mb-2">健身，不只是為了「變好看」</h3>
-      <p>很多人認為健身是為了追求外在，但其實，它是一場守護生活品質的長期抗戰。</p>
-      <br/>
-      <h3 class="text-xl font-bold text-orange-500 mb-2">對抗老化，守護尊嚴</h3>
-      <p>隨著年齡增長，肌肉會以每年 1% 到 2% 的速度流失。現在開始健身，是為了確保在未來的日子裡，我們依然能行動自如、步履輕盈，優雅且體面地老去。</p>
-      <br/>
-      <h3 class="text-xl font-bold text-orange-500 mb-2">大腦升級，高效生活</h3>
-      <p>科學證實，規律運動能有效促進血液循環，強化專注力與決策力。這也是為什麼許多頂尖企業家無論多忙，都會排入健身行程——因為健康的身體，是保持清醒大腦與高效產出的終極秘訣。</p>
     `,
   },
 ];
@@ -418,12 +418,14 @@ const BlogList = ({ navigateTo }) => {
               className="bg-neutral-800 rounded-2xl overflow-hidden border border-neutral-700/50 hover:border-orange-500/30 transition-all hover:-translate-y-2 hover:shadow-2xl group cursor-pointer flex flex-col"
               onClick={() => navigateTo("post", post.id)}
             >
-              {/* Image */}
-              <div className="h-48 overflow-hidden relative">
+              {/* Image Container - Modified for Large Display */}
+              {/* // --- 修改處 1: 這裡把 h-48 改成了 h-96，讓列表照片變超級大張 */}
+              <div className="h-96 overflow-hidden relative">
                 <img
                   src={post.image}
                   alt={post.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  // 加入 object-top 確保如果是直式人像照，會優先顯示頭部而不是肚子
+                  className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-110"
                 />
                 <div className="absolute top-4 left-4 bg-orange-600 text-white text-xs font-bold px-3 py-1 rounded-full">
                   {post.category}
@@ -506,12 +508,13 @@ const BlogPost = ({ postId, navigateTo }) => {
           </div>
         </div>
 
-        {/* Featured Image */}
-        <div className="rounded-2xl overflow-hidden mb-12 shadow-2xl border border-neutral-700">
+        {/* Featured Image - Modified for Full Size Display */}
+        {/* // --- 修改處 2: 這裡改成了 h-auto (自動高度) 和 object-contain (包含完整圖片)，確保圖片不會被切到 */}
+        <div className="rounded-2xl overflow-hidden mb-12 shadow-2xl border border-neutral-700 bg-neutral-950 flex justify-center">
           <img
             src={post.image}
             alt={post.title}
-            className="w-full h-[400px] object-cover"
+            className="w-full h-auto max-h-[85vh] object-contain"
           />
         </div>
 
@@ -1241,7 +1244,7 @@ const HomePageContent = ({ scrollToSection }) => {
                       <h4 className="font-bold text-white">地址</h4>
                       <p className="text-gray-400">桃園市桃園區壽星街60號1樓</p>
                       <a
-                        href="https://www.google.com/maps/search/?api=1&query=桃園市桃園區壽星街60號"
+                        href="https://www.google.com/maps/search/?api=1&query=B.S+力線體"
                         target="_blank"
                         rel="noreferrer noopener"
                         className="text-sm text-orange-500 hover:text-orange-400 hover:underline mt-1 inline-block transition-colors"
