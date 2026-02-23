@@ -716,13 +716,10 @@ const HomePageContent = ({ scrollToSection }) => {
                   </div>
                   <div className="space-y-2 text-sm">
                     <div className="flex justify-between text-gray-300">
-                      <span className="font-mono">10:30-11:50</span>{" "}
+                      <span className="font-mono">10:00-11:20</span>{" "}
                       <span>初階肌力班</span>
                     </div>
-                    <div className="flex justify-between text-gray-300">
-                      <span className="font-mono">18:30-19:50</span>{" "}
-                      <span>初階肌力班</span>
-                    </div>
+
                     <div className="flex justify-between text-white font-medium">
                       <span className="font-mono">20:00-21:20</span>{" "}
                       <span>進階肌力班</span>
