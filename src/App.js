@@ -26,6 +26,40 @@ import {
 // --- Dummy Data for Articles (SEO Focused) ---
 const BLOG_POSTS = [
   {
+    id: 7,
+    title: "📺 【電視常說的「肌力訓練」到底是什麼？跟去公園散步一樣嗎？】 🤔",
+    excerpt: "最近很多大哥大姐來詢問教練：「電視上說老人家要抗老化就一定要做肌力訓練，那到底什麼是肌力訓練啊？」今天用最簡單的方式，一次說給大家聽！",
+    date: "2026-04-08",
+    author: "陳麒舜 教練",
+    category: "肌力訓練",
+    tags: ["#桃園健身房", "#桃園肌力訓練", "#抗老化訓練", "#銀髮族訓練", "#肌力與體能"],
+    image: "/training1.jpg",
+    content: `
+      <p>最近很多大哥大姐來到 B.S力線體，或是打電話來詢問教練：「電視上跟網路上一直說，老人家要抗老化就一定要做肌力訓練，那到底什麼是肌力訓練啊？」</p>
+      <br/>
+      <p>今天就用最簡單的方式，一次說給大家聽！👂</p>
+      <br/>
+      <h3 class="text-xl font-bold text-orange-500 mb-2">🏋️‍♂️ 什麼是真正的肌力訓練？</h3>
+      <p>簡單來說，就是透過「外在的重量與壓力」來刺激我們的身體。我們會在人類最自然的動作上（例如：蹲下、站起、從地上拉起東西），安全且循序漸進地施加壓力來訓練。因為人體的這些自然動作，本來就具備著非常好的「負重潛力」！</p>
+      <br/>
+      <h3 class="text-xl font-bold text-orange-500 mb-2">✨ 為什麼一定要練？肌力訓練的超強功用！</h3>
+      <p>跟一般公園走路或甩手不一樣，只要給身體適當的重量刺激，就能一次喚醒並強化身體的「三大系統」：</p>
+      <ul class="space-y-4 my-4 text-gray-300">
+        <li><strong>1️⃣ 肌肉系統：</strong>把隨著年紀流失的肌肉長回來，讓身體更有力氣、保護關節不退化！</li>
+        <li><strong>2️⃣ 神經系統：</strong>讓神經與肌肉的連結更暢通，動作更靈活、反應更敏捷，大幅降低老人家最怕的跌倒風險！</li>
+        <li><strong>3️⃣ 骨質系統：</strong>骨頭是需要「壓力」才會生長的！負重訓練能有效刺激骨質密度，讓骨頭更硬朗！</li>
+      </ul>
+      <br/>
+      <h3 class="text-xl font-bold text-orange-500 mb-2">🎯 我們訓練的最終目標不只是抗老化！</h3>
+      <ul class="space-y-4 my-4 text-gray-300">
+        <li><strong>👴👵 對於長輩來說：</strong><br/>訓練是為了預防老化與失能！讓大家可以輕鬆抱孫子、開心出國旅遊走透透、提菜上樓不喘不累，真正擁有高品質、不求人的自在退休生活！✈️🛍️</li>
+        <li><strong>🏃‍♂️⛹️‍♀️ 對於年輕人與愛好運動的你：</strong><br/>千萬別以為只有老人家需要訓練！透過專業的肌力與體能鍛鍊，可以大幅提升你的運動表現與專項能力（像是打球、跑步、格鬥）！更重要的是，強壯的肌肉就像身體的天然防護罩，能有效保護關節、預防運動傷害，讓你動得更久、更好！🛡️🔥</li>
+      </ul>
+      <br/>
+      <p class="text-lg font-bold text-white border-l-4 border-orange-500 pl-4 py-2 bg-neutral-800 rounded-r-lg">如果您也想開始為自己的身體建立力量，歡迎來找我們 B.S 力線體的專業教練團隊！💪</p>
+    `
+  },
+  {
     id: 6,
     title: "🥊 「拳怕少壯」是真的嗎？陳麒舜教練談：肌力與運動表現的黃金公式",
     excerpt:
@@ -716,7 +750,7 @@ const HomePageContent = ({ scrollToSection }) => {
                   </div>
                   <div className="space-y-2 text-sm">
                     <div className="flex justify-between text-gray-300">
-                      <span className="font-mono">10:00-11:20</span>{" "}
+                      <span className="font-mono">10:30-11:50</span>{" "}
                       <span>初階肌力班</span>
                     </div>
 
