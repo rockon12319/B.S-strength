@@ -1169,7 +1169,7 @@ const HomePageContent = ({ scrollToSection }) => {
                 "2020-2024 WOTD MMA雛量級7連勝",
                 "2024 參加AMMA雛量級亞錦賽",
                 "2025 參加AMMA雛量級國手選拔冠軍",
-                "2026 亞洲格鬥錦標賽國手"，
+                "2026 亞洲格鬥錦標賽國手",
               ]}
               customAction={{
                 text: "想練MMA? 去全立格鬥找張立",
