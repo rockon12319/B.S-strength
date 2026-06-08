@@ -325,21 +325,58 @@ const BSGymWebsite = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // --- 新增：讀取網址參數與監聽上下頁 ---
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [currentView, selectedPostId]);
+    const checkUrlParams = () => {
+      // 讀取網址列後面的 ?article=8 或 ?view=blog
+      const params = new URLSearchParams(window.location.search);
+      const articleId = params.get("article");
+      const viewParam = params.get("view");
+
+      if (articleId) {
+        setCurrentView("post");
+        setSelectedPostId(Number(articleId));
+      } else if (viewParam === "blog") {
+        setCurrentView("blog");
+      } else {
+        setCurrentView("home");
+      }
+      window.scrollTo(0, 0);
+    };
+
+    // 網頁剛載入時檢查一次
+    checkUrlParams();
+
+    // 監聽使用者按瀏覽器的「上一頁/下一頁」
+    window.addEventListener("popstate", checkUrlParams);
+    return () => window.removeEventListener("popstate", checkUrlParams);
+  }, []);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
+  // --- 更新：切換頁面時，同時更新網址列 ---
   const navigateTo = (view, postId = null) => {
     setCurrentView(view);
     setSelectedPostId(postId);
     setIsMenuOpen(false);
+
+    // 改變網址但不要重新整理頁面
+    if (view === "post") {
+      window.history.pushState({}, "", `?article=${postId}`);
+    } else if (view === "blog") {
+      window.history.pushState({}, "", `?view=blog`);
+    } else {
+      window.history.pushState({}, "", window.location.pathname); // 回到首頁乾淨網址
+    }
+    window.scrollTo(0, 0);
   };
 
   const scrollToSection = (id) => {
     if (currentView !== "home") {
+      // 若不在首頁，先切換回首頁再滑動
       setCurrentView("home");
+      window.history.pushState({}, "", window.location.pathname);
+
       setTimeout(() => {
         const element = document.getElementById(id);
         if (element) {
@@ -522,8 +559,8 @@ const BSGymWebsite = () => {
             </div>
             <div className="text-center md:text-right">
               <p>
-                &copy; {new Date().getFullYear()} B.S Strength & Conditioning.
-                All rights reserved.
+                © {new Date().getFullYear()} B.S Strength & Conditioning. All
+                rights reserved.
               </p>
             </div>
           </div>
