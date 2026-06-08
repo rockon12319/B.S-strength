@@ -26,6 +26,42 @@ import {
 // --- Dummy Data for Articles (SEO Focused) ---
 const BLOG_POSTS = [
   {
+    id: 8,
+    title: "🏋️‍♀️ 【女生重訓會練太壯嗎？迷思一次破解！】",
+    excerpt:
+      "很多女生來到工作室的第一句話就是：「教練，我不想練太壯喔！」其實因為身體構造與賀爾蒙的關係，女生要練壯真的超級難！今天帶你破解迷思...",
+    date: "2026-06-08",
+    author: "B.S 教練團隊",
+    category: "肌力訓練",
+    tags: ["#桃園健身房", "#桃園肌力訓練", "#女生重訓"],
+    image: "/yoyi-2.jpg",
+    content: `
+      <p>很多女生來到 B.S力線體 的第一句話就是：「教練，我想要有線條，但我不想練太壯變成金剛芭比喔！」 😱</p>
+      <br/>
+      <p>這真的是重訓界最大的迷思！今天就讓教練團隊來幫大家破解這個迷思。👇</p>
+      <br/>
+      <h3 class="text-xl font-bold text-orange-500 mb-2">🧬 為什麼女生很難練太壯？</h3>
+      <p>答案就是：身體構造與賀爾蒙！男女生天生就不一樣，男生容易長肌肉，很大一部分是受到「睪固酮」（男性荷爾蒙）的影響。女生的睪固酮濃度非常低，所以在自然情況下，想要練出像健美選手那樣超大塊的肌肉，是幾乎不可能的任務！🙅‍♀️</p>
+      <br/>
+      <h3 class="text-xl font-bold text-orange-500 mb-2">🍔 體重變重是因為重訓嗎？</h3>
+      <p>很多女生剛開始練，發現體重上升就嚇到了！其實，會不會變重、看起來「很大隻」，跟你的「飲食」才是息息相關哦！🍰 如果你瘋狂重訓但又瘋狂大吃，增加的其實是外層的脂肪。</p>
+      <br/>
+      <p>只要控制好飲食，因為肌肉的密度比脂肪高，同樣重量的肌肉體積只有脂肪的四分之一！所以練重訓反而會讓你視覺上小一號，變得更結實更有線條！👗</p>
+      <br/>
+      <h3 class="text-xl font-bold text-orange-500 mb-2">✨ 女生練重訓的真正好處</h3>
+      <p>重點是，重訓不但不會讓你變壯，反而會讓你：</p>
+      <ul class="space-y-4 my-4 text-gray-300">
+        <li><strong>1️⃣ 體態更漂亮：</strong>擁有迷人的蜜桃臀、緊實的手臂與背部線條。</li>
+        <li><strong>2️⃣ 提升代謝：</strong>肌肉量增加能讓你更容易燃燒熱量，養成不易胖體質。</li>
+        <li><strong>3️⃣ 更健康抗老：</strong>強化骨質密度，改善腰痠背痛，真正做到抗老化訓練！</li>
+      </ul>
+      <br/>
+      <p class="text-lg font-bold text-white border-l-4 border-orange-500 pl-4 py-2 bg-neutral-800 rounded-r-lg">別再害怕重量了！勇敢拿起啞鈴，你會發現一個更自信、更美麗的自己。想要擁有結實好身材與健康，歡迎來找我們 B.S力線體 的專業團隊！💪<br/><br/><span class="text-sm font-normal text-gray-400">https://www.bs-strength.com/</span></p>
+      <br/>
+      <p class="text-sm text-gray-500">#桃園健身房 #桃園肌力訓練 #bs-strength #桃園健身 #肌力訓練 #肌力與體能 #抗老化訓練 #銀髮族訓練</p>
+    `,
+  },
+  {
     id: 7,
     title: "📺 【電視常說的「肌力訓練」到底是什麼？跟去公園散步一樣嗎？】 🤔",
     excerpt:
