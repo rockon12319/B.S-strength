@@ -24,7 +24,6 @@ import {
 } from "lucide-react";
 
 // --- Dummy Data for Articles (SEO Focused) ---
-// 這裡保留你原本優質的文章內容，演算法非常喜歡這種高專業度的原創內容
 const BLOG_POSTS = [
   {
     id: 7,
@@ -122,7 +121,7 @@ const BLOG_POSTS = [
     date: "2026-01-24",
     author: "呂承諺 教練",
     category: "教練觀點",
-    tags: ["#肌力訓練", "#抗老化訓練", "#投資健康", "#桃園健身房"],
+    tags: ["#肌力訓練", "#抗老化訓練", "#投資健康", "#呂承諺教練"],
     image: "smart.png",
     content: `
       <p>在這個變動的時代，我們研究各種投資標的，卻常忽略了最重要的資產——「身體」。</p>
@@ -205,7 +204,7 @@ const BLOG_POSTS = [
       <p>想要釋放壓力同時燃燒脂肪嗎？格鬥訓練不僅能提升心肺功能，更能訓練反應與協調性。</p>
       <br/>
       <h3 class="text-xl font-bold text-orange-500 mb-2">全身性的協調運動</h3>
-      <p>泰拳與散打不ِمض是動手動腳，它需要核心的旋轉、下肢的推蹬以及上肢的擺動。這是一個極高效率的全身性運動。</p>
+      <p>泰拳與散打不只是動手動腳，它需要核心的旋轉、下肢的推蹬以及上肢的擺動。這是一個極高效率的全身性運動。</p>
       <br/>
       <h3 class="text-xl font-bold text-orange-500 mb-2">釋放壓力的最佳出口</h3>
       <p>現代人生活壓力大，擊打沙袋或手靶時的快感，是最好的紓壓方式。在 B.S 力線體，我們有專業的格鬥教練（全立格鬥），提供從基礎站姿到實戰技巧的完整教學。</p>
@@ -239,8 +238,7 @@ const BSGymWebsite = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  // SEO: 這是給搜尋引擎看的 LocalBusiness 結構化數據 (JSON-LD)
-  // 將這個加入頁面，可以大幅增加出現在 Google Maps 跟桃園在地搜尋的機率！
+  // SEO: 結構化數據 (JSON-LD)
   const localBusinessSchema = {
     "@context": "https://schema.org",
     "@type": "ExerciseGym",
@@ -259,8 +257,8 @@ const BSGymWebsite = () => {
     },
     geo: {
       "@type": "GeoCoordinates",
-      latitude: 24.9969, // 請替換成準確的經緯度
-      longitude: 121.328, // 請替換成準確的經緯度
+      latitude: 24.9969,
+      longitude: 121.328,
     },
     openingHoursSpecification: [
       {
@@ -323,7 +321,6 @@ const BSGymWebsite = () => {
 
   return (
     <div className="font-sans text-gray-100 bg-neutral-900 min-h-screen selection:bg-orange-500 selection:text-white">
-      {/* 🚀 SEO 黑科技：動態植入 JSON-LD 結構化數據 */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -331,7 +328,6 @@ const BSGymWebsite = () => {
         }}
       />
 
-      {/* Navigation */}
       <nav
         className={`fixed w-full z-50 transition-all duration-300 ${
           scrolled || currentView !== "home"
@@ -344,7 +340,6 @@ const BSGymWebsite = () => {
             className="flex items-center gap-3 cursor-pointer group"
             onClick={() => navigateTo("home")}
           >
-            {/* 優化圖片 Alt：演算法才知道這是什麼 Logo */}
             <img
               src="/mark.jpg"
               alt="桃園健身房 B.S力線體 Logo - 專業肌力與體能訓練"
@@ -360,7 +355,6 @@ const BSGymWebsite = () => {
             </div>
           </div>
 
-          {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-6 text-sm font-medium tracking-wide">
             <button
               onClick={() => scrollToSection("about")}
@@ -386,7 +380,6 @@ const BSGymWebsite = () => {
             >
               學員見證
             </button>
-
             <button
               onClick={() => navigateTo("blog")}
               className={`transition-colors flex items-center gap-1 ${
@@ -397,7 +390,6 @@ const BSGymWebsite = () => {
             >
               <BookOpen size={16} /> 精選文章
             </button>
-
             <button
               onClick={() => scrollToSection("location")}
               className="hover:text-orange-500 transition-colors"
@@ -412,7 +404,6 @@ const BSGymWebsite = () => {
             </button>
           </div>
 
-          {/* Mobile Menu Button */}
           <div className="md:hidden">
             <button
               onClick={toggleMenu}
@@ -423,7 +414,6 @@ const BSGymWebsite = () => {
           </div>
         </div>
 
-        {/* Mobile Menu Dropdown */}
         {isMenuOpen && (
           <div className="md:hidden absolute top-full left-0 w-full bg-neutral-800 shadow-xl border-t border-neutral-700 animate-in slide-in-from-top-5">
             <div className="flex flex-col p-4 gap-4 text-center">
@@ -445,14 +435,12 @@ const BSGymWebsite = () => {
               >
                 教練團隊
               </button>
-
               <button
                 onClick={() => navigateTo("blog")}
                 className="py-2 hover:text-orange-500 text-orange-400 font-bold border-b border-neutral-700/50 flex items-center justify-center gap-2"
               >
                 <BookOpen size={18} /> 精選文章
               </button>
-
               <button
                 onClick={() => scrollToSection("reviews")}
                 className="py-2 hover:text-orange-500 border-b border-neutral-700/50"
@@ -476,7 +464,6 @@ const BSGymWebsite = () => {
         )}
       </nav>
 
-      {/* Main Content Router */}
       <main>
         {currentView === "home" && (
           <HomePageContent scrollToSection={scrollToSection} />
@@ -487,7 +474,6 @@ const BSGymWebsite = () => {
         )}
       </main>
 
-      {/* Footer (Shared) */}
       <footer className="bg-neutral-950 py-12 text-sm text-gray-500 border-t border-neutral-900">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-center gap-6">
@@ -506,7 +492,6 @@ const BSGymWebsite = () => {
             </div>
           </div>
 
-          {/* SEO Keywords Block (對演算法有幫助，放在 Footer 底部不突兀) */}
           <div className="mt-12 pt-8 border-t border-neutral-900 flex flex-wrap justify-center gap-3 text-xs opacity-40 select-none">
             <span>桃園健身房</span>
             <span>桃園健身房推薦</span>
@@ -528,12 +513,10 @@ const BSGymWebsite = () => {
 
 // --- View Components ---
 
-// 1. Blog List View
 const BlogList = ({ navigateTo }) => {
   return (
     <div className="pt-24 pb-12 min-h-screen bg-neutral-900">
       <div className="container mx-auto px-4">
-        {/* Header - 加入 H1 與精準描述 */}
         <div className="text-center mb-16 pt-10">
           <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-6">
             桃園肌力訓練專欄｜B.S{" "}
@@ -544,7 +527,6 @@ const BlogList = ({ navigateTo }) => {
           </p>
         </div>
 
-        {/* Blog Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {BLOG_POSTS.map((post) => (
             <div
@@ -552,11 +534,10 @@ const BlogList = ({ navigateTo }) => {
               className="bg-neutral-800 rounded-2xl overflow-hidden border border-neutral-700/50 hover:border-orange-500/30 transition-all hover:-translate-y-2 hover:shadow-2xl group cursor-pointer flex flex-col"
               onClick={() => navigateTo("post", post.id)}
             >
-              {/* Image Container */}
               <div className="h-96 overflow-hidden relative">
                 <img
                   src={post.image}
-                  alt={`B.S力線體文章附圖：${post.title}`} // SEO 圖片優化
+                  alt={`B.S力線體文章附圖：${post.title}`}
                   className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-110"
                 />
                 <div className="absolute top-4 left-4 bg-orange-600 text-white text-xs font-bold px-3 py-1 rounded-full">
@@ -564,7 +545,6 @@ const BlogList = ({ navigateTo }) => {
                 </div>
               </div>
 
-              {/* Content */}
               <div className="p-6 flex-grow flex flex-col">
                 <div className="flex items-center gap-4 text-xs text-gray-400 mb-3">
                   <span className="flex items-center gap-1">
@@ -574,7 +554,6 @@ const BlogList = ({ navigateTo }) => {
                     <User size={12} /> {post.author}
                   </span>
                 </div>
-                {/* 使用 h2 提升文章標題權重 */}
                 <h2 className="text-xl font-bold text-white mb-3 leading-snug group-hover:text-orange-400 transition-colors">
                   {post.title}
                 </h2>
@@ -595,7 +574,6 @@ const BlogList = ({ navigateTo }) => {
   );
 };
 
-// 2. Blog Post Detail View
 const BlogPost = ({ postId, navigateTo }) => {
   const post = BLOG_POSTS.find((p) => p.id === postId);
 
@@ -623,7 +601,6 @@ const BlogPost = ({ postId, navigateTo }) => {
               </span>
             ))}
           </div>
-          {/* 文章大標題 H1 (SEO 極重要) */}
           <h1 className="text-3xl md:text-5xl font-extrabold text-white mb-6 leading-tight">
             {post.title}
           </h1>
@@ -640,11 +617,10 @@ const BlogPost = ({ postId, navigateTo }) => {
           </div>
         </div>
 
-        {/* Featured Image */}
         <div className="rounded-2xl overflow-hidden mb-12 shadow-2xl border border-neutral-700 bg-neutral-950 flex justify-center">
           <img
             src={post.image}
-            alt={`桃園健身房 B.S力線體 - 文章圖片：${post.title}`} // SEO 圖片 Alt 標籤
+            alt={`桃園健身房 B.S力線體 - 文章圖片：${post.title}`}
             className="w-full h-auto max-h-[85vh] object-contain"
           />
         </div>
@@ -653,7 +629,6 @@ const BlogPost = ({ postId, navigateTo }) => {
           <div dangerouslySetInnerHTML={{ __html: post.content }} />
         </article>
 
-        {/* CTA */}
         <div className="mt-16 bg-neutral-800 p-8 rounded-2xl border border-neutral-700 text-center">
           <h3 className="text-2xl font-bold text-white mb-4">
             覺得這篇文章有幫助嗎？
@@ -676,11 +651,9 @@ const BlogPost = ({ postId, navigateTo }) => {
   );
 };
 
-// 3. Original Home Page Content
 const HomePageContent = ({ scrollToSection }) => {
   return (
     <>
-      {/* Hero Section */}
       <section
         id="home"
         className="relative h-screen flex items-center justify-center overflow-hidden"
@@ -688,7 +661,7 @@ const HomePageContent = ({ scrollToSection }) => {
         <div className="absolute inset-0 z-0">
           <img
             src="/yoyi.jpg"
-            alt="桃園健身房首選 B.S 力線體 - 專業肌力與體能訓練、銀髮族抗老化訓練" // SEO 優化
+            alt="桃園健身房首選 B.S 力線體 - 專業肌力與體能訓練、銀髮族抗老化訓練"
             className="w-full h-full object-cover opacity-60"
             onError={(e) => {
               e.target.src =
@@ -703,7 +676,6 @@ const HomePageContent = ({ scrollToSection }) => {
             <div className="text-orange-500 font-bold tracking-widest uppercase mb-4 text-sm md:text-base animate-pulse">
               桃園專業肌力與體能訓練工作室
             </div>
-            {/* 🚀 SEO 黑科技：將首頁主標題設置為最強關鍵字 H1 */}
             <h1 className="text-5xl md:text-7xl font-extrabold text-white leading-tight mb-6 tracking-tight">
               任何人與年紀都需要肌力訓練 <br />
               來桃園 B.S力線體 開始{" "}
@@ -727,11 +699,9 @@ const HomePageContent = ({ scrollToSection }) => {
         </div>
       </section>
 
-      {/* Features / About Section */}
       <section id="about" className="py-24 bg-neutral-900">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            {/* SEO: H2 標題加入地區字眼 */}
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               為什麼桃園在地人都推薦 B.S 力線體？
             </h2>
@@ -755,25 +725,24 @@ const HomePageContent = ({ scrollToSection }) => {
               image="/Pistol Squat.jpg"
               title="肌力與體能專業"
               description="我們不只追求體態線條，更重視身體的實質強壯。透過科學化的壓力刺激（訓練），能有效強化骨質、神經與肌肉，不僅延緩老化、預防退化，更能提升運動表現。"
-              altText="桃園肌力訓練與體能專業教學" // SEO Alt
+              altText="桃園肌力訓練與體能專業教學"
             />
             <FeatureCard
               image="/fight.jpg"
               title="桃園格鬥與防身"
               description="結合散打、泰拳與綜合格鬥（MMA）元素，提供高強度的體能訓練與實用的防身技巧。不僅能釋放壓力，更能訓練反應速度與協調性。"
-              altText="桃園散打泰拳MMA格鬥教學" // SEO Alt
+              altText="桃園散打泰拳MMA格鬥教學"
             />
             <FeatureCard
               image="/oldtraning.jpg"
               title="全年齡層與銀髮族教學"
               description="從兒童體適能到銀髮族抗老化訓練。我們深知不同年齡層的需求，提供安全且循序漸進的指導，讓運動成為全家人的健康習慣。"
-              altText="桃園銀髮族抗老化肌力訓練" // SEO Alt
+              altText="桃園銀髮族抗老化肌力訓練"
             />
           </div>
         </div>
       </section>
 
-      {/* Schedule & Pricing Section */}
       <section id="schedule" className="py-24 bg-neutral-800">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
@@ -786,7 +755,6 @@ const HomePageContent = ({ scrollToSection }) => {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
-            {/* Weekly Schedule */}
             <div className="bg-neutral-900 p-6 rounded-2xl shadow-xl border border-neutral-700/50">
               <div className="flex items-center gap-3 mb-6">
                 <CalendarCheck className="text-orange-500" size={28} />
@@ -863,14 +831,12 @@ const HomePageContent = ({ scrollToSection }) => {
               </div>
             </div>
 
-            {/* Pricing Table - Private */}
             <div className="space-y-6">
-              {/* Private Training */}
               <div className="relative bg-neutral-900 rounded-2xl shadow-xl border border-neutral-700/50 overflow-hidden group hover:border-orange-500/30 transition-colors h-full">
                 <div className="absolute inset-0 z-0">
                   <img
                     src="/1V1.jpg"
-                    alt="桃園一對一私人教練 - B.S 力線體" // SEO Alt
+                    alt="桃園一對一私人教練 - B.S 力線體"
                     className="w-full h-full object-cover opacity-80 group-hover:opacity-50 transition-opacity duration-500"
                     onError={(e) => {
                       e.target.style.display = "none";
@@ -921,14 +887,12 @@ const HomePageContent = ({ scrollToSection }) => {
               </div>
             </div>
 
-            {/* Pricing Table - Group & Massage */}
             <div className="space-y-6">
-              {/* Group Classes */}
               <div className="relative bg-neutral-900 rounded-2xl shadow-xl border border-neutral-700/50 overflow-hidden group hover:border-green-500/30 transition-colors">
                 <div className="absolute inset-0 z-0">
                   <img
                     src="/daily.jpg"
-                    alt="桃園肌力訓練團體班 - 銀髮族與抗老化" // SEO Alt
+                    alt="桃園肌力訓練團體班 - 銀髮族與抗老化"
                     className="w-full h-full object-cover opacity-80 group-hover:opacity-50 transition-opacity duration-500"
                     onError={(e) => {
                       e.target.style.display = "none";
@@ -981,12 +945,11 @@ const HomePageContent = ({ scrollToSection }) => {
                 </div>
               </div>
 
-              {/* New Service: Sports Massage */}
               <div className="relative bg-neutral-900 rounded-2xl shadow-xl border border-neutral-700/50 overflow-hidden group hover:border-purple-500/30 transition-colors">
                 <div className="absolute inset-0 z-0">
                   <img
                     src="/massage1.jpg"
-                    alt="桃園運動按摩與筋膜放鬆" // SEO Alt
+                    alt="桃園運動按摩與筋膜放鬆"
                     className="w-full h-full object-cover opacity-80 group-hover:opacity-50 transition-opacity duration-500"
                     onError={(e) => {
                       e.target.style.display = "none";
@@ -1035,11 +998,9 @@ const HomePageContent = ({ scrollToSection }) => {
         </div>
       </section>
 
-      {/* Team Section */}
       <section id="team" className="py-24 bg-neutral-900">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            {/* SEO: H2 加入關鍵字 */}
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               桃園最專業的 5 位教練團隊
             </h2>
@@ -1073,6 +1034,10 @@ const HomePageContent = ({ scrollToSection }) => {
                 "筋膜舒緩、痠痛緩解",
               ]}
               achievements={[
+                "2015年 桃園市長盃散打 亞軍",
+                "2015年 全國乙組散打搏擊錦標賽 亞軍",
+                "2016年 全國乙組散打搏擊錦標賽 亞軍",
+                "2016年 WAKO踢拳擊全國錦標賽 亞軍",
                 "2017年 桃園市長盃散打搏擊 冠軍",
                 "2017年 WAKO踢拳擊錦標賽 冠軍",
                 "2024年 桃園市第五屆泰拳交流賽優勝",
@@ -1101,7 +1066,10 @@ const HomePageContent = ({ scrollToSection }) => {
                 "泰拳、散打",
                 "筋膜舒緩、肌肉放鬆",
               ]}
-              achievements={["2021 全國乙組散打 冠軍"]}
+              achievements={[
+                "2020 全國乙組散打 第三名",
+                "2021 全國乙組散打 冠軍",
+              ]}
               altText="桃園肌力訓練與運動按摩教練 呂承諺"
             />
 
@@ -1114,12 +1082,17 @@ const HomePageContent = ({ scrollToSection }) => {
               certifications={[
                 "怪獸訓練證照：抗老化肌力與體能教練認證",
                 "怪獸訓練證照：B級肌力與體能教練認證",
-                "中華民國運動教練學會-丙級肌力與體能教練",
+                "中華民國運動教練學會-丙級肌力與體能教練（何立安教官授課）",
                 "亞洲教練科學會-肌力與體能B級教練證",
+                "台灣保健運動協會-硬式壺鈴授證教練",
               ]}
               education={[
                 "KAT-私人教練培訓班",
+                "G動學 動作概論呼吸與核心",
+                "怪獸訓練-動作控制、學習、檢測與矯正",
+                "怪獸訓練-體能教練俱樂部第十一期",
                 "怪獸訓練-體能教練研究班第十三、十四期",
+                "怪獸訓練-課程設計、技術、課表、週期及身心準備",
               ]}
               expertise={[
                 "肌力與體能訓練",
@@ -1127,7 +1100,13 @@ const HomePageContent = ({ scrollToSection }) => {
                 "改善肌力不足導致的痠痛",
                 "提升日常動作能力",
               ]}
-              achievements={["2023年 第一屆台灣大力士比賽完賽"]}
+              achievements={[
+                "42公里 馬陵生態園區山地馬拉松 分組第二名",
+                "25公里 北北基山地超半程馬拉松 分組第三名",
+                "一日桃園高雄單日騎行 365 公里",
+                "單車北進、單車西進武嶺",
+                "2023年 第一屆台灣大力士比賽完賽",
+              ]}
               altText="桃園銀髮族抗老化教練 范哲瑋"
             />
 
@@ -1139,10 +1118,14 @@ const HomePageContent = ({ scrollToSection }) => {
               phone=""
               certifications={[
                 "ACE 美國國家運動協會私人教練認證",
+                "AFAA 美國有氧體適能協會兒童體適能研習證書",
                 "TRX-STC 懸吊訓練師",
                 "Afaa-WT國際重量訓練指導員",
                 "台灣運動保健協會-硬式壺鈴教練",
+                "G動學 (上肢整合、下肢整合、動作概論呼吸與核心)",
+                "Dr.John Rusin無痛表現訓練",
                 "馬力舉重 Level 1",
+                "怪獸訓練中心 (動作控制、課程設計、年長者訓練研習)",
               ]}
               expertise={[
                 "肌力與體能訓練",
@@ -1152,7 +1135,16 @@ const HomePageContent = ({ scrollToSection }) => {
                 "動作控制與矯正",
               ]}
               achievements={[
+                "2012 全國業餘泰拳錦標賽 銀牌",
+                "2013 海峽兩岸暨港澳地區泰拳邀請賽國家代表選手第四名",
+                "2013 全國散打搏擊錦標賽 銀牌",
+                "2013 桃園市市長盃博擊錦標賽 銀牌",
+                "2013 北大盃全國大專散打搏擊錦標賽 銀牌",
+                "2014 WAKO 踢拳道全國錦標賽 銅牌",
+                "2014 全國業餘泰拳錦標賽 銅牌",
+                "2015 桃園市市長盃博擊錦標賽 銀牌",
                 "2015 WAKO踢拳道國錦標賽 金牌",
+                "2022 總統盃單項臥舉 銅牌",
                 "2023 新北市出力館盃單項臥舉 銅牌",
               ]}
               altText="桃園壺鈴與私人教練 陳麒智"
@@ -1167,8 +1159,18 @@ const HomePageContent = ({ scrollToSection }) => {
               certifications={["中華民國泰拳C級教練", "ACE-CPT私人教練證照"]}
               expertise={["泰拳", "散打", "MMA綜合格鬥", "肌力訓練"]}
               achievements={[
+                "2011 全國散打56公斤冠軍",
+                "2011 陽明盃散打56公斤冠軍",
+                "2012 參加IFMA世界業餘泰拳60公斤",
+                "2012 全國業餘泰拳54公斤亞軍",
+                "2013 全國業餘泰拳60公斤亞軍",
+                "2014 參加IFMA世界大學泰拳比賽",
+                "2014 兩岸四地泰拳邀請賽54公斤銀牌",
+                "2015 兩岸四地泰拳邀請賽57公斤銅牌",
                 "2015 全國業餘泰拳60公斤冠軍",
+                "2017 桃園縣縣長盃60公斤冠軍",
                 "2020-2024 WOTD MMA雛量級7連勝",
+                "2024 參加AMMA雛量級亞錦賽",
                 "2025 參加AMMA雛量級國手選拔冠軍",
                 "2026 亞洲格鬥錦標賽國手",
               ]}
@@ -1183,7 +1185,6 @@ const HomePageContent = ({ scrollToSection }) => {
         </div>
       </section>
 
-      {/* Reviews Section */}
       <section id="reviews" className="py-24 bg-neutral-800">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
@@ -1239,7 +1240,6 @@ const HomePageContent = ({ scrollToSection }) => {
         </div>
       </section>
 
-      {/* FAQ Section */}
       <section id="faq" className="py-24 bg-neutral-900">
         <div className="container mx-auto px-4 max-w-4xl">
           <div className="text-center mb-12">
@@ -1274,11 +1274,9 @@ const HomePageContent = ({ scrollToSection }) => {
         </div>
       </section>
 
-      {/* Location & Contact Section */}
       <section id="location" className="py-24 bg-neutral-800 relative">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            {/* Contact Info */}
             <div className="space-y-8">
               <div>
                 <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -1372,7 +1370,6 @@ const HomePageContent = ({ scrollToSection }) => {
               </div>
             </div>
 
-            {/* Map Embed - 桃園在地店家 SEO 強烈關聯 */}
             <div className="h-[500px] w-full bg-neutral-700 rounded-2xl overflow-hidden shadow-2xl relative border border-neutral-600">
               <iframe
                 title="B.S Gym 桃園健身房地圖"
@@ -1389,7 +1386,6 @@ const HomePageContent = ({ scrollToSection }) => {
         </div>
       </section>
 
-      {/* CTA Section */}
       <section
         id="contact"
         className="py-24 bg-gradient-to-br from-orange-600 to-orange-700 relative overflow-hidden"
@@ -1456,7 +1452,7 @@ const FeatureCard = ({ image, title, description, altText }) => (
     <div className="w-full h-96 overflow-hidden relative">
       <img
         src={image}
-        alt={altText} // 加入優化過的 Alt
+        alt={altText}
         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 group-hover:brightness-110"
         onError={(e) => {
           e.target.style.display = "none";
@@ -1516,10 +1512,10 @@ const CoachCard = ({
         : "border-neutral-700/50 hover:border-orange-500/30"
     }`}
   >
-    <div className="h-[30rem] overflow-hidden relative bg-neutral-700">
+    <div className="h-[30rem] overflow-hidden relative bg-neutral-700 shrink-0">
       <img
         src={image}
-        alt={altText} // 加入優化過的 Alt
+        alt={altText}
         className={`w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 filter brightness-95 group-hover:brightness-100 ${
           imgPosition || "object-top"
         }`}
@@ -1532,6 +1528,7 @@ const CoachCard = ({
         <p className="text-orange-500 font-medium text-lg">{title}</p>
       </div>
     </div>
+
     <div className="p-6 flex-grow flex flex-col gap-6 relative">
       {isSpecial && (
         <div className="flex items-center gap-2 mb-2">
@@ -1545,17 +1542,21 @@ const CoachCard = ({
         </div>
       )}
 
-      <div>
-        <h4 className="flex items-center gap-2 font-bold text-white mb-3">
-          <Award size={18} className="text-yellow-500" /> 主要證照
-        </h4>
-        <ul className="text-sm text-gray-400 space-y-1 list-disc list-inside">
-          {certifications.map((cert, i) => (
-            <li key={i}>{cert}</li>
-          ))}
-        </ul>
-      </div>
+      {/* 證照區塊 */}
+      {certifications && certifications.length > 0 && (
+        <div>
+          <h4 className="flex items-center gap-2 font-bold text-white mb-3">
+            <Award size={18} className="text-yellow-500" /> 主要證照
+          </h4>
+          <ul className="text-sm text-gray-400 space-y-1 list-disc list-inside">
+            {certifications.map((cert, i) => (
+              <li key={i}>{cert}</li>
+            ))}
+          </ul>
+        </div>
+      )}
 
+      {/* 進修區塊 */}
       {education && education.length > 0 && (
         <div>
           <h4 className="flex items-center gap-2 font-bold text-white mb-3">
@@ -1569,19 +1570,23 @@ const CoachCard = ({
         </div>
       )}
 
+      {/* 經歷戰績區塊 - 加入 custom-scrollbar 以及更大的 max-h 確保完整顯示 */}
       {achievements && achievements.length > 0 && (
         <div>
           <h4 className="flex items-center gap-2 font-bold text-white mb-3">
             <Trophy size={18} className="text-orange-500" /> 特殊戰績 / 經歷
           </h4>
-          <ul className="text-sm text-gray-400 space-y-1 list-disc list-inside max-h-48 overflow-y-auto pr-2 custom-scrollbar">
+          <ul className="text-sm text-gray-400 space-y-1 list-disc list-inside max-h-56 overflow-y-auto pr-2 custom-scrollbar">
             {achievements.map((ach, i) => (
-              <li key={i}>{ach}</li>
+              <li key={i} className="py-0.5">
+                {ach}
+              </li>
             ))}
           </ul>
         </div>
       )}
 
+      {/* 專長區塊 */}
       <div className="flex-grow">
         <h4 className="flex items-center gap-2 font-bold text-white mb-3">
           <Activity size={18} className="text-blue-500" /> 專長領域
@@ -1598,7 +1603,7 @@ const CoachCard = ({
         </div>
       </div>
 
-      <div className="pt-4 border-t border-neutral-700 mt-auto">
+      <div className="pt-4 border-t border-neutral-700 mt-auto shrink-0">
         <div className="flex justify-between items-center text-sm mb-2">
           <span className="text-gray-500">LINE ID</span>
           <span className="text-white font-mono bg-neutral-900 px-2 py-1 rounded select-all text-xs md:text-sm">
