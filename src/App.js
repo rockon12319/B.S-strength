@@ -21,10 +21,45 @@ import {
   Clock,
   Tag,
   Sparkles,
+  Search,
+  Share2,
+  Check,
 } from "lucide-react";
 
 // --- Dummy Data for Articles (SEO Focused) ---
 const BLOG_POSTS = [
+  {
+    id: 9,
+    title: "👴👵 長者訓練一週要幾次？陳麒舜教練告訴你抗老秘訣！",
+    excerpt:
+      "常常有長輩或家屬問我：「教練，老人家訓練一週到底要幾次才夠呀？是不是要天天練才有效？」其實，答案可能會讓你嚇一跳...",
+    date: "2026-06-22",
+    author: "陳麒舜 教練",
+    category: "銀髮族訓練",
+    tags: ["#桃園健身房", "#銀髮族訓練", "#抗老化訓練", "#桃園肌力訓練"],
+    image: "/oldtraining2.jpg",
+    content: `
+      <p>常常有長輩或家屬問我：「教練，老人家訓練一週到底要幾次才夠呀？是不是要天天練才有效？」 🤔</p>
+      <br/>
+      <p>其實，答案可能會讓你嚇一跳：<strong>一週一次的高強度訓練就很足夠囉！</strong> 💯</p>
+      <br/>
+      <h3 class="text-xl font-bold text-orange-500 mb-2">💪 為什麼一週一次就夠了？</h3>
+      <p>我們在做重量訓練的時候，肌肉大約只需要 24 小時就能休息恢復。但是，控制我們身體力量的「神經系統」比較辛苦，它需要 <strong>48 到 72 小時</strong> 才能完全恢復過來喔！⏳</p>
+      <br/>
+      <p>所以，對於長輩們來說，一週安排「一到兩次」的重量訓練是最剛好的。最重要的是要配合自己的精神狀況與作息，千萬不要為了練而練，讓身體過度疲勞反而不好。 🛌</p>
+      <br/>
+      <h3 class="text-xl font-bold text-orange-500 mb-2">🚶‍♀️ 平常的日子該做什麼呢？</h3>
+      <p>這才是重點！我們反而會更希望長輩們，在沒有來重訓的日子裡，<strong>盡量保持「多活動」，拒絕靜態生活！</strong> 🚫🛋️</p>
+      <br/>
+      <p>大家可以多出去走走、散散步，去公園曬曬太陽 ☀️。或者參加其他的休閒運動，像是打打太極拳 🧘‍♂️、跳跳廣場舞 💃、或者是去爬個小山都很棒！</p>
+      <br/>
+      <p>重量訓練負責幫你「把身體的地基打好、長出力量」，而平時的活動則是「讓你享受這份力量帶來的美好生活」！🌟</p>
+      <br/>
+      <p class="text-lg font-bold text-white border-l-4 border-orange-500 pl-4 py-2 bg-neutral-800 rounded-r-lg">記住喔！訓練重質不重量，一週一次好品質的重訓，配上天天開心多活動，這就是最棒的抗老秘訣！歡迎帶家裡面的長輩，來 B.S 力線體找我們動一動！💪<br/><br/><span class="text-sm font-normal text-gray-400">https://www.bs-strength.com/</span></p>
+      <br/>
+      <p class="text-sm text-gray-500">#桃園健身房 #桃園肌力訓練 #bs-strength #桃園健身 #肌力訓練 #肌力與體能 #抗老化訓練 #銀髮族訓練</p>
+    `,
+  },
   {
     id: 8,
     title: "🏋️‍♀️ 【女生重訓會練太壯嗎？迷思一次破解！】",
@@ -240,7 +275,7 @@ const BLOG_POSTS = [
       <p>想要釋放壓力同時燃燒脂肪嗎？格鬥訓練不僅能提升心肺功能，更能訓練反應與協調性。</p>
       <br/>
       <h3 class="text-xl font-bold text-orange-500 mb-2">全身性的協調運動</h3>
-      <p>泰拳與散打不只是動手動腳，它需要核心的旋轉、下肢的推蹬以及上肢的擺動。這是一個極高效率的全身性運動。</p>
+      <p>泰拳與散打不ِمض是動手動腳，它需要核心的旋轉、下肢的推蹬以及上肢的擺動。這是一個極高效率的全身性運動。</p>
       <br/>
       <h3 class="text-xl font-bold text-orange-500 mb-2">釋放壓力的最佳出口</h3>
       <p>現代人生活壓力大，擊打沙袋或手靶時的快感，是最好的紓壓方式。在 B.S 力線體，我們有專業的格鬥教練（全立格鬥），提供從基礎站姿到實戰技巧的完整教學。</p>
@@ -325,57 +360,64 @@ const BSGymWebsite = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // --- 新增：讀取網址參數與監聽上下頁 ---
   useEffect(() => {
     const checkUrlParams = () => {
-      // 讀取網址列後面的 ?article=8 或 ?view=blog
-      const params = new URLSearchParams(window.location.search);
-      const articleId = params.get("article");
-      const viewParam = params.get("view");
+      try {
+        const params = new URLSearchParams(window.location.search);
+        const articleId = params.get("article");
+        const viewParam = params.get("view");
 
-      if (articleId) {
-        setCurrentView("post");
-        setSelectedPostId(Number(articleId));
-      } else if (viewParam === "blog") {
-        setCurrentView("blog");
-      } else {
-        setCurrentView("home");
+        if (articleId) {
+          setCurrentView("post");
+          setSelectedPostId(Number(articleId));
+        } else if (viewParam === "blog") {
+          setCurrentView("blog");
+        } else {
+          setCurrentView("home");
+        }
+        window.scrollTo(0, 0);
+      } catch (e) {
+        console.warn("無法讀取網址參數", e);
       }
-      window.scrollTo(0, 0);
     };
 
-    // 網頁剛載入時檢查一次
     checkUrlParams();
-
-    // 監聽使用者按瀏覽器的「上一頁/下一頁」
     window.addEventListener("popstate", checkUrlParams);
     return () => window.removeEventListener("popstate", checkUrlParams);
   }, []);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
-  // --- 更新：切換頁面時，同時更新網址列 ---
   const navigateTo = (view, postId = null) => {
     setCurrentView(view);
     setSelectedPostId(postId);
     setIsMenuOpen(false);
 
-    // 改變網址但不要重新整理頁面
-    if (view === "post") {
-      window.history.pushState({}, "", `?article=${postId}`);
-    } else if (view === "blog") {
-      window.history.pushState({}, "", `?view=blog`);
-    } else {
-      window.history.pushState({}, "", window.location.pathname); // 回到首頁乾淨網址
+    try {
+      if (view === "post") {
+        window.history.pushState({}, "", `?article=${postId}`);
+      } else if (view === "blog") {
+        window.history.pushState({}, "", `?view=blog`);
+      } else {
+        window.history.pushState({}, "", window.location.pathname);
+      }
+    } catch (error) {
+      console.warn("預覽環境安全性限制：無法變更網址，但畫面會正常切換", error);
     }
     window.scrollTo(0, 0);
   };
 
   const scrollToSection = (id) => {
     if (currentView !== "home") {
-      // 若不在首頁，先切換回首頁再滑動
       setCurrentView("home");
-      window.history.pushState({}, "", window.location.pathname);
+      try {
+        window.history.pushState({}, "", window.location.pathname);
+      } catch (error) {
+        console.warn(
+          "預覽環境安全性限制：無法變更網址，但畫面會正常切換",
+          error
+        );
+      }
 
       setTimeout(() => {
         const element = document.getElementById(id);
@@ -587,10 +629,32 @@ const BSGymWebsite = () => {
 // --- View Components ---
 
 const BlogList = ({ navigateTo }) => {
+  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("全部");
+
+  // 取得所有不重複的分類
+  const categories = [
+    "全部",
+    ...new Set(BLOG_POSTS.map((post) => post.category)),
+  ];
+
+  // 根據搜尋與分類過濾文章
+  const filteredPosts = BLOG_POSTS.filter((post) => {
+    const matchCategory =
+      selectedCategory === "全部" || post.category === selectedCategory;
+    const matchSearch =
+      post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      post.excerpt.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      post.tags.some((tag) =>
+        tag.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+    return matchCategory && matchSearch;
+  });
+
   return (
     <div className="pt-24 pb-12 min-h-screen bg-neutral-900">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16 pt-10">
+        <div className="text-center mb-12 pt-10">
           <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-6">
             桃園肌力訓練專欄｜B.S{" "}
             <span className="text-orange-500">力線體</span>
@@ -600,68 +664,164 @@ const BlogList = ({ navigateTo }) => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {BLOG_POSTS.map((post) => (
-            <div
-              key={post.id}
-              className="bg-neutral-800 rounded-2xl overflow-hidden border border-neutral-700/50 hover:border-orange-500/30 transition-all hover:-translate-y-2 hover:shadow-2xl group cursor-pointer flex flex-col"
-              onClick={() => navigateTo("post", post.id)}
-            >
-              <div className="h-96 overflow-hidden relative">
-                <img
-                  src={post.image}
-                  alt={`B.S力線體文章附圖：${post.title}`}
-                  className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-110"
-                />
-                <div className="absolute top-4 left-4 bg-orange-600 text-white text-xs font-bold px-3 py-1 rounded-full">
-                  {post.category}
-                </div>
-              </div>
-
-              <div className="p-6 flex-grow flex flex-col">
-                <div className="flex items-center gap-4 text-xs text-gray-400 mb-3">
-                  <span className="flex items-center gap-1">
-                    <Clock size={12} /> {post.date}
-                  </span>
-                  <span className="flex items-center gap-1">
-                    <User size={12} /> {post.author}
-                  </span>
-                </div>
-                <h2 className="text-xl font-bold text-white mb-3 leading-snug group-hover:text-orange-400 transition-colors">
-                  {post.title}
-                </h2>
-                <p className="text-gray-400 text-sm line-clamp-3 mb-4 flex-grow">
-                  {post.excerpt}
-                </p>
-                <div className="mt-auto pt-4 border-t border-neutral-700/50 flex justify-between items-center">
-                  <span className="text-orange-500 font-bold text-sm flex items-center gap-1 group-hover:gap-2 transition-all">
-                    閱讀全文 <ArrowRight size={16} />
-                  </span>
-                </div>
-              </div>
+        {/* 搜尋與分類過濾區塊 */}
+        <div className="max-w-4xl mx-auto mb-12 space-y-6">
+          <div className="relative">
+            <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+              <Search className="h-5 w-5 text-gray-400" />
             </div>
-          ))}
+            <input
+              type="text"
+              placeholder="搜尋文章關鍵字、標籤或內容..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="w-full bg-neutral-800 border border-neutral-700 text-white rounded-full py-3 pl-12 pr-4 focus:outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500 transition-colors"
+            />
+          </div>
+
+          <div className="flex flex-wrap justify-center gap-2">
+            {categories.map((category) => (
+              <button
+                key={category}
+                onClick={() => setSelectedCategory(category)}
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                  selectedCategory === category
+                    ? "bg-orange-500 text-white shadow-lg shadow-orange-500/20"
+                    : "bg-neutral-800 text-gray-400 hover:bg-neutral-700 hover:text-white"
+                }`}
+              >
+                {category}
+              </button>
+            ))}
+          </div>
         </div>
+
+        {/* 文章列表 */}
+        {filteredPosts.length > 0 ? (
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {filteredPosts.map((post) => (
+              <div
+                key={post.id}
+                className="bg-neutral-800 rounded-2xl overflow-hidden border border-neutral-700/50 hover:border-orange-500/30 transition-all hover:-translate-y-2 hover:shadow-2xl group cursor-pointer flex flex-col"
+                onClick={() => navigateTo("post", post.id)}
+              >
+                <div className="h-64 md:h-72 overflow-hidden relative">
+                  <img
+                    src={post.image}
+                    alt={`B.S力線體文章附圖：${post.title}`}
+                    className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute top-4 left-4 bg-orange-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">
+                    {post.category}
+                  </div>
+                </div>
+
+                <div className="p-6 flex-grow flex flex-col">
+                  <div className="flex items-center gap-4 text-xs text-gray-400 mb-3">
+                    <span className="flex items-center gap-1">
+                      <Clock size={12} /> {post.date}
+                    </span>
+                    <span className="flex items-center gap-1">
+                      <User size={12} /> {post.author}
+                    </span>
+                  </div>
+                  <h2 className="text-xl font-bold text-white mb-3 leading-snug group-hover:text-orange-400 transition-colors">
+                    {post.title}
+                  </h2>
+                  <p className="text-gray-400 text-sm line-clamp-3 mb-4 flex-grow">
+                    {post.excerpt}
+                  </p>
+                  <div className="mt-auto pt-4 border-t border-neutral-700/50 flex justify-between items-center">
+                    <span className="text-orange-500 font-bold text-sm flex items-center gap-1 group-hover:gap-2 transition-all">
+                      閱讀全文 <ArrowRight size={16} />
+                    </span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div className="text-center py-20">
+            <Search className="h-16 w-16 text-neutral-600 mx-auto mb-4" />
+            <h3 className="text-xl font-bold text-gray-300 mb-2">
+              找不到相關文章
+            </h3>
+            <p className="text-gray-500">請嘗試更換關鍵字或選擇其他分類。</p>
+            <button
+              onClick={() => {
+                setSearchTerm("");
+                setSelectedCategory("全部");
+              }}
+              className="mt-6 text-orange-500 hover:text-orange-400 underline"
+            >
+              清除搜尋條件
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );
 };
 
 const BlogPost = ({ postId, navigateTo }) => {
+  const [copied, setCopied] = useState(false);
   const post = BLOG_POSTS.find((p) => p.id === postId);
 
   if (!post)
     return <div className="pt-32 text-center text-white">文章不存在</div>;
 
+  const handleShareClick = () => {
+    // 使用 document.execCommand 作為複製功能
+    const url = window.location.href;
+    const textArea = document.createElement("textarea");
+    textArea.value = url;
+    // 將 textarea 移出畫面外，避免破壞版面
+    textArea.style.position = "absolute";
+    textArea.style.left = "-9999px";
+    document.body.appendChild(textArea);
+    textArea.select();
+
+    try {
+      document.execCommand("copy");
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (err) {
+      console.error("Copy failed", err);
+    } finally {
+      document.body.removeChild(textArea);
+    }
+  };
+
   return (
     <div className="pt-24 pb-12 min-h-screen bg-neutral-900">
       <div className="container mx-auto px-4 max-w-4xl">
-        <button
-          onClick={() => navigateTo("blog")}
-          className="flex items-center gap-2 text-gray-400 hover:text-white mb-8 transition-colors"
-        >
-          <ArrowLeft size={20} /> 返回文章列表
-        </button>
+        <div className="flex justify-between items-center mb-8">
+          <button
+            onClick={() => navigateTo("blog")}
+            className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors"
+          >
+            <ArrowLeft size={20} /> 返回文章列表
+          </button>
+
+          <button
+            onClick={handleShareClick}
+            className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-bold transition-all ${
+              copied
+                ? "bg-green-500/20 text-green-400 border border-green-500/50"
+                : "bg-neutral-800 text-gray-300 hover:text-white hover:bg-neutral-700 border border-neutral-700"
+            }`}
+          >
+            {copied ? (
+              <>
+                <Check size={16} /> 已複製網址
+              </>
+            ) : (
+              <>
+                <Share2 size={16} /> 分享文章
+              </>
+            )}
+          </button>
+        </div>
 
         <div className="mb-10">
           <div className="flex gap-2 mb-4 flex-wrap">
@@ -698,7 +858,7 @@ const BlogPost = ({ postId, navigateTo }) => {
           />
         </div>
 
-        <article className="prose prose-invert prose-lg max-w-none text-gray-300">
+        <article className="prose prose-invert prose-lg max-w-none text-gray-300 leading-loose">
           <div dangerouslySetInnerHTML={{ __html: post.content }} />
         </article>
 
@@ -707,8 +867,8 @@ const BlogPost = ({ postId, navigateTo }) => {
             覺得這篇文章有幫助嗎？
           </h3>
           <p className="text-gray-400 mb-6">
-            如果您在桃園尋找最專業的肌力與體能訓練，歡迎來 B.S 力線體
-            體驗最紮實的課程。
+            如果您在桃園尋找最專業的肌力與體能訓練，歡迎來 B.S
+            力線體體驗最紮實的課程。
           </p>
           <a
             href="https://line.me/ti/p/~rockon12319"
