@@ -434,9 +434,9 @@ const BSGymWebsite = () => {
 
     try {
       if (view === "post") {
-        window.history.pushState({}, "", \`?article=\${postId}\`);
+        window.history.pushState({}, "", `?article=${postId}`);
       } else if (view === "blog") {
-        window.history.pushState({}, "", \`?view=blog\`);
+        window.history.pushState({}, "", `?view=blog`);
       } else {
         window.history.pushState({}, "", window.location.pathname);
       }
@@ -684,7 +684,7 @@ const BlogList = ({ navigateTo }) => {
     const matchSearch =
       post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
       post.excerpt.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      post.author.toLowerCase().includes(searchTerm.toLowerCase()) || // 新增教練名稱搜尋
+      post.author.toLowerCase().includes(searchTerm.toLowerCase()) ||
       post.tags.some((tag) =>
         tag.toLowerCase().includes(searchTerm.toLowerCase())
       );
@@ -1843,7 +1843,7 @@ const CoachCard = ({
         </div>
       )}
 
-      {/* 經歷戰績區塊 - 加入 custom-scrollbar 以及更大的 max-h 確保完整顯示 */}
+      {/* 經歷戰績區塊 */}
       {achievements && achievements.length > 0 && (
         <div>
           <h4 className="flex items-center gap-2 font-bold text-white mb-3">
