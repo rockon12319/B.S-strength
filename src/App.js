@@ -29,6 +29,45 @@ import {
 // --- Dummy Data for Articles (SEO Focused) ---
 const BLOG_POSTS = [
   {
+    id: 10,
+    title: "🧑‍🤝‍🧑 【團體課 vs. 私人課】怎麼選？帶你認識 B.S 團體課程的獨特魅力！",
+    excerpt:
+      "常常有人問：「教練，我到底適合上團體課還是私人教練課呢？」除了預算考量，其實這兩種課程的氛圍與優勢大不相同！今天就來聊聊團體課的隱藏好處...",
+    date: "2026-06-30",
+    author: "范哲瑋 教練",
+    category: "肌力訓練",
+    tags: ["#桃園健身房", "#團體課程", "#桃園肌力訓練", "#范哲瑋教練"],
+    image: "/GroupCourses1.jpg",
+    content: `
+      <p>在 B.S 力線體，我們最常被問到的問題之一就是：「教練，我到底適合上團體課，還是私人教練課呢？」🤔</p>
+      <br/>
+      <p>今天就讓我（哲瑋教練）來幫大家分析一下，這兩種課程到底有什麼不一樣！👇</p>
+      <br/>
+      <h3 class="text-xl font-bold text-orange-500 mb-2">💰 預算與氛圍：你想怎麼練？</h3>
+      <p>首先，最直接的差異當然是<strong>預算考量</strong>。團體課因為大家一起分擔教練的時間，費用自然會比較親民，是長期建立運動習慣的超棒選擇！</p>
+      <br/>
+      <p>再來就是<strong>訓練氛圍</strong>的差異了：</p>
+      <ul class="space-y-4 my-4 text-gray-300">
+        <li><strong>🤫 私人課程：</strong>適合喜歡安靜專注、不被打擾的學員。教練會將 100% 的注意力放在你身上，完全針對你的身體狀況與目標（例如：特定傷病恢復、專項比賽準備）進行<strong>高度客製化</strong>的訓練。</li>
+        <li><strong>🎉 團體課程：</strong>適合喜歡熱鬧、喜歡交朋友的你！大家一起流汗、一起哀嚎（？）、一起進步的感覺，是非常有感染力的！</li>
+      </ul>
+      <br/>
+      <h3 class="text-xl font-bold text-orange-500 mb-2">🤝 團體課程的隱藏版好處</h3>
+      <p>其實，團體課不僅僅是省荷包而已，它還有很多意想不到的收穫喔！</p>
+      <br/>
+      <p><strong>1. 互相推坑（鼓勵）的革命情感：</strong><br/>自己一個人練，有時候難免會想偷懶，但看到隔壁同學還在咬牙堅持，你就會告訴自己：「我也不能輸！」這種良性競爭與互相鼓勵，是進步的最強動力！🔥</p>
+      <br/>
+      <p><strong>2. 超棒的社交圈：</strong><br/>在我們的團體課裡，你可以認識各行各業的同學！有工程師、老師、家庭主婦、自己創業的老闆... 大家因為「想變強壯」這個共同目標聚在一起，練完常常還會一起去吃個好料，生活圈瞬間擴大不少呢！👯‍♂️</p>
+      <br/>
+      <h3 class="text-xl font-bold text-orange-500 mb-2">⚠️ 團體課的小叮嚀：課表安排</h3>
+      <p>雖然團體課很棒，但有一點要特別注意：<strong>團體課的課表無法像私人課那樣完全為你量身打造。</strong></p>
+      <br/>
+      <p>在上課時，教練會根據當天班上同學的「平均水平與整體狀況」來調整主課表。不過別擔心，B.S 的教練們都受過專業訓練，即使在團體課中，我們依然會隨時盯緊大家的動作，在安全的前提下給大家最適合的重量建議！🏋️‍♀️</p>
+      <br/>
+      <p class="text-lg font-bold text-white border-l-4 border-orange-500 pl-4 py-2 bg-neutral-800 rounded-r-lg">不管是私人課還是團體課，只要願意開始動起來，就是最好的選擇！想體驗看看大家一起變強壯的熱血氛圍嗎？歡迎來找我們一起練！💪</p>
+    `,
+  },
+  {
     id: 9,
     title: "👴👵 長者訓練一週要幾次？陳麒舜教練告訴你抗老秘訣！",
     excerpt:
@@ -275,7 +314,7 @@ const BLOG_POSTS = [
       <p>想要釋放壓力同時燃燒脂肪嗎？格鬥訓練不僅能提升心肺功能，更能訓練反應與協調性。</p>
       <br/>
       <h3 class="text-xl font-bold text-orange-500 mb-2">全身性的協調運動</h3>
-      <p>泰拳與散打不ِمض是動手動腳，它需要核心的旋轉、下肢的推蹬以及上肢的擺動。這是一個極高效率的全身性運動。</p>
+      <p>泰拳與散打不只是動手動腳，它需要核心的旋轉、下肢的推蹬以及上肢的擺動。這是一個極高效率的全身性運動。</p>
       <br/>
       <h3 class="text-xl font-bold text-orange-500 mb-2">釋放壓力的最佳出口</h3>
       <p>現代人生活壓力大，擊打沙袋或手靶時的快感，是最好的紓壓方式。在 B.S 力線體，我們有專業的格鬥教練（全立格鬥），提供從基礎站姿到實戰技巧的完整教學。</p>
@@ -395,9 +434,9 @@ const BSGymWebsite = () => {
 
     try {
       if (view === "post") {
-        window.history.pushState({}, "", `?article=${postId}`);
+        window.history.pushState({}, "", \`?article=\${postId}\`);
       } else if (view === "blog") {
-        window.history.pushState({}, "", `?view=blog`);
+        window.history.pushState({}, "", \`?view=blog\`);
       } else {
         window.history.pushState({}, "", window.location.pathname);
       }
@@ -645,6 +684,7 @@ const BlogList = ({ navigateTo }) => {
     const matchSearch =
       post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
       post.excerpt.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      post.author.toLowerCase().includes(searchTerm.toLowerCase()) || // 新增教練名稱搜尋
       post.tags.some((tag) =>
         tag.toLowerCase().includes(searchTerm.toLowerCase())
       );
@@ -672,7 +712,7 @@ const BlogList = ({ navigateTo }) => {
             </div>
             <input
               type="text"
-              placeholder="搜尋文章關鍵字、標籤或內容..."
+              placeholder="搜尋文章關鍵字、教練名稱或標籤..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               className="w-full bg-neutral-800 border border-neutral-700 text-white rounded-full py-3 pl-12 pr-4 focus:outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500 transition-colors"
