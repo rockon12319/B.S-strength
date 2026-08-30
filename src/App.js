@@ -26,6 +26,38 @@ import {
   Check,
 } from "lucide-react";
 
+const SITE_URL = "https://www.bs-strength.com/";
+const DEFAULT_TITLE = "B.S 力線體 - 桃園專業肌力與體能訓練";
+const DEFAULT_DESCRIPTION =
+  "B.S 力線體位於桃園區壽星街，提供一對一私人教練、肌力與體能、銀髮族抗老化、泰拳散打 MMA 與運動按摩。價格透明，歡迎預約體驗。";
+const DEFAULT_IMAGE = `${SITE_URL}yoyi.jpg`;
+
+const updateMetaTag = (attribute, value, content) => {
+  let element = document.head.querySelector(`meta[${attribute}="${value}"]`);
+
+  if (!element) {
+    element = document.createElement("meta");
+    element.setAttribute(attribute, value);
+    document.head.appendChild(element);
+  }
+
+  element.setAttribute("content", content);
+};
+
+const updateCanonicalUrl = (url) => {
+  let canonical = document.head.querySelector('link[rel="canonical"]');
+
+  if (!canonical) {
+    canonical = document.createElement("link");
+    canonical.setAttribute("rel", "canonical");
+    document.head.appendChild(canonical);
+  }
+
+  canonical.setAttribute("href", url);
+};
+
+const toAbsoluteUrl = (path) => new URL(path, SITE_URL).toString();
+
 // --- Dummy Data for Articles (SEO Focused) ---
 const BLOG_POSTS = [
   {
@@ -36,7 +68,7 @@ const BLOG_POSTS = [
     author: "陳麒舜 教練",
     category: "肌力訓練",
     tags: ["#桃園健身房", "#桃園肌力訓練", "#肌力與體能"],
-    image: "/fighter1.jpg",
+    image: "/fighter1.webp",
     content: `
       <p>常常有人問：「打格鬥技巧好就好，還需要另外花時間練肌力嗎？」🤔</p>
       <br/>
@@ -65,7 +97,7 @@ const BLOG_POSTS = [
     author: "范哲瑋 教練",
     category: "肌力訓練",
     tags: ["#桃園健身房", "#團體課程", "#桃園肌力訓練", "#范哲瑋教練"],
-    image: "/GroupCourses1.jpg",
+    image: "/GroupCourses1.webp",
     content: `
       <p>在 B.S 力線體，我們最常被問到的問題之一就是：「教練，我到底適合上團體課，還是私人教練課呢？」🤔</p>
       <br/>
@@ -178,7 +210,7 @@ const BLOG_POSTS = [
       "#銀髮族訓練",
       "#肌力與體能",
     ],
-    image: "/training1.jpg",
+    image: "/training1.webp",
     content: `
       <p>最近很多大哥大姐來到 B.S力線體，或是打電話來詢問教練：「電視上跟網路上一直說，老人家要抗老化就一定要做肌力訓練，那到底什麼是肌力訓練啊？」</p>
       <br/>
@@ -213,7 +245,7 @@ const BLOG_POSTS = [
     author: "陳麒舜 教練",
     category: "教練觀點",
     tags: ["#桃園健身房", "#肌力訓練", "#格鬥教學", "#肌力與體能"],
-    image: "/book223.png",
+    image: "/book223.webp",
     content: `
       <p>大家好，我是麒舜教練！👋 身為一名格鬥專項教練，在擂台上打滾多年，我最常被問到的問題之一就是：「教練，如果我的技術已經練得很爐火純青了，我還需要練肌力嗎？」或者是「為什麼那些年輕選手技術普通，卻能靠著爆發力壓著老將打？」</p>
       <br/>
@@ -260,7 +292,7 @@ const BLOG_POSTS = [
     author: "呂承諺 教練",
     category: "教練觀點",
     tags: ["#肌力訓練", "#抗老化訓練", "#投資健康", "#呂承諺教練"],
-    image: "smart.png",
+    image: "/smart.webp",
     content: `
       <p>在這個變動的時代，我們研究各種投資標的，卻常忽略了最重要的資產——「身體」。</p>
       <br/>
@@ -315,7 +347,7 @@ const BLOG_POSTS = [
     author: "陳麒舜 教練",
     category: "肌力訓練",
     tags: ["#桃園健身房", "#肌力訓練", "#抗老化訓練", "#桃園肌力訓練"],
-    image: "/daily.jpg",
+    image: "/daily.webp",
     content: `
       <p>隨著年齡增長，肌肉流失是不可避免的過程，這在醫學上稱為「肌少症」。但在桃園，越來越多人意識到「肌力儲蓄」的重要性。這篇文章告訴你為什麼你需要開始訓練。</p>
       <br/>
@@ -337,7 +369,7 @@ const BLOG_POSTS = [
     author: "張立 教練",
     category: "格鬥教學",
     tags: ["#桃園泰拳", "#桃園散打", "#格鬥教學", "#MMA"],
-    image: "/fight.jpg",
+    image: "/fight.webp",
     content: `
       <p>想要釋放壓力同時燃燒脂肪嗎？格鬥訓練不僅能提升心肺功能，更能訓練反應與協調性。</p>
       <br/>
@@ -357,7 +389,7 @@ const BLOG_POSTS = [
     author: "范哲瑋 教練",
     category: "銀髮族訓練",
     tags: ["#銀髮族訓練", "#桃園肌力", "#專業教練"],
-    image: "/oldtraning.jpg",
+    image: "/oldtraning.webp",
     content: `
       <p>長輩怕跌倒？其實，越不動越容易因為肌力不足而跌倒！透過科學化的評估與指導，銀髮族也能安全地變強壯。</p>
       <br/>
@@ -375,16 +407,80 @@ const BSGymWebsite = () => {
   const [selectedPostId, setSelectedPostId] = useState(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const selectedPost = BLOG_POSTS.find((post) => post.id === selectedPostId);
+  const currentCanonicalUrl =
+    currentView === "post" && selectedPost
+      ? `${SITE_URL}?article=${selectedPost.id}`
+      : currentView === "blog"
+        ? `${SITE_URL}?view=blog`
+        : SITE_URL;
+
+  useEffect(() => {
+    let title = DEFAULT_TITLE;
+    let description = DEFAULT_DESCRIPTION;
+    let image = DEFAULT_IMAGE;
+    let type = "website";
+
+    if (currentView === "blog") {
+      title = "桃園肌力訓練與健身知識｜B.S 力線體";
+      description =
+        "B.S 力線體教練團隊分享肌力訓練、銀髮族抗老化、泰拳散打 MMA、運動表現與恢復知識。";
+    }
+
+    if (currentView === "post" && selectedPost) {
+      title = `${selectedPost.title}｜B.S 力線體`;
+      description = selectedPost.excerpt;
+      image = toAbsoluteUrl(selectedPost.image);
+      type = "article";
+    }
+
+    document.documentElement.lang = "zh-TW";
+    document.title = title;
+    updateCanonicalUrl(currentCanonicalUrl);
+    updateMetaTag("name", "description", description);
+    updateMetaTag(
+      "name",
+      "robots",
+      "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    );
+    updateMetaTag("property", "og:title", title);
+    updateMetaTag("property", "og:description", description);
+    updateMetaTag("property", "og:image", image);
+    updateMetaTag("property", "og:image:alt", title);
+    updateMetaTag("property", "og:type", type);
+    updateMetaTag("property", "og:url", currentCanonicalUrl);
+    updateMetaTag("property", "og:site_name", "B.S 力線體");
+    updateMetaTag("property", "og:locale", "zh_TW");
+    updateMetaTag("name", "twitter:card", "summary_large_image");
+    updateMetaTag("name", "twitter:title", title);
+    updateMetaTag("name", "twitter:description", description);
+    updateMetaTag("name", "twitter:image", image);
+
+    const publishedMeta = document.head.querySelector(
+      'meta[property="article:published_time"]'
+    );
+    if (currentView === "post" && selectedPost) {
+      updateMetaTag(
+        "property",
+        "article:published_time",
+        `${selectedPost.date}T00:00:00+08:00`
+      );
+    } else if (publishedMeta) {
+      publishedMeta.remove();
+    }
+  }, [currentView, currentCanonicalUrl, selectedPost]);
 
   // SEO: 結構化數據 (JSON-LD)
   const localBusinessSchema = {
     "@context": "https://schema.org",
-    "@type": "ExerciseGym",
+    "@type": "HealthClub",
     name: "B.S力線體",
-    image: "https://www.bs-strength.com/mark.jpg",
-    "@id": "https://www.bs-strength.com",
-    url: "https://www.bs-strength.com",
-    telephone: "0936624385",
+    alternateName: "B.S Strength & Conditioning",
+    image: DEFAULT_IMAGE,
+    logo: `${SITE_URL}mark.jpg`,
+    "@id": `${SITE_URL}#organization`,
+    url: SITE_URL,
+    telephone: "+886-936-624-385",
     address: {
       "@type": "PostalAddress",
       streetAddress: "壽星街60號1樓",
@@ -415,9 +511,52 @@ const BSGymWebsite = () => {
       },
     ],
     priceRange: "$$",
+    hasMap:
+      "https://www.google.com/maps/search/?api=1&query=B.S+%E5%8A%9B%E7%B7%9A%E9%AB%94",
+    areaServed: {
+      "@type": "City",
+      name: "桃園市",
+    },
+    sameAs: [
+      "https://www.facebook.com/profile.php?id=100083143876394",
+      "https://www.instagram.com/b.s_bigandstrong/",
+    ],
     description:
       "桃園專業健身房首選 B.S力線體。由五位專業教練提供：一對一肌力與體能訓練、銀髮族抗老化訓練、泰拳、散打、MMA 綜合格鬥及運動按摩。立即預約！",
   };
+
+  const articleSchema =
+    currentView === "post" && selectedPost
+      ? {
+          "@context": "https://schema.org",
+          "@type": "Article",
+          headline: selectedPost.title,
+          description: selectedPost.excerpt,
+          image: [toAbsoluteUrl(selectedPost.image)],
+          datePublished: `${selectedPost.date}T00:00:00+08:00`,
+          dateModified: `${selectedPost.date}T00:00:00+08:00`,
+          inLanguage: "zh-TW",
+          mainEntityOfPage: {
+            "@type": "WebPage",
+            "@id": currentCanonicalUrl,
+          },
+          author: {
+            "@type": selectedPost.author.includes("團隊")
+              ? "Organization"
+              : "Person",
+            name: selectedPost.author,
+          },
+          publisher: {
+            "@type": "Organization",
+            "@id": `${SITE_URL}#organization`,
+            name: "B.S 力線體",
+            logo: {
+              "@type": "ImageObject",
+              url: `${SITE_URL}mark.jpg`,
+            },
+          },
+        }
+      : null;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -509,6 +648,14 @@ const BSGymWebsite = () => {
           __html: JSON.stringify(localBusinessSchema),
         }}
       />
+      {articleSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(articleSchema),
+          }}
+        />
+      )}
 
       <nav
         className={`fixed w-full z-50 transition-all duration-300 ${
@@ -589,6 +736,8 @@ const BSGymWebsite = () => {
           <div className="md:hidden">
             <button
               onClick={toggleMenu}
+              aria-label={isMenuOpen ? "關閉導覽選單" : "開啟導覽選單"}
+              aria-expanded={isMenuOpen}
               className="text-white focus:outline-none p-2"
             >
               {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
@@ -674,18 +823,37 @@ const BSGymWebsite = () => {
             </div>
           </div>
 
-          <div className="mt-12 pt-8 border-t border-neutral-900 flex flex-wrap justify-center gap-3 text-xs opacity-40 select-none">
-            <span>桃園健身房</span>
-            <span>桃園健身房推薦</span>
-            <span>桃園肌力訓練</span>
-            <span>肌力與體能</span>
-            <span>桃園抗老化訓練</span>
-            <span>銀髮族訓練</span>
-            <span>桃園散打</span>
-            <span>桃園泰拳</span>
-            <span>桃園MMA</span>
-            <span>一對一教練</span>
-            <span>桃園運動按摩</span>
+          <div className="mt-12 pt-8 border-t border-neutral-900 text-center">
+            <p className="max-w-3xl mx-auto text-gray-500 leading-relaxed mb-5">
+              B.S 力線體是位於桃園區的肌力與體能訓練工作室，提供私人教練、
+              團體肌力課、銀髮族抗老化訓練、泰拳散打 MMA 與運動按摩服務。
+            </p>
+            <div className="flex flex-wrap justify-center gap-x-5 gap-y-2 text-xs">
+              <button
+                onClick={() => scrollToSection("schedule")}
+                className="hover:text-orange-500 transition-colors"
+              >
+                桃園肌力課程與費用
+              </button>
+              <button
+                onClick={() => scrollToSection("team")}
+                className="hover:text-orange-500 transition-colors"
+              >
+                專業教練團隊
+              </button>
+              <button
+                onClick={() => navigateTo("blog")}
+                className="hover:text-orange-500 transition-colors"
+              >
+                肌力與體能知識
+              </button>
+              <button
+                onClick={() => scrollToSection("location")}
+                className="hover:text-orange-500 transition-colors"
+              >
+                地址與聯絡方式
+              </button>
+            </div>
           </div>
         </div>
       </footer>
@@ -777,6 +945,8 @@ const BlogList = ({ navigateTo }) => {
                   <img
                     src={post.image}
                     alt={`B.S力線體文章附圖：${post.title}`}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-110"
                   />
                   <div className="absolute top-4 left-4 bg-orange-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">
@@ -922,6 +1092,8 @@ const BlogPost = ({ postId, navigateTo }) => {
           <img
             src={post.image}
             alt={`桃園健身房 B.S力線體 - 文章圖片：${post.title}`}
+            fetchPriority="high"
+            decoding="async"
             className="w-full h-auto max-h-[85vh] object-contain"
           />
         </div>
@@ -963,6 +1135,8 @@ const HomePageContent = ({ scrollToSection }) => {
           <img
             src="/yoyi.jpg"
             alt="桃園健身房首選 B.S 力線體 - 專業肌力與體能訓練、銀髮族抗老化訓練"
+            fetchPriority="high"
+            decoding="async"
             className="w-full h-full object-cover opacity-60"
             onError={(e) => {
               e.target.src =
@@ -977,7 +1151,7 @@ const HomePageContent = ({ scrollToSection }) => {
             <div className="text-orange-500 font-bold tracking-widest uppercase mb-4 text-sm md:text-base animate-pulse">
               桃園專業肌力與體能訓練工作室
             </div>
-            <h1 className="text-5xl md:text-7xl font-extrabold text-white leading-tight mb-6 tracking-tight">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold text-white leading-tight mb-6 tracking-tight">
               任何人與年紀都需要肌力訓練 <br />
               來桃園 B.S力線體 開始{" "}
               <span className="text-orange-500">肌力儲蓄</span>
@@ -1029,13 +1203,13 @@ const HomePageContent = ({ scrollToSection }) => {
               altText="桃園肌力訓練與體能專業教學"
             />
             <FeatureCard
-              image="/fight.jpg"
+              image="/fight.webp"
               title="桃園格鬥與防身"
               description="結合散打、泰拳與綜合格鬥（MMA）元素，提供高強度的體能訓練與實用的防身技巧。不僅能釋放壓力，更能訓練反應速度與協調性。"
               altText="桃園散打泰拳MMA格鬥教學"
             />
             <FeatureCard
-              image="/oldtraning.jpg"
+              image="/oldtraning.webp"
               title="全年齡層與銀髮族教學"
               description="從兒童體適能到銀髮族抗老化訓練。我們深知不同年齡層的需求，提供安全且循序漸進的指導，讓運動成為全家人的健康習慣。"
               altText="桃園銀髮族抗老化肌力訓練"
@@ -1138,6 +1312,8 @@ const HomePageContent = ({ scrollToSection }) => {
                   <img
                     src="/1V1.jpg"
                     alt="桃園一對一私人教練 - B.S 力線體"
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover opacity-80 group-hover:opacity-50 transition-opacity duration-500"
                     onError={(e) => {
                       e.target.style.display = "none";
@@ -1192,8 +1368,10 @@ const HomePageContent = ({ scrollToSection }) => {
               <div className="relative bg-neutral-900 rounded-2xl shadow-xl border border-neutral-700/50 overflow-hidden group hover:border-green-500/30 transition-colors">
                 <div className="absolute inset-0 z-0">
                   <img
-                    src="/daily.jpg"
+                    src="/daily.webp"
                     alt="桃園肌力訓練團體班 - 銀髮族與抗老化"
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover opacity-80 group-hover:opacity-50 transition-opacity duration-500"
                     onError={(e) => {
                       e.target.style.display = "none";
@@ -1251,6 +1429,8 @@ const HomePageContent = ({ scrollToSection }) => {
                   <img
                     src="/massage1.jpg"
                     alt="桃園運動按摩與筋膜放鬆"
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover opacity-80 group-hover:opacity-50 transition-opacity duration-500"
                     onError={(e) => {
                       e.target.style.display = "none";
@@ -1532,6 +1712,8 @@ const HomePageContent = ({ scrollToSection }) => {
               <img
                 src="https://www.google.com/favicon.ico"
                 alt="Google 評論"
+                loading="lazy"
+                decoding="async"
                 className="w-5 h-5"
               />
               <span className="font-bold">前往 Google 看更多桃園在地評論</span>
@@ -1754,6 +1936,8 @@ const FeatureCard = ({ image, title, description, altText }) => (
       <img
         src={image}
         alt={altText}
+        loading="lazy"
+        decoding="async"
         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 group-hover:brightness-110"
         onError={(e) => {
           e.target.style.display = "none";
@@ -1817,6 +2001,8 @@ const CoachCard = ({
       <img
         src={image}
         alt={altText}
+        loading="lazy"
+        decoding="async"
         className={`w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 filter brightness-95 group-hover:brightness-100 ${
           imgPosition || "object-top"
         }`}

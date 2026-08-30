@@ -1,0 +1,17 @@
+{
+  "short_name": "B.S 力線體",
+  "name": "B.S 力線體｜桃園肌力與體能訓練工作室",
+  "description": "桃園肌力與體能、銀髮族抗老化、私人教練與格鬥課程。",
+  "icons": [
+    {
+      "src": "mark.jpg",
+      "sizes": "any",
+      "type": "image/jpeg"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#171717",
+  "background_color": "#171717",
+  "lang": "zh-TW"
+}
