@@ -61,6 +61,47 @@ const toAbsoluteUrl = (path) => new URL(path, SITE_URL).toString();
 // --- Dummy Data for Articles (SEO Focused) ---
 const BLOG_POSTS = [
   {
+    id: 12,
+    title: "💪 肌力訓練一定要練很壯嗎？不是健美也能受益！",
+    excerpt:
+      "肌力訓練不等於健美或健體，也不需要把肌肉練得很大塊。陳麒舜教練分享：一般人訓練的重點，是保有完成日常生活的力量，讓自己活得更輕鬆，也有能力保護自己與家人。",
+    date: "2026-09-02",
+    author: "陳麒舜 教練",
+    category: "肌力訓練",
+    tags: ["#桃園健身房", "#桃園肌力訓練", "#肌力與體能"],
+    image: "/strength-training-for-life.jpg",
+    content: `
+      <p>「教練，我做肌力訓練，是不是一定要練得很壯、肌肉很大塊？」🤔</p>
+      <br/>
+      <p>這是很多第一次接觸重量訓練的人最常問的問題。其實答案很簡單：<strong>不用！</strong>肌力訓練和健美、健體的目標並不相同。你不需要把身材練成比賽選手，也不必為了開始訓練，就過著極端嚴格的飲食生活。</p>
+      <br/>
+      <h3 class="text-xl font-bold text-orange-500 mb-2">🏋️ 肌力訓練，不等於健美或健體</h3>
+      <p>健美與健體是專項運動，選手會追求肌肉量、比例、線條與舞台呈現，因此訓練量、體脂控制和飲食安排都有很高的標準。</p>
+      <br/>
+      <p>一般人的<strong>肌力訓練</strong>，目標可以完全不同。我們訓練的是身體產生力量的能力，讓肌肉、骨骼與動作控制能夠應付生活需要，而不是要求每個人都練成相同的外型。</p>
+      <br/>
+      <h3 class="text-xl font-bold text-orange-500 mb-2">🍚 不必完美飲食，先建立能長久維持的習慣</h3>
+      <p>規律吃飯、攝取足夠蛋白質、蔬菜與水分，當然有助於訓練和恢復；但一般健康訓練不代表從此不能聚餐、不能吃喜歡的食物，更不需要每天精算到讓自己壓力很大。</p>
+      <br/>
+      <p>真正重要的是找到<strong>能持續很多年的做法</strong>。比起短時間非常嚴格，然後很快放棄，穩定訓練、好好休息，並在大部分時間做出適合自己的飲食選擇，通常更符合一般人的生活。</p>
+      <br/>
+      <h3 class="text-xl font-bold text-orange-500 mb-2">🧺 我們真正要練的，是「生活的能力」</h3>
+      <p>隨著年齡增加，如果缺乏活動和適當刺激，肌力可能逐漸下降。提東西、搬行李、抱小孩、爬樓梯、從地上站起來，原本很自然的事情，都可能慢慢變得吃力。</p>
+      <br/>
+      <p>規律的<strong>桃園肌力訓練</strong>，就是在替未來的生活存下力量。當身體有足夠的腿力、握力、軀幹穩定與全身協調，日常活動會更從容，也比較不容易因為一點體力工作就累得受不了。💪</p>
+      <br/>
+      <h3 class="text-xl font-bold text-orange-500 mb-2">🛡️ 有力量，才有保護自己與家人的底氣</h3>
+      <p>力量不只是健身房裡槓片上的數字。遇到需要搬動重物、扶住跌倒的家人、抱起孩子，或在突發狀況中穩住自己時，平常累積的肌力都可能派上用場。</p>
+      <br/>
+      <p>我們不需要追求變成力氣最大的人，但應該讓自己在生活需要力量的時候，還有能力做出反應。這份能力，就是肌力帶來的安全感與自由。</p>
+      <br/>
+      <h3 class="text-xl font-bold text-orange-500 mb-2">🌱 從適合自己的重量開始就好</h3>
+      <p>不論你現在幾歲、以前有沒有運動經驗，都不必急著跟別人比較。專業的<strong>肌力與體能</strong>訓練，會依照你的身體狀況、動作能力與生活目標，循序漸進安排重量與難度。</p>
+      <br/>
+      <p class="text-lg font-bold text-white border-l-4 border-orange-500 pl-4 py-2 bg-neutral-800 rounded-r-lg">肌力訓練不是為了把每個人都練成健美選手，而是讓我們有力氣過自己想要的生活。想安全開始訓練，歡迎來桃園 B.S 力線體，讓教練陪你一步一步把力量存起來！🙌</p>
+    `,
+  },
+  {
     id: 11,
     title: "🥊 【格鬥×肌力】打拳沒力、摔技卡卡？專項選手為什麼一定要練肌力！",
     excerpt: "「格鬥選手要練肌力嗎？」這題答案絕對是肯定的！麒舜教練用十幾年的格鬥經驗告訴你，為什麼練完肌力不只拳頭變重，連摔技對抗都差超多...",
@@ -1243,22 +1284,11 @@ const HomePageContent = ({ scrollToSection }) => {
                   title="進階肌力班"
                 />
 
-                <div className="p-4 bg-neutral-800 rounded-xl border-l-4 border-blue-500">
-                  <div className="flex justify-between items-center mb-2">
-                    <span className="font-bold text-lg">星期二</span>
-                  </div>
-                  <div className="space-y-2 text-sm">
-                    <div className="flex justify-between text-gray-300">
-                      <span className="font-mono">10:30-11:50</span>{" "}
-                      <span>初階肌力班</span>
-                    </div>
-
-                    <div className="flex justify-between text-white font-medium">
-                      <span className="font-mono">20:00-21:20</span>{" "}
-                      <span>進階肌力班</span>
-                    </div>
-                  </div>
-                </div>
+                <ScheduleItem
+                  day="星期二"
+                  time="20:00 - 21:20"
+                  title="進階肌力班"
+                />
 
                 <ScheduleItem
                   day="星期三"
