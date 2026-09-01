@@ -24,6 +24,7 @@ import {
   Search,
   Share2,
   Check,
+  Flower2,
 } from "lucide-react";
 
 const SITE_URL = "https://www.bs-strength.com/";
@@ -1280,59 +1281,65 @@ const HomePageContent = ({ scrollToSection }) => {
               <div className="space-y-4">
                 <ScheduleItem
                   day="星期一"
-                  time="19:30 - 20:50"
-                  title="進階肌力班"
+                  classes={[
+                    {
+                      time: "19:30 - 20:50",
+                      title: "進階肌力班",
+                      beginnerFriendly: true,
+                    },
+                  ]}
                 />
 
                 <ScheduleItem
                   day="星期二"
-                  time="20:00 - 21:20"
-                  title="進階肌力班"
+                  classes={[
+                    {
+                      time: "20:00 - 21:20",
+                      title: "進階肌力班",
+                      beginnerFriendly: true,
+                    },
+                  ]}
                 />
 
                 <ScheduleItem
                   day="星期三"
-                  time="20:00 - 21:20"
-                  title="進階肌力班"
+                  classes={[
+                    { time: "20:00 - 21:20", title: "進階肌力班" },
+                  ]}
                 />
 
-                <div className="p-4 bg-neutral-800 rounded-xl border-l-4 border-green-500">
-                  <div className="flex justify-between items-center mb-2">
-                    <span className="font-bold text-lg">星期四</span>
-                  </div>
-                  <div className="space-y-2 text-sm">
-                    <div className="flex justify-between text-white font-medium">
-                      <span className="font-mono">18:00-19:20</span>{" "}
-                      <span>進階肌力班</span>
-                    </div>
-                    <div className="flex justify-between text-gray-300">
-                      <span className="font-mono">19:30-20:50</span>{" "}
-                      <span>長者肌力班</span>
-                    </div>
-                  </div>
-                </div>
+                <ScheduleItem
+                  day="星期四"
+                  accent="green"
+                  classes={[
+                    { time: "18:00 - 19:20", title: "進階肌力班" },
+                    {
+                      time: "19:30 - 20:50",
+                      title: "長者肌力班",
+                      beginnerFriendly: true,
+                    },
+                  ]}
+                />
 
                 <ScheduleItem
                   day="星期六"
-                  time="14:00 - 15:20"
-                  title="初階肌力班"
+                  classes={[
+                    {
+                      time: "14:00 - 15:20",
+                      title: "初階肌力班",
+                      beginnerFriendly: true,
+                    },
+                  ]}
                 />
 
-                <div className="p-4 bg-neutral-800 rounded-xl border-l-4 border-red-500">
-                  <div className="flex justify-between items-center mb-2">
-                    <span className="font-bold text-lg">星期日</span>
-                  </div>
-                  <div className="space-y-2 text-sm">
-                    <div className="flex justify-between text-gray-300">
-                      <span className="font-mono">18:00-19:00</span>{" "}
-                      <span>泰拳 Muay Thai</span>
-                    </div>
-                    <div className="flex justify-between text-gray-300">
-                      <span className="font-mono">19:00-20:00</span>{" "}
-                      <span>柔術 Jiu-Jitsu</span>
-                    </div>
-                  </div>
-                </div>
+                <ScheduleItem
+                  day="星期日"
+                  accent="red"
+                  classes={[
+                    { time: "18:00 - 19:00", title: "泰拳 Muay Thai" },
+                    { time: "19:00 - 20:00", title: "柔術 Jiu-Jitsu" },
+                  ]}
+                />
               </div>
             </div>
 
@@ -1987,20 +1994,44 @@ const FeatureCard = ({ image, title, description, altText }) => (
   </div>
 );
 
-const ScheduleItem = ({ day, time, title }) => (
+const SCHEDULE_ACCENT_CLASSES = {
+  orange: "border-orange-500",
+  green: "border-green-500",
+  red: "border-red-500",
+};
+
+const ScheduleItem = ({ day, classes, accent = "orange" }) => (
   <div
-    className={`p-4 rounded-xl border-l-4 border-orange-500 bg-neutral-800 hover:bg-neutral-700/80 transition-colors`}
+    className={`p-4 rounded-xl border-l-4 bg-neutral-800 hover:bg-neutral-700/80 transition-colors ${
+      SCHEDULE_ACCENT_CLASSES[accent] || SCHEDULE_ACCENT_CLASSES.orange
+    }`}
   >
-    <div className="flex justify-between items-center">
-      <div>
-        <span className="font-bold text-lg text-white block">{day}</span>
-        <span className="text-gray-400 font-mono text-sm">{time}</span>
-      </div>
-      <span
-        className={`px-3 py-1 rounded-full text-sm font-bold bg-neutral-700 text-white`}
-      >
-        {title}
-      </span>
+    <span className="font-bold text-lg text-white block mb-3">{day}</span>
+
+    <div className="divide-y divide-neutral-700/70">
+      {classes.map(({ time, title, beginnerFriendly }) => (
+        <div
+          key={`${day}-${time}-${title}`}
+          className="grid grid-cols-[minmax(6.5rem,auto)_1fr] items-center gap-3 py-3 first:pt-0 last:pb-0"
+        >
+          <span className="text-gray-300 font-mono text-sm whitespace-nowrap">
+            {time}
+          </span>
+
+          <div className="flex flex-wrap items-center justify-end gap-2">
+            <span className="px-3 py-1 rounded-full text-sm font-bold bg-neutral-700 text-white whitespace-nowrap">
+              {title}
+            </span>
+
+            {beginnerFriendly && (
+              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full border border-green-500/40 bg-green-500/10 text-green-300 text-xs font-bold whitespace-nowrap">
+                <Flower2 size={14} aria-hidden="true" />
+                新手友善
+              </span>
+            )}
+          </div>
+        </div>
+      ))}
     </div>
   </div>
 );
