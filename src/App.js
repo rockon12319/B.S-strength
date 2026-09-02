@@ -1344,27 +1344,31 @@ const HomePageContent = ({ scrollToSection }) => {
             </div>
 
             <div className="space-y-6">
-              <div className="relative bg-neutral-900 rounded-2xl shadow-xl border border-neutral-700/50 overflow-hidden group hover:border-orange-500/30 transition-colors h-full">
-                <div className="absolute inset-0 z-0">
+              <div className="bg-neutral-900 rounded-2xl shadow-xl border border-neutral-700/50 overflow-hidden group hover:border-orange-500/40 transition-colors h-full">
+                <div className="relative h-56 overflow-hidden bg-neutral-800">
                   <img
                     src="/1V1.jpg"
                     alt="桃園一對一私人教練 - B.S 力線體"
                     loading="lazy"
                     decoding="async"
-                    className="w-full h-full object-cover opacity-80 group-hover:opacity-50 transition-opacity duration-500"
+                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                     onError={(e) => {
                       e.target.style.display = "none";
                     }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-r from-neutral-900 via-neutral-900/95 to-neutral-900/60"></div>
+                  <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-neutral-950 via-neutral-950/65 to-transparent"></div>
+                  <div className="absolute inset-x-0 bottom-0 p-6">
+                    <span className="inline-block text-sm font-bold text-orange-300 mb-1">
+                      一對一專業指導
+                    </span>
+                    <h3 className="text-2xl font-bold flex items-center gap-2">
+                      <span className="bg-orange-500 w-2 h-8 rounded-full"></span>
+                      桃園私人教練課程
+                    </h3>
+                  </div>
                 </div>
 
-                <div className="relative z-10 p-8">
-                  <h3 className="text-2xl font-bold mb-6 flex items-center gap-2">
-                    <span className="bg-orange-600 w-2 h-8 rounded-full"></span>
-                    桃園私人教練課程
-                  </h3>
-
+                <div className="p-6 sm:p-8">
                   <div className="space-y-6">
                     <div className="border-b border-neutral-700/50 pb-4">
                       <h4 className="text-lg font-bold text-orange-400 mb-2">
@@ -1402,28 +1406,41 @@ const HomePageContent = ({ scrollToSection }) => {
             </div>
 
             <div className="space-y-6">
-              <div className="relative bg-neutral-900 rounded-2xl shadow-xl border border-neutral-700/50 overflow-hidden group hover:border-green-500/30 transition-colors">
-                <div className="absolute inset-0 z-0">
+              <div className="bg-neutral-900 rounded-2xl shadow-xl border border-neutral-700/50 overflow-hidden group hover:border-green-500/40 transition-colors">
+                <div className="relative h-52 overflow-hidden bg-neutral-800">
                   <img
                     src="/daily.webp"
                     alt="桃園肌力訓練團體班 - 銀髮族與抗老化"
                     loading="lazy"
                     decoding="async"
-                    className="w-full h-full object-cover opacity-80 group-hover:opacity-50 transition-opacity duration-500"
+                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                     onError={(e) => {
                       e.target.style.display = "none";
                     }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-r from-neutral-900 via-neutral-900/95 to-neutral-900/60"></div>
+                  <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-neutral-950 via-neutral-950/65 to-transparent"></div>
+                  <div className="absolute inset-x-0 bottom-0 p-6">
+                    <span className="inline-block text-sm font-bold text-green-300 mb-1">
+                      小班制肌力訓練
+                    </span>
+                    <h3 className="text-2xl font-bold flex items-center gap-2">
+                      <span className="bg-green-500 w-2 h-8 rounded-full"></span>
+                      桃園肌力團體班
+                    </h3>
+                  </div>
                 </div>
 
-                <div className="relative z-10 p-8">
-                  <h3 className="text-2xl font-bold mb-6 flex items-center gap-2">
-                    <span className="bg-green-600 w-2 h-8 rounded-full"></span>
-                    桃園肌力團體班
-                  </h3>
-
+                <div className="p-6 sm:p-8">
                   <div className="space-y-4">
+                    <div className="flex justify-between items-center border-b border-neutral-700/50 pb-3">
+                      <div>
+                        <span className="block font-bold">單堂團體課程</span>
+                        <span className="text-xs text-gray-400">單次參加</span>
+                      </div>
+                      <span className="text-2xl font-bold text-green-400">
+                        $600
+                      </span>
+                    </div>
                     <div className="flex justify-between items-center border-b border-neutral-700/50 pb-2">
                       <div>
                         <span className="block font-bold">初階肌力班</span>
@@ -1461,27 +1478,31 @@ const HomePageContent = ({ scrollToSection }) => {
                 </div>
               </div>
 
-              <div className="relative bg-neutral-900 rounded-2xl shadow-xl border border-neutral-700/50 overflow-hidden group hover:border-purple-500/30 transition-colors">
-                <div className="absolute inset-0 z-0">
+              <div className="bg-neutral-900 rounded-2xl shadow-xl border border-neutral-700/50 overflow-hidden group hover:border-purple-500/40 transition-colors">
+                <div className="relative h-48 overflow-hidden bg-neutral-800">
                   <img
                     src="/massage1.jpg"
                     alt="桃園運動按摩與筋膜放鬆"
                     loading="lazy"
                     decoding="async"
-                    className="w-full h-full object-cover opacity-80 group-hover:opacity-50 transition-opacity duration-500"
+                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                     onError={(e) => {
                       e.target.style.display = "none";
                     }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-r from-neutral-900 via-neutral-900/95 to-neutral-900/60"></div>
+                  <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-neutral-950 via-neutral-950/65 to-transparent"></div>
+                  <div className="absolute inset-x-0 bottom-0 p-6">
+                    <span className="inline-block text-sm font-bold text-purple-300 mb-1">
+                      70 分鐘運動按摩
+                    </span>
+                    <h3 className="text-2xl font-bold flex items-center gap-2">
+                      <span className="bg-purple-500 w-2 h-8 rounded-full"></span>
+                      專業運動按摩修復
+                    </h3>
+                  </div>
                 </div>
 
-                <div className="relative z-10 p-8">
-                  <h3 className="text-2xl font-bold mb-6 flex items-center gap-2">
-                    <span className="bg-purple-600 w-2 h-8 rounded-full"></span>
-                    專業運動按摩修復
-                  </h3>
-
+                <div className="p-6 sm:p-8">
                   <div className="space-y-4">
                     <div className="flex justify-between items-center">
                       <div>
