@@ -25,6 +25,9 @@ import {
   Share2,
   Check,
   Flower2,
+  Car,
+  Navigation,
+  Footprints,
 } from "lucide-react";
 
 const SITE_URL = "https://www.bs-strength.com/";
@@ -765,7 +768,7 @@ const BSGymWebsite = () => {
               onClick={() => scrollToSection("location")}
               className="hover:text-orange-500 transition-colors"
             >
-              聯絡資訊
+              交通與聯絡
             </button>
             <button
               onClick={() => scrollToSection("contact")}
@@ -824,7 +827,7 @@ const BSGymWebsite = () => {
                 onClick={() => scrollToSection("location")}
                 className="py-2 hover:text-orange-500 border-b border-neutral-700/50"
               >
-                聯絡資訊
+                交通與聯絡
               </button>
               <button
                 onClick={() => scrollToSection("contact")}
@@ -893,7 +896,7 @@ const BSGymWebsite = () => {
                 onClick={() => scrollToSection("location")}
                 className="hover:text-orange-500 transition-colors"
               >
-                地址與聯絡方式
+                停車、地址與聯絡方式
               </button>
             </div>
           </div>
@@ -1799,7 +1802,10 @@ const HomePageContent = ({ scrollToSection }) => {
             />
             <FaqItem
               question="請問附近好停車嗎？"
-              answer="我們位於桃園市政府附近，周邊有許多路邊停車格以及收費停車場，步行至工作室僅需幾分鐘，對於開車或騎車來的桃園朋友都非常便利。"
+              answer="可以，附近有 Times 桃園仁愛路停車場，以及文中路 7-ELEVEN 文中門市旁的全方位停車場文中站。下方有兩個停車場的導航連結，以及從文中站走到工作室的紅線捷徑圖。"
+              linkTo="parking"
+              linkLabel="查看停車位置與步行路線"
+              scrollToSection={scrollToSection}
             />
             <FaqItem
               question="上課需要準備什麼裝備？"
@@ -1922,6 +1928,128 @@ const HomePageContent = ({ scrollToSection }) => {
                 loading="lazy"
                 className="filter grayscale contrast-125 hover:filter-none transition-all duration-700"
               ></iframe>
+            </div>
+          </div>
+
+          <div id="parking" className="mt-16 scroll-mt-24">
+            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-8">
+              <div>
+                <div className="inline-flex items-center gap-2 text-orange-400 font-bold mb-3">
+                  <Car size={22} aria-hidden="true" />
+                  開車來上課
+                </div>
+                <h3 className="text-3xl md:text-4xl font-bold text-white mb-3">
+                  附近停車場資訊
+                </h3>
+                <p className="text-gray-400 text-base md:text-lg">
+                  先選停車場開啟導航，停好車後再步行前往 B.S 力線體。
+                </p>
+              </div>
+              <p className="text-sm text-gray-400 bg-neutral-900/70 border border-neutral-700 rounded-full px-4 py-2 self-start md:self-auto">
+                車位與收費請以停車場現場公告為準
+              </p>
+            </div>
+
+            <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-6 items-start">
+              <div className="space-y-4">
+                <article className="bg-neutral-900 rounded-2xl border border-orange-500/30 p-6 shadow-xl">
+                  <div className="flex items-start gap-4">
+                    <span className="flex items-center justify-center w-10 h-10 rounded-full bg-orange-500 text-white font-black text-lg shrink-0">
+                      1
+                    </span>
+                    <div className="min-w-0">
+                      <h4 className="text-xl font-bold text-white mb-2">
+                        Times 桃園仁愛路停車場
+                      </h4>
+                      <p className="text-gray-300 mb-3">
+                        桃園市桃園區仁愛路 42 號
+                      </p>
+                      <div className="flex flex-wrap gap-2 mb-5 text-sm">
+                        <span className="px-3 py-1 rounded-full bg-orange-500/10 text-orange-300 border border-orange-500/20">
+                          24 小時開放
+                        </span>
+                        <span className="px-3 py-1 rounded-full bg-neutral-800 text-gray-300 border border-neutral-700">
+                          仁愛路方向
+                        </span>
+                      </div>
+                      <a
+                        href="https://maps.app.goo.gl/1xbPx12t5L8hD2XQ8"
+                        target="_blank"
+                        rel="noreferrer noopener"
+                        className="inline-flex items-center gap-2 bg-orange-600 hover:bg-orange-500 text-white font-bold px-5 py-3 rounded-xl transition-colors"
+                      >
+                        <Navigation size={18} aria-hidden="true" />
+                        開啟 Google 地圖導航
+                      </a>
+                    </div>
+                  </div>
+                </article>
+
+                <article className="bg-neutral-900 rounded-2xl border border-green-500/30 p-6 shadow-xl">
+                  <div className="flex items-start gap-4">
+                    <span className="flex items-center justify-center w-10 h-10 rounded-full bg-green-500 text-neutral-950 font-black text-lg shrink-0">
+                      2
+                    </span>
+                    <div className="min-w-0">
+                      <h4 className="text-xl font-bold text-white mb-2">
+                        全方位停車場文中站
+                      </h4>
+                      <p className="text-gray-300 mb-1">
+                        桃園市桃園區文中路 51 號一帶
+                      </p>
+                      <p className="text-green-300 text-sm font-medium mb-3">
+                        7-ELEVEN 文中門市旁，可走下方紅線小路
+                      </p>
+                      <div className="flex flex-wrap gap-2 mb-5 text-sm">
+                        <span className="px-3 py-1 rounded-full bg-green-500/10 text-green-300 border border-green-500/20">
+                          24 小時開放
+                        </span>
+                        <span className="px-3 py-1 rounded-full bg-neutral-800 text-gray-300 border border-neutral-700">
+                          有步行捷徑
+                        </span>
+                      </div>
+                      <a
+                        href="https://maps.app.goo.gl/Je1UFWhzWnZYaZoR6"
+                        target="_blank"
+                        rel="noreferrer noopener"
+                        className="inline-flex items-center gap-2 bg-green-600 hover:bg-green-500 text-white font-bold px-5 py-3 rounded-xl transition-colors"
+                      >
+                        <Navigation size={18} aria-hidden="true" />
+                        開啟 Google 地圖導航
+                      </a>
+                    </div>
+                  </div>
+                </article>
+              </div>
+
+              <figure className="bg-neutral-900 rounded-2xl border border-neutral-700 overflow-hidden shadow-2xl">
+                <img
+                  src="/parking-route-wenzhong.png"
+                  alt="從全方位停車場文中站沿小路步行至 B.S 力線體的紅線路線圖"
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-auto block"
+                  onError={(e) => {
+                    e.target.style.display = "none";
+                  }}
+                />
+                <figcaption className="p-5 md:p-6 border-t border-neutral-700">
+                  <div className="flex items-start gap-3">
+                    <div className="bg-red-500/10 text-red-400 p-2 rounded-lg shrink-0">
+                      <Footprints size={22} aria-hidden="true" />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-white text-lg mb-1">
+                        紅線就是步行捷徑
+                      </h4>
+                      <p className="text-gray-400 leading-relaxed">
+                        從全方位停車場文中站停好車後，沿紅線小路走到 B.S
+                        力線體，可以少繞一大圈。
+                      </p>
+                    </div>
+                  </div>
+                </figcaption>
+              </figure>
             </div>
           </div>
         </div>
@@ -2229,7 +2357,13 @@ const ReviewCard = ({ name, tag, content }) => (
   </div>
 );
 
-const FaqItem = ({ question, answer, linkTo, scrollToSection }) => {
+const FaqItem = ({
+  question,
+  answer,
+  linkTo,
+  linkLabel = "前往查看詳細費用",
+  scrollToSection,
+}) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleScrollClick = () => {
@@ -2253,7 +2387,7 @@ const FaqItem = ({ question, answer, linkTo, scrollToSection }) => {
       </button>
       <div
         className={`overflow-hidden transition-all duration-300 ${
-          isOpen ? "max-h-48 opacity-100 mb-4" : "max-h-0 opacity-0"
+          isOpen ? "max-h-64 opacity-100 mb-4" : "max-h-0 opacity-0"
         }`}
       >
         <div className="text-gray-400 leading-relaxed bg-neutral-900/50 p-4 rounded-lg">
@@ -2264,7 +2398,7 @@ const FaqItem = ({ question, answer, linkTo, scrollToSection }) => {
                 onClick={handleScrollClick}
                 className="text-orange-500 hover:text-orange-400 font-bold text-sm flex items-center gap-1"
               >
-                前往查看詳細費用 <ArrowRight size={14} />
+                {linkLabel} <ArrowRight size={14} />
               </button>
             </div>
           )}
