@@ -2453,4 +2453,3 @@ const FaqItem = ({
 };
 
 export default BSGymWebsite;
-
