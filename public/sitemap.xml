@@ -10,6 +10,7 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url><loc>https://www.bs-strength.com/?article=13</loc><lastmod>2026-09-07</lastmod><priority>0.7</priority></url>
   <url><loc>https://www.bs-strength.com/?article=12</loc><lastmod>2026-09-02</lastmod><priority>0.7</priority></url>
   <url><loc>https://www.bs-strength.com/?article=11</loc><lastmod>2026-08-10</lastmod><priority>0.7</priority></url>
   <url><loc>https://www.bs-strength.com/?article=10</loc><lastmod>2026-06-30</lastmod><priority>0.7</priority></url>
@@ -23,3 +24,4 @@
   <url><loc>https://www.bs-strength.com/?article=2</loc><lastmod>2024-12-28</lastmod><priority>0.7</priority></url>
   <url><loc>https://www.bs-strength.com/?article=3</loc><lastmod>2024-12-15</lastmod><priority>0.7</priority></url>
 </urlset>
+
