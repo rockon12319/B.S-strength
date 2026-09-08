@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { articlePath, resolvePage } from "./routes";
+import "./styles.css";
 import {
   Menu,
   X,
@@ -62,8 +64,8 @@ const updateCanonicalUrl = (url) => {
 
 const toAbsoluteUrl = (path) => new URL(path, SITE_URL).toString();
 
-// --- Dummy Data for Articles (SEO Focused) ---
-const BLOG_POSTS = [
+// Article content shared by the interactive site and static page generation.
+export const BLOG_POSTS = [
   {
     id: 13,
     title: "🌱 肌力訓練也能沒有壓力｜怪獸訓練系統背景的阿瑋教練",
@@ -151,8 +153,9 @@ const BLOG_POSTS = [
   },
   {
     id: 11,
+    modified: "2026-09-08",
     title: "🥊 【格鬥×肌力】打拳沒力、摔技卡卡？專項選手為什麼一定要練肌力！",
-    excerpt: "「格鬥選手要練肌力嗎？」這題答案絕對是肯定的！麒舜教練用十幾年的格鬥經驗告訴你，為什麼練完肌力不只拳頭變重，連摔技對抗都差超多...",
+    excerpt: "格鬥選手為什麼要安排肌力訓練？麒舜教練分享十幾年的格鬥經驗，聊聊力量基礎如何配合出拳、摔技與專項練習。",
     date: "2026-08-10",
     author: "陳麒舜 教練",
     category: "肌力訓練",
@@ -161,10 +164,10 @@ const BLOG_POSTS = [
     content: `
       <p>常常有人問：「打格鬥技巧好就好，還需要另外花時間練肌力嗎？」🤔</p>
       <br/>
-      <p>其實不只是格鬥，任何專項選手練了<strong>肌力訓練</strong>，場上表現絕對會突飛猛進！今天就來跟大家聊聊這背後的秘密。👇</p>
+      <p>其實不只是格鬥，適當的<strong>肌力訓練</strong>能為專項運動建立力量基礎；實際表現仍取決於技術練習、課表與恢復。今天就來跟大家聊聊這背後的秘密。👇</p>
       <br/>
       <h3 class="text-xl font-bold text-orange-500 mb-2">🛡️ 變強壯、受傷少，專項表現大升級！</h3>
-      <p>很多人以為練好專項技術就夠了，但加入專業的<strong>肌力與體能</strong>訓練，不僅可以讓你更有效率地徵召肌肉與發揮力量，最重要的是能「保護你的身體」！在激烈對抗或高強度競技中，強健的身體素質就是預防運動傷害最強的護盾。💪</p>
+      <p>很多人以為練好專項技術就夠了，但加入專業的<strong>肌力與體能</strong>訓練，不僅可以讓你更有效率地徵召肌肉與發揮力量，最重要的是能「保護你的身體」！在激烈對抗或高強度競技中，良好的身體素質有助於承受運動負荷，但不能保證不受傷，仍需要技術、恢復與合理的訓練安排。💪</p>
       <br/>
       <h3 class="text-xl font-bold text-orange-500 mb-2">🥊 麒舜教練的十幾年血淚經驗談</h3>
       <p>回想我這十幾年的格鬥生涯，真的是點滴在心頭啊！😂 以前還沒有接觸系統化訓練前，總覺得明明很用力了，但打出去的拳頭就是沒什麼破壞力。</p>
@@ -172,13 +175,14 @@ const BLOG_POSTS = [
       <p>直到開始認真投入<strong>桃園肌力訓練</strong>之後，才發現世界完全不一樣了！不僅出拳的爆發力與穿透力差了非常多，甚至在近身纏鬥、摔技對抗的時候，身體的穩定度跟力量抗衡也有著天壤之別！這也是為什麼我們在<strong>桃園健身房</strong>一直大力推廣重量訓練的原因。🔥</p>
       <br/>
       <h3 class="text-xl font-bold text-orange-500 mb-2">🌱 任何人都能透過訓練變得更好</h3>
-      <p>不只是競技選手需要，一般大眾也一樣喔！在 <strong>bs-strength</strong> 的課程中，無論你是想提升運動表現、想要<strong>抗老化訓練</strong>的熟齡族群，或是需要<strong>銀髮族訓練</strong>的長輩，我們 B.S 力線體的教練團隊都能幫你打下最穩固的身體基礎！🏋️‍♂️</p>
+      <p>不只是競技選手需要，一般大眾也一樣喔！在 <strong>bs-strength</strong> 的課程中，無論你是想提升運動表現、想要<strong>抗老化訓練</strong>的熟齡族群，或是需要<strong>銀髮族訓練</strong>的長輩，我們 B.S 力線體的教練團隊都能幫你打下適合自己的身體基礎！🏋️‍♂️</p>
       <br/>
       <p class="text-lg font-bold text-white border-l-4 border-orange-500 pl-4 py-2 bg-neutral-800 rounded-r-lg">想體會力量充盈全身的感覺嗎？別再讓身體潛能沉睡了，歡迎來<strong>桃園健身</strong>找我們，一起把身體的潛力發揮到極致吧！💥</p>
     `,
   },
   {
     id: 10,
+    modified: "2026-09-08",
     title: "🧑‍🤝‍🧑 【團體課 vs. 私人課】怎麼選？帶你認識 B.S 團體課程的獨特魅力！",
     excerpt:
       "常常有人問：「教練，我到底適合上團體課還是私人教練課呢？」除了預算考量，其實這兩種課程的氛圍與優勢大不相同！今天就來聊聊團體課的隱藏好處...",
@@ -204,7 +208,7 @@ const BLOG_POSTS = [
       <h3 class="text-xl font-bold text-orange-500 mb-2">🤝 團體課程的隱藏版好處</h3>
       <p>其實，團體課不僅僅是省荷包而已，它還有很多意想不到的收穫喔！</p>
       <br/>
-      <p><strong>1. 互相推坑（鼓勵）的革命情感：</strong><br/>自己一個人練，有時候難免會想偷懶，但看到隔壁同學還在咬牙堅持，你就會告訴自己：「我也不能輸！」這種良性競爭與互相鼓勵，是進步的最強動力！🔥</p>
+      <p><strong>1. 互相鼓勵的革命情感：</strong><br/>自己一個人練，有時候難免提不起勁，但看到同學也在努力，就更有動力繼續。大家可以互相鼓勵，同時依照自己的能力調整，不需要和別人比重量！🔥</p>
       <br/>
       <p><strong>2. 超棒的社交圈：</strong><br/>在我們的團體課裡，你可以認識各行各業的同學！有工程師、老師、家庭主婦、自己創業的老闆... 大家因為「想變強壯」這個共同目標聚在一起，練完常常還會一起去吃個好料，生活圈瞬間擴大不少呢！👯‍♂️</p>
       <br/>
@@ -327,6 +331,7 @@ const BLOG_POSTS = [
   },
   {
     id: 6,
+    modified: "2026-09-08",
     title: "🥊 「拳怕少壯」是真的嗎？陳麒舜教練談：肌力與運動表現的黃金公式",
     excerpt:
       "身為一名格鬥專項教練，在擂台上打滾多年，我最常被問到的問題之一就是：「如果我的技術已經練得很爐火純青了，我還需要練肌力嗎？」...",
@@ -362,19 +367,20 @@ const BLOG_POSTS = [
       <h3 class="text-xl font-bold text-orange-500 mb-2">🛠️ 分工合作，才能發揮最大戰力！</h3>
       <p>想要變強，你需要雙管齊下。但請記得，這兩者的訓練目標是不同的：</p>
       <ul class="space-y-4 my-4 text-gray-300">
-        <li><strong>✅ 想增強身體素質？</strong><br/>你應該透過系統化的「力量訓練」來達成。這也是我們 B.S 力線體 最擅長的事，幫你打好身體的根基，讓你擁有抗老化、防受傷的強韌肉體。</li>
+        <li><strong>✅ 想增強身體素質？</strong><br/>你應該透過系統化的「力量訓練」來達成。這也是我們 B.S 力線體 最擅長的事，幫你打好身體的根基，讓你擁有應付日常活動與運動需求的力量。</li>
         <li><strong>✅ 想精進專項技巧？</strong><br/>那就必須交給「專業的專項教練」。只有在該領域大量累積經驗的人，才會知道最深層的門道與技巧。如果專項教練沒辦法教會你技術，單純的健身教練通常更難跨越這個門檻。</li>
       </ul>
       <br/>
       <h3 class="text-xl font-bold text-orange-500 mb-2">🌟 結語：投資你的「身體資產」</h3>
-      <p>不管你是職業運動員，還是熱愛運動的素人，甚至是追求健康生活的銀髮族，肌力訓練都是你最穩賺不賠的投資。</p>
+      <p>不管你是職業運動員、熱愛運動的素人，或是希望維持生活品質的銀髮族，都可以從適合自己的肌力訓練開始，慢慢累積力量。</p>
       <br/>
       <p>當你有了強大的肌力支撐，你的技術才能發揮得淋漓盡致，不會因為「力不從心」而留下遺憾。讓我們一起在 B.S 力線體，把身體素質練起來，讓你的運動表現跟著升級吧！🚀</p>
     `,
   },
   {
     id: 5,
-    title: "投資健康，是這輩子回報率最高的事：一場「穩賺不賠」的人生經營",
+    modified: "2026-09-08",
+    title: "投資健康，從累積肌力開始：讓日常生活更有餘裕",
     excerpt:
       "在這個變動的時代，我們研究各種投資標的，卻常忽略了最重要的資產——「身體」。健身不只是為了變好看，更是一場守護生活品質的長期抗戰...",
     date: "2026-01-24",
@@ -491,18 +497,19 @@ const BLOG_POSTS = [
   },
 ];
 
-const BSGymWebsite = () => {
-  const [currentView, setCurrentView] = useState("home");
-  const [selectedPostId, setSelectedPostId] = useState(null);
+const BSGymWebsite = ({ initialPage }) => {
+  const [page, setPage] = useState(() => initialPage || resolvePage(window.location.pathname, window.location.search));
+  const currentView = page.view;
+  const selectedPostId = page.postId;
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const selectedPost = BLOG_POSTS.find((post) => post.id === selectedPostId);
   const currentCanonicalUrl =
     currentView === "post" && selectedPost
-      ? `${SITE_URL}?article=${selectedPost.id}`
+      ? toAbsoluteUrl(articlePath(selectedPost.id))
       : currentView === "blog"
-        ? `${SITE_URL}?view=blog`
-        : SITE_URL;
+        ? toAbsoluteUrl("/articles")
+        : currentView === "notfound" ? toAbsoluteUrl("/404") : SITE_URL;
 
   useEffect(() => {
     let title = DEFAULT_TITLE;
@@ -523,14 +530,19 @@ const BSGymWebsite = () => {
       type = "article";
     }
 
+    if (currentView === "notfound") {
+      title = "找不到這個頁面｜B.S 力線體";
+      description = "您要找的頁面不存在，歡迎查看 B.S 力線體肌力訓練文章。";
+    }
     document.documentElement.lang = "zh-TW";
     document.title = title;
-    updateCanonicalUrl(currentCanonicalUrl);
+    if (currentView !== "notfound") updateCanonicalUrl(currentCanonicalUrl);
+    else document.head.querySelector('link[rel="canonical"]')?.remove();
     updateMetaTag("name", "description", description);
     updateMetaTag(
       "name",
       "robots",
-      "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+      currentView === "notfound" ? "noindex, follow" : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
     );
     updateMetaTag("property", "og:title", title);
     updateMetaTag("property", "og:description", description);
@@ -580,24 +592,12 @@ const BSGymWebsite = () => {
     },
     geo: {
       "@type": "GeoCoordinates",
-      latitude: 24.9969,
-      longitude: 121.328,
+      latitude: 24.9943462,
+      longitude: 121.2934289,
     },
     openingHoursSpecification: [
-      {
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: [
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday",
-          "Saturday",
-          "Sunday",
-        ],
-        opens: "10:00",
-        closes: "22:00",
-      },
+      { "@type": "OpeningHoursSpecification", dayOfWeek: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], opens: "11:00", closes: "21:30" },
+      { "@type": "OpeningHoursSpecification", dayOfWeek: "Saturday", opens: "10:30", closes: "15:30" },
     ],
     priceRange: "$$",
     hasMap:
@@ -611,7 +611,7 @@ const BSGymWebsite = () => {
       "https://www.instagram.com/b.s_bigandstrong/",
     ],
     description:
-      "桃園專業健身房首選 B.S力線體。由五位專業教練提供：一對一肌力與體能訓練、銀髮族抗老化訓練、泰拳、散打、MMA 綜合格鬥及運動按摩。立即預約！",
+      "桃園肌力與體能工作室 B.S力線體。由五位專業教練提供：一對一肌力與體能訓練、銀髮族抗老化訓練、泰拳、散打、MMA 綜合格鬥及運動按摩。立即預約！",
   };
 
   const articleSchema =
@@ -623,7 +623,7 @@ const BSGymWebsite = () => {
           description: selectedPost.excerpt,
           image: [toAbsoluteUrl(selectedPost.image)],
           datePublished: `${selectedPost.date}T00:00:00+08:00`,
-          dateModified: `${selectedPost.date}T00:00:00+08:00`,
+          dateModified: `${selectedPost.modified || selectedPost.date}T00:00:00+08:00`,
           inLanguage: "zh-TW",
           mainEntityOfPage: {
             "@type": "WebPage",
@@ -656,76 +656,25 @@ const BSGymWebsite = () => {
   }, []);
 
   useEffect(() => {
-    const checkUrlParams = () => {
-      try {
-        const params = new URLSearchParams(window.location.search);
-        const articleId = params.get("article");
-        const viewParam = params.get("view");
-
-        if (articleId) {
-          setCurrentView("post");
-          setSelectedPostId(Number(articleId));
-        } else if (viewParam === "blog") {
-          setCurrentView("blog");
-        } else {
-          setCurrentView("home");
-        }
-        window.scrollTo(0, 0);
-      } catch (e) {
-        console.warn("無法讀取網址參數", e);
+    const syncPage = () => setPage(resolvePage(window.location.pathname, window.location.search));
+    window.addEventListener("popstate", syncPage);
+    const params = new URLSearchParams(window.location.search);
+    if (window.location.pathname === "/" && (params.has("article") || params.get("view") === "blog")) {
+      const resolved = resolvePage("/", window.location.search);
+      if (resolved.view !== "notfound") {
+        window.history.replaceState({}, "", resolved.view === "post" ? articlePath(resolved.postId) : "/articles");
       }
-    };
-
-    checkUrlParams();
-    window.addEventListener("popstate", checkUrlParams);
-    return () => window.removeEventListener("popstate", checkUrlParams);
+    }
+    return () => window.removeEventListener("popstate", syncPage);
   }, []);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
-
-  const navigateTo = (view, postId = null) => {
-    setCurrentView(view);
-    setSelectedPostId(postId);
-    setIsMenuOpen(false);
-
-    try {
-      if (view === "post") {
-        window.history.pushState({}, "", `?article=${postId}`);
-      } else if (view === "blog") {
-        window.history.pushState({}, "", `?view=blog`);
-      } else {
-        window.history.pushState({}, "", window.location.pathname);
-      }
-    } catch (error) {
-      console.warn("預覽環境安全性限制：無法變更網址，但畫面會正常切換", error);
-    }
-    window.scrollTo(0, 0);
-  };
-
   const scrollToSection = (id) => {
     if (currentView !== "home") {
-      setCurrentView("home");
-      try {
-        window.history.pushState({}, "", window.location.pathname);
-      } catch (error) {
-        console.warn(
-          "預覽環境安全性限制：無法變更網址，但畫面會正常切換",
-          error
-        );
-      }
-
-      setTimeout(() => {
-        const element = document.getElementById(id);
-        if (element) {
-          element.scrollIntoView({ behavior: "smooth" });
-        }
-      }, 100);
-    } else {
-      const element = document.getElementById(id);
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
-      }
+      window.location.assign(`/#${id}`);
+      return;
     }
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
     setIsMenuOpen(false);
   };
 
@@ -754,9 +703,10 @@ const BSGymWebsite = () => {
         }`}
       >
         <div className="container mx-auto px-4 flex justify-between items-center">
-          <div
+          <a
+            href="/"
+            aria-label="B.S 力線體首頁"
             className="flex items-center gap-3 cursor-pointer group"
-            onClick={() => navigateTo("home")}
           >
             <img
               src="/mark.jpg"
@@ -771,35 +721,35 @@ const BSGymWebsite = () => {
             <div className="text-2xl font-bold tracking-tighter text-white group-hover:opacity-90 transition-opacity flex items-center gap-1">
               B.S <span className="text-orange-500">力線體</span>
             </div>
-          </div>
+          </a>
 
           <div className="hidden md:flex items-center gap-6 text-sm font-medium tracking-wide">
-            <button
-              onClick={() => scrollToSection("about")}
+            <a
+              href="/#about" onClick={() => setIsMenuOpen(false)}
               className="hover:text-orange-500 transition-colors"
             >
               關於我們
-            </button>
-            <button
-              onClick={() => scrollToSection("schedule")}
+            </a>
+            <a
+              href="/#schedule" onClick={() => setIsMenuOpen(false)}
               className="hover:text-orange-500 transition-colors"
             >
               課表與費用
-            </button>
-            <button
-              onClick={() => scrollToSection("team")}
+            </a>
+            <a
+              href="/#team" onClick={() => setIsMenuOpen(false)}
               className="hover:text-orange-500 transition-colors"
             >
               教練團隊
-            </button>
-            <button
-              onClick={() => scrollToSection("reviews")}
+            </a>
+            <a
+              href="/#reviews" onClick={() => setIsMenuOpen(false)}
               className="hover:text-orange-500 transition-colors"
             >
               學員見證
-            </button>
-            <button
-              onClick={() => navigateTo("blog")}
+            </a>
+            <a
+              href="/articles"
               className={`transition-colors flex items-center gap-1 ${
                 currentView === "blog" || currentView.startsWith("post")
                   ? "text-orange-500 font-bold"
@@ -807,19 +757,19 @@ const BSGymWebsite = () => {
               }`}
             >
               <BookOpen size={16} /> 精選文章
-            </button>
-            <button
-              onClick={() => scrollToSection("location")}
+            </a>
+            <a
+              href="/#location" onClick={() => setIsMenuOpen(false)}
               className="hover:text-orange-500 transition-colors"
             >
               交通與聯絡
-            </button>
-            <button
-              onClick={() => scrollToSection("contact")}
+            </a>
+            <a
+              href="/#contact" onClick={() => setIsMenuOpen(false)}
               className="px-6 py-2 bg-orange-600 hover:bg-orange-700 text-white rounded-full transition-all transform hover:scale-105 shadow-lg flex items-center gap-2"
             >
               <CalendarCheck size={16} /> 預約體驗
-            </button>
+            </a>
           </div>
 
           <div className="md:hidden">
@@ -837,60 +787,61 @@ const BSGymWebsite = () => {
         {isMenuOpen && (
           <div className="md:hidden absolute top-full left-0 w-full bg-neutral-800 shadow-xl border-t border-neutral-700 animate-in slide-in-from-top-5">
             <div className="flex flex-col p-4 gap-4 text-center">
-              <button
-                onClick={() => scrollToSection("about")}
+              <a
+                href="/#about" onClick={() => setIsMenuOpen(false)}
                 className="py-2 hover:text-orange-500 border-b border-neutral-700/50"
               >
                 關於我們
-              </button>
-              <button
-                onClick={() => scrollToSection("schedule")}
+              </a>
+              <a
+                href="/#schedule" onClick={() => setIsMenuOpen(false)}
                 className="py-2 hover:text-orange-500 border-b border-neutral-700/50"
               >
                 課表與費用
-              </button>
-              <button
-                onClick={() => scrollToSection("team")}
+              </a>
+              <a
+                href="/#team" onClick={() => setIsMenuOpen(false)}
                 className="py-2 hover:text-orange-500 border-b border-neutral-700/50"
               >
                 教練團隊
-              </button>
-              <button
-                onClick={() => navigateTo("blog")}
+              </a>
+              <a
+                href="/articles"
                 className="py-2 hover:text-orange-500 text-orange-400 font-bold border-b border-neutral-700/50 flex items-center justify-center gap-2"
               >
                 <BookOpen size={18} /> 精選文章
-              </button>
-              <button
-                onClick={() => scrollToSection("reviews")}
+              </a>
+              <a
+                href="/#reviews" onClick={() => setIsMenuOpen(false)}
                 className="py-2 hover:text-orange-500 border-b border-neutral-700/50"
               >
                 學員見證
-              </button>
-              <button
-                onClick={() => scrollToSection("location")}
+              </a>
+              <a
+                href="/#location" onClick={() => setIsMenuOpen(false)}
                 className="py-2 hover:text-orange-500 border-b border-neutral-700/50"
               >
                 交通與聯絡
-              </button>
-              <button
-                onClick={() => scrollToSection("contact")}
+              </a>
+              <a
+                href="/#contact" onClick={() => setIsMenuOpen(false)}
                 className="py-3 bg-orange-600 text-white rounded-lg font-bold shadow-md active:scale-95 transition-transform"
               >
                 立即預約
-              </button>
+              </a>
             </div>
           </div>
         )}
       </nav>
 
       <main>
+        {currentView === "notfound" && <div className="pt-40 pb-24 text-center"><h1 className="text-3xl font-bold mb-6">找不到這個頁面</h1><a className="text-orange-400 underline" href="/articles">查看所有文章</a></div>}
         {currentView === "home" && (
           <HomePageContent scrollToSection={scrollToSection} />
         )}
-        {currentView === "blog" && <BlogList navigateTo={navigateTo} />}
+        {currentView === "blog" && <BlogList />}
         {currentView === "post" && (
-          <BlogPost postId={selectedPostId} navigateTo={navigateTo} />
+          <BlogPost postId={selectedPostId} />
         )}
       </main>
 
@@ -902,6 +853,7 @@ const BSGymWebsite = () => {
                 B.S 力線體
               </h2>
               <p className="mb-1">桃園市桃園區壽星街60號1樓</p>
+              <p className="mb-1">週日至週五 11:00–21:30｜週六 10:30–15:30</p>
               <p>0936-624-385</p>
             </div>
             <div className="text-center md:text-right">
@@ -918,30 +870,30 @@ const BSGymWebsite = () => {
               團體肌力課、銀髮族抗老化訓練、泰拳散打 MMA 與運動按摩服務。
             </p>
             <div className="flex flex-wrap justify-center gap-x-5 gap-y-2 text-xs">
-              <button
-                onClick={() => scrollToSection("schedule")}
+              <a
+                href="/#schedule" onClick={() => setIsMenuOpen(false)}
                 className="hover:text-orange-500 transition-colors"
               >
                 桃園肌力課程與費用
-              </button>
-              <button
-                onClick={() => scrollToSection("team")}
+              </a>
+              <a
+                href="/#team" onClick={() => setIsMenuOpen(false)}
                 className="hover:text-orange-500 transition-colors"
               >
                 專業教練團隊
-              </button>
-              <button
-                onClick={() => navigateTo("blog")}
+              </a>
+              <a
+                href="/articles"
                 className="hover:text-orange-500 transition-colors"
               >
                 肌力與體能知識
-              </button>
-              <button
-                onClick={() => scrollToSection("location")}
+              </a>
+              <a
+                href="/#location" onClick={() => setIsMenuOpen(false)}
                 className="hover:text-orange-500 transition-colors"
               >
                 停車、地址與聯絡方式
-              </button>
+              </a>
             </div>
           </div>
         </div>
@@ -952,7 +904,7 @@ const BSGymWebsite = () => {
 
 // --- View Components ---
 
-const BlogList = ({ navigateTo }) => {
+const BlogList = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("全部");
 
@@ -985,7 +937,7 @@ const BlogList = ({ navigateTo }) => {
             <span className="text-orange-500">力線體</span>
           </h1>
           <p className="text-gray-400 max-w-2xl mx-auto text-lg">
-            我們擁有五位專業教練，為您分享最正確的肌力訓練知識、抗老化觀念以及格鬥運動的樂趣。
+            我們擁有五位專業教練，分享肌力訓練知識與教學經驗、抗老化觀念以及格鬥運動的樂趣。
           </p>
         </div>
 
@@ -997,6 +949,7 @@ const BlogList = ({ navigateTo }) => {
             </div>
             <input
               type="text"
+              aria-label="搜尋文章、教練或主題"
               placeholder="搜尋文章關鍵字、教練名稱或標籤..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
@@ -1025,10 +978,10 @@ const BlogList = ({ navigateTo }) => {
         {filteredPosts.length > 0 ? (
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredPosts.map((post) => (
-              <div
+              <a
                 key={post.id}
+                href={articlePath(post.id)}
                 className="bg-neutral-800 rounded-2xl overflow-hidden border border-neutral-700/50 hover:border-orange-500/30 transition-all hover:-translate-y-2 hover:shadow-2xl group cursor-pointer flex flex-col"
-                onClick={() => navigateTo("post", post.id)}
               >
                 <div className="h-64 md:h-72 overflow-hidden relative">
                   <img
@@ -1064,7 +1017,7 @@ const BlogList = ({ navigateTo }) => {
                     </span>
                   </div>
                 </div>
-              </div>
+              </a>
             ))}
           </div>
         ) : (
@@ -1090,7 +1043,7 @@ const BlogList = ({ navigateTo }) => {
   );
 };
 
-const BlogPost = ({ postId, navigateTo }) => {
+const BlogPost = ({ postId }) => {
   const [copied, setCopied] = useState(false);
   const post = BLOG_POSTS.find((p) => p.id === postId);
 
@@ -1123,12 +1076,12 @@ const BlogPost = ({ postId, navigateTo }) => {
     <div className="pt-24 pb-12 min-h-screen bg-neutral-900">
       <div className="container mx-auto px-4 max-w-4xl">
         <div className="flex justify-between items-center mb-8">
-          <button
-            onClick={() => navigateTo("blog")}
+          <a
+            href="/articles"
             className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors"
           >
             <ArrowLeft size={20} /> 返回文章列表
-          </button>
+          </a>
 
           <button
             onClick={handleShareClick}
@@ -1196,8 +1149,8 @@ const BlogPost = ({ postId, navigateTo }) => {
             覺得這篇文章有幫助嗎？
           </h3>
           <p className="text-gray-400 mb-6">
-            如果您在桃園尋找最專業的肌力與體能訓練，歡迎來 B.S
-            力線體體驗最紮實的課程。
+            如果您想在桃園開始肌力與體能訓練，歡迎來 B.S
+            力線體聊聊您的目標，選擇適合自己的課程。
           </p>
           <a
             href="https://line.me/ti/p/~rockon12319"
@@ -1218,12 +1171,12 @@ const HomePageContent = ({ scrollToSection }) => {
     <>
       <section
         id="home"
-        className="relative h-screen flex items-center justify-center overflow-hidden"
+        className="relative min-h-[100svh] flex items-center justify-center overflow-hidden"
       >
         <div className="absolute inset-0 z-0">
           <img
             src="/yoyi.jpg"
-            alt="桃園健身房首選 B.S 力線體 - 專業肌力與體能訓練、銀髮族抗老化訓練"
+            alt="桃園 B.S 力線體肌力與體能訓練工作室"
             fetchPriority="high"
             decoding="async"
             className="w-full h-full object-cover opacity-60"
@@ -1235,31 +1188,32 @@ const HomePageContent = ({ scrollToSection }) => {
           <div className="absolute inset-0 bg-gradient-to-t from-neutral-900 via-neutral-900/40 to-neutral-900/60"></div>
         </div>
 
-        <div className="container mx-auto px-4 z-10 relative text-center md:text-left h-full flex flex-col justify-center">
+        <div className="container mx-auto px-4 pt-32 pb-20 md:py-40 z-10 relative text-center md:text-left flex flex-col justify-center">
           <div className="md:max-w-3xl mt-auto mb-auto">
             <div className="text-orange-500 font-bold tracking-widest uppercase mb-4 text-sm md:text-base animate-pulse">
               桃園專業肌力與體能訓練工作室
             </div>
             <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold text-white leading-tight mb-6 tracking-tight">
-              任何人與年紀都需要肌力訓練 <br />
-              來桃園 B.S力線體 開始{" "}
+              不論幾歲，都能開始<br />
+              累積自己的{" "}
               <span className="text-orange-500">肌力儲蓄</span>
             </h1>
             <p className="text-lg md:text-xl text-gray-300 mb-8 leading-relaxed max-w-2xl">
               B.S 力線體專注於真正的力量建立。從競技運動員到銀髮族抗老化，
               透過五位專業教練組成的團隊，為您建立終身受用的身體素質。
             </p>
+            <div className="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center justify-center md:justify-start gap-3">
+              <a href="https://line.me/ti/p/~rockon12319" target="_blank" rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 rounded-xl bg-green-700 hover:bg-green-800 px-7 py-4 text-white text-lg font-bold shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">
+                <MessageCircle size={22} aria-hidden="true" /> 加 LINE 預約體驗
+              </a>
+              <a href="/#schedule" className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/40 bg-neutral-900/50 hover:bg-neutral-800 px-7 py-4 text-white font-semibold">
+                查看課表與費用 <ArrowRight size={18} aria-hidden="true" />
+              </a>
+            </div>
+            <p className="mt-4 text-sm text-gray-300">桃園區壽星街 60 號｜私人教練・肌力團課・銀髮訓練</p>
           </div>
 
-          <div
-            className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 opacity-70 hover:opacity-100 transition-opacity cursor-pointer"
-            onClick={() => scrollToSection("about")}
-          >
-            <span className="text-sm font-medium tracking-widest text-gray-400 uppercase">
-              Scroll Down
-            </span>
-            <ChevronDown size={32} className="text-orange-500 animate-bounce" />
-          </div>
         </div>
       </section>
 
@@ -1267,7 +1221,7 @@ const HomePageContent = ({ scrollToSection }) => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              為什麼桃園在地人都推薦 B.S 力線體？
+              為什麼選擇 B.S 力線體？
             </h2>
             <div className="w-24 h-1.5 bg-orange-600 mx-auto rounded-full"></div>
             <div className="mt-8 max-w-3xl mx-auto space-y-6">
@@ -1276,7 +1230,7 @@ const HomePageContent = ({ scrollToSection }) => {
                 <span className="text-orange-400 font-bold">
                   壽星街（近桃園市政府）
                 </span>
-                ，交通極為便利。不同於傳統大型健身房的業務推銷模式，我們由五位專項教練組成，更重視教學品質與學員的實際進步。
+                ，由五位專項教練組成團隊，重視教學品質與學員的實際進步，依照不同需求安排訓練。
               </p>
               <p className="text-white text-xl md:text-2xl font-bold leading-relaxed border-l-4 border-orange-500 pl-6 py-2 bg-neutral-800/30 rounded-r-lg">
                 「肌力訓練是我們最重視的事情，我們幫助別人變強壯，無論年齡都應該要訓練累積肌力財富。」
@@ -1288,7 +1242,7 @@ const HomePageContent = ({ scrollToSection }) => {
             <FeatureCard
               image="/Pistol Squat.jpg"
               title="肌力與體能專業"
-              description="我們不只追求體態線條，更重視身體的實質強壯。透過科學化的壓力刺激（訓練），能有效強化骨質、神經與肌肉，不僅延緩老化、預防退化，更能提升運動表現。"
+              description="我們不只追求體態線條，更重視身體的實質強壯。透過科學化的壓力刺激（訓練），有助於提升肌力與動作能力，支持日常活動與運動表現；課程會依照每個人的狀況調整。"
               altText="桃園肌力訓練與體能專業教學"
             />
             <FeatureCard
@@ -1588,10 +1542,10 @@ const HomePageContent = ({ scrollToSection }) => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              桃園最專業的 5 位教練團隊
+              認識 B.S 力線體的 5 位教練
             </h2>
             <p className="text-gray-400 max-w-2xl mx-auto">
-              每一位教練皆具備專業證照與豐富教學經驗，為您提供最安全、最有效率的訓練環境。
+              從肌力與體能到格鬥教學，依照您的目標、經驗與身體狀況，找到適合的教練。
             </p>
           </div>
 
@@ -1683,7 +1637,7 @@ const HomePageContent = ({ scrollToSection }) => {
               expertise={[
                 "肌力與體能訓練",
                 "銀髮族抗老化訓練",
-                "改善肌力不足導致的痠痛",
+                "循序漸進建立肌力",
                 "提升日常動作能力",
               ]}
               achievements={[
@@ -1785,26 +1739,20 @@ const HomePageContent = ({ scrollToSection }) => {
               <Star fill="currentColor" />
             </div>
             <p className="text-gray-400">
-              聽聽在桃園 B.S 力線體訓練的學員怎麼說
+              以下節錄自 Google 商家公開評論，可點連結閱讀完整內容。
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6 mb-12">
-            <ReviewCard
-              name="邱雅惠"
-              tag="桃園一對一課程"
-              content="本來因為專職家庭主婦腰痠背痛，來這邊上課後，教練很細心的調整我的姿勢。現在不只痠痛消失了，感覺整個人精神都變好了！"
-            />
-            <ReviewCard
-              name="王小姐"
-              tag="泰拳團體課"
-              content="以前覺得格鬥很可怕，但教練教得非常有趣，上課氣氛很好同學們都很友善。每次打完拳都爆汗，壓力完全釋放，超級推薦！"
-            />
-            <ReviewCard
-              name="張媽媽"
-              tag="銀髮族肌力訓練"
-              content="年紀大了怕跌倒，兒子幫我報名了肌力課。教練對長輩很有耐心，循序漸進，現在我抱孫子都更有力氣了。"
-            />
+            <ReviewCard name="大嘴魚" tag="理解訓練方法"
+              content="讓新手知道為何以及如何而練"
+              source="https://maps.app.goo.gl/DLg7R4qhPn5KZiLP9" />
+            <ReviewCard name="wangyuyun" tag="新手友善與尊重"
+              content="教練對女性學員有充分的協助與尊重，以及新手友善。"
+              source="https://maps.app.goo.gl/mpocbg7jvMqxMJg98" />
+            <ReviewCard name="水豚特務" tag="學會自主訓練"
+              content="也學習到很多自由訓練的技巧跟正確觀念！"
+              source="https://maps.app.goo.gl/jyNFeGhig8yB2fHK9" />
           </div>
 
           <div className="text-center">
@@ -1842,7 +1790,7 @@ const HomePageContent = ({ scrollToSection }) => {
           <div className="space-y-4">
             <FaqItem
               question="我完全沒有運動經驗，可以參加嗎？"
-              answer="當然可以！我們的初階肌力班和一對一教練課程，都是專為新手與零基礎的學員設計的。教練會從最基礎的呼吸和動作模式開始教起，確保您在安全的環境下進步。"
+              answer="當然可以！我們的初階肌力班和一對一教練課程，都是專為新手與零基礎的學員設計的。教練會從最基礎的呼吸和動作模式開始教起，陪您循序漸進地學習，依照動作能力調整難度。"
             />
             <FaqItem
               question="請問附近好停車嗎？"
@@ -1927,6 +1875,8 @@ const HomePageContent = ({ scrollToSection }) => {
                     <div>
                       <h4 className="font-bold text-white">地址</h4>
                       <p className="text-gray-400">桃園市桃園區壽星街60號1樓</p>
+                      <p className="text-gray-400 mt-3">週日至週五 11:00–21:30<br />週六 10:30–15:30</p>
+                      <p className="text-gray-500 text-sm mt-1">課程請先透過 LINE 預約。</p>
                       <a
                         href="https://www.google.com/maps/search/?api=1&query=B.S+力線體"
                         target="_blank"
@@ -2105,11 +2055,11 @@ const HomePageContent = ({ scrollToSection }) => {
       >
         <div className="container mx-auto px-4 text-center relative z-10">
           <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-8 tracking-tight">
-            準備好開始在桃園改變體態了嗎？
+            準備好開始累積肌力了嗎？
           </h2>
           <p className="text-orange-100 text-lg md:text-xl max-w-2xl mx-auto mb-10">
             無論您的目標是增強肌力、格鬥競技或是健康抗老，B.S
-            力線體都是您最強的後盾。
+            力線體的教練團隊都願意陪您循序漸進地練習。
           </p>
 
           <div className="max-w-4xl mx-auto">
@@ -2251,7 +2201,7 @@ const CoachCard = ({
         : "border-neutral-700/50 hover:border-orange-500/30"
     }`}
   >
-    <div className="h-[30rem] overflow-hidden relative bg-neutral-700 shrink-0">
+    <div className="h-64 md:h-[30rem] overflow-hidden relative bg-neutral-700 shrink-0">
       <img
         src={image}
         alt={altText}
@@ -2283,6 +2233,36 @@ const CoachCard = ({
         </div>
       )}
 
+      {/* 專長區塊 */}
+      <div className="flex-grow">
+        <h4 className="flex items-center gap-2 font-bold text-white mb-3">
+          <Activity size={18} className="text-blue-500" /> 專長領域
+        </h4>
+        <div className="flex flex-wrap gap-2">
+          {expertise.map((exp, i) => (
+            <span
+              key={i}
+              className="text-xs bg-neutral-700 text-gray-200 px-2 py-1 rounded border border-neutral-600"
+            >
+              {exp}
+            </span>
+          ))}
+        </div>
+      </div>
+
+
+      <div className="md:hidden">
+        <h4 className="font-bold text-white mb-2">代表證照</h4>
+        <ul className="list-disc list-inside text-sm text-gray-300 space-y-1">
+          {(certifications || []).slice(0, 3).map((cert) => <li key={cert}>{cert}</li>)}
+        </ul>
+      </div>
+      <details className="coach-credentials">
+        <summary className="cursor-pointer text-orange-400 font-semibold py-3 list-none flex items-center justify-between gap-2">
+          <span className="coach-expand">展開完整資歷</span><span className="coach-collapse">收合完整資歷</span>
+          <ChevronDown size={18} aria-hidden="true" />
+        </summary>
+        <div className="coach-credentials-body space-y-6 pt-4 md:pt-0">
       {/* 證照區塊 */}
       {certifications && certifications.length > 0 && (
         <div>
@@ -2317,7 +2297,7 @@ const CoachCard = ({
           <h4 className="flex items-center gap-2 font-bold text-white mb-3">
             <Trophy size={18} className="text-orange-500" /> 特殊戰績 / 經歷
           </h4>
-          <ul className="text-sm text-gray-400 space-y-1 list-disc list-inside max-h-56 overflow-y-auto pr-2 custom-scrollbar">
+          <ul className="text-sm text-gray-400 space-y-1 list-disc list-inside md:max-h-56 md:overflow-y-auto pr-2 custom-scrollbar">
             {achievements.map((ach, i) => (
               <li key={i} className="py-0.5">
                 {ach}
@@ -2327,24 +2307,11 @@ const CoachCard = ({
         </div>
       )}
 
-      {/* 專長區塊 */}
-      <div className="flex-grow">
-        <h4 className="flex items-center gap-2 font-bold text-white mb-3">
-          <Activity size={18} className="text-blue-500" /> 專長領域
-        </h4>
-        <div className="flex flex-wrap gap-2">
-          {expertise.map((exp, i) => (
-            <span
-              key={i}
-              className="text-xs bg-neutral-700 text-gray-200 px-2 py-1 rounded border border-neutral-600"
-            >
-              {exp}
-            </span>
-          ))}
-        </div>
-      </div>
 
+        </div>
+      </details>
       <div className="pt-4 border-t border-neutral-700 mt-auto shrink-0">
+        {!customAction && <a href={`https://line.me/ti/p/~${lineId && !lineId.includes("歡迎") ? lineId : "rockon12319"}`} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 bg-green-700 hover:bg-green-800 text-white py-3 px-4 rounded-xl font-bold mb-4"><MessageCircle size={18} aria-hidden="true" /> 預約 {name} 教練</a>}
         <div className="flex justify-between items-center text-sm mb-2">
           <span className="text-gray-500">LINE ID</span>
           <span className="text-white font-mono bg-neutral-900 px-2 py-1 rounded select-all text-xs md:text-sm">
@@ -2380,7 +2347,7 @@ const CoachCard = ({
   </div>
 );
 
-const ReviewCard = ({ name, tag, content }) => (
+const ReviewCard = ({ name, tag, content, source }) => (
   <div className="bg-neutral-900 p-6 rounded-xl border border-neutral-700/50 hover:border-orange-500/30 transition-all">
     <div className="flex justify-between items-start mb-4">
       <div>
@@ -2397,7 +2364,9 @@ const ReviewCard = ({ name, tag, content }) => (
         <Star size={14} fill="currentColor" />
       </div>
     </div>
-    <p className="text-gray-400 text-sm leading-relaxed">"{content}"</p>
+    <blockquote className="text-gray-300 text-base leading-relaxed">「{content}」</blockquote>
+    <a href={source} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 mt-5 text-sm text-orange-400 hover:underline" aria-label={`閱讀 ${name} 的 Google 評論原文`}>Google 評論原文 <ExternalLink size={14} aria-hidden="true" /></a>
+    <p className="mt-2 text-xs text-gray-500">原文節錄 · 查閱於 2026/09/08</p>
   </div>
 );
 

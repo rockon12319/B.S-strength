@@ -1,4 +1,22 @@
-.App {
-  font-family: sans-serif;
-  text-align: center;
+html { scroll-behavior: smooth; }
+section[id] { scroll-margin-top: 6rem; }
+.coach-collapse { display: none; }
+.coach-credentials[open] .coach-expand { display: none; }
+.coach-credentials[open] .coach-collapse { display: inline; }
+.coach-credentials summary::-webkit-details-marker { display: none; }
+.coach-credentials[open] summary svg { transform: rotate(180deg); }
+.coach-credentials summary:focus-visible { outline: 2px solid #fb923c; outline-offset: 4px; border-radius: 4px; }
+@media (min-width: 768px) {
+  .coach-credentials > summary { display: none; }
+  .coach-credentials:not([open]) > .coach-credentials-body { display: block; }
+  .coach-credentials::details-content { content-visibility: visible; display: block; }
+}
+/* Older browsers without ::details-content retain an accessible expand control. */
+@supports not selector(details::details-content) {
+  @media (min-width: 768px) {
+    .coach-credentials > summary { display: flex; }
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
 }
