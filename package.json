@@ -19,7 +19,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build && node scripts/prerender.cjs",
+    "verify": "node scripts/verify.cjs",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },

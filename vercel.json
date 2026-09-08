@@ -1,0 +1,177 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "npm run build",
+  "outputDirectory": "build",
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "article",
+          "value": "1"
+        }
+      ],
+      "destination": "/articles/strength-training-healthy-aging",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "article",
+          "value": "2"
+        }
+      ],
+      "destination": "/articles/muay-thai-sanda-benefits",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "article",
+          "value": "3"
+        }
+      ],
+      "destination": "/articles/senior-strength-training-safety",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "article",
+          "value": "4"
+        }
+      ],
+      "destination": "/articles/sports-massage-recovery",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "article",
+          "value": "5"
+        }
+      ],
+      "destination": "/articles/invest-in-health",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "article",
+          "value": "6"
+        }
+      ],
+      "destination": "/articles/strength-and-sport-performance",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "article",
+          "value": "7"
+        }
+      ],
+      "destination": "/articles/what-is-strength-training",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "article",
+          "value": "8"
+        }
+      ],
+      "destination": "/articles/women-strength-training",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "article",
+          "value": "9"
+        }
+      ],
+      "destination": "/articles/senior-training-frequency",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "article",
+          "value": "10"
+        }
+      ],
+      "destination": "/articles/group-vs-personal-training",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "article",
+          "value": "11"
+        }
+      ],
+      "destination": "/articles/strength-training-for-fighters",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "article",
+          "value": "12"
+        }
+      ],
+      "destination": "/articles/strength-training-for-life",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "article",
+          "value": "13"
+        }
+      ],
+      "destination": "/articles/awei-strength-training",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "view",
+          "value": "blog"
+        }
+      ],
+      "destination": "/articles",
+      "permanent": true
+    }
+  ]
+}
