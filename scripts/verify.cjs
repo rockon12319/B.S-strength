@@ -11,8 +11,8 @@ const read = (route) => fs.readFileSync(path.join(root, "build", route === "/" ?
 const doc = (route) => new JSDOM(read(route)).window.document;
 const config = require("../vercel.json");
 const sitemap = fs.readFileSync(path.join(root, "build/sitemap.xml"), "utf8");
-assert.equal(BLOG_POSTS.length, 13);
-assert.equal(new Set(BLOG_POSTS.map((p) => articlePath(p.id))).size, 13);
+assert.equal(BLOG_POSTS.length, 14);
+assert.equal(new Set(BLOG_POSTS.map((p) => articlePath(p.id))).size, BLOG_POSTS.length);
 for (const post of BLOG_POSTS) {
   const route = articlePath(post.id);
   const document = doc(route);
@@ -33,10 +33,12 @@ for (const post of BLOG_POSTS) {
 const home = doc("/");
 assert(home.querySelector('a[href="https://line.me/ti/p/~rockon12319"]').textContent.includes("LINE"));
 assert.equal(home.querySelectorAll("details.coach-credentials").length, 5);
-assert(home.body.textContent.includes("週六 10:30–15:30"));
+assert(home.body.textContent.includes("週六 10:00–15:30"));
+assert(home.body.textContent.includes("週日至週五 10:00–21:30"));
 for (const review of ["DLg7R4qhPn5KZiLP9", "mpocbg7jvMqxMJg98", "jyNFeGhig8yB2fHK9"]) assert(home.querySelector(`a[href="https://maps.app.goo.gl/${review}"]`));
 const hours = JSON.parse(home.querySelector('script[type="application/ld+json"]').textContent).openingHoursSpecification;
-assert(hours.some((h) => h.dayOfWeek === "Saturday" && h.opens === "10:30" && h.closes === "15:30"));
+assert(hours.every((h) => h.opens === "10:00"));
+assert(hours.some((h) => h.dayOfWeek === "Saturday" && h.closes === "15:30"));
 const index = doc("/articles");
 for (const post of BLOG_POSTS) assert(index.querySelector(`a[href="${articlePath(post.id)}"]`));
 assert.equal(doc("/404").querySelector('meta[name="robots"]').content, "noindex, follow");
@@ -67,5 +69,5 @@ async function hydrationCheck(route) {
 global.IS_REACT_ACT_ENVIRONMENT = true;
 (async () => {
   for (const route of ["/", "/articles", ...BLOG_POSTS.map((p) => articlePath(p.id)), "/404"]) await hydrationCheck(route);
-  console.log("PASS: 13 complete article pages, metadata, images, sitemap, permanent redirect mappings, booking, 5 expandable coach cards, 3 sourced reviews, opening hours, 404, and hydration of all 16 pages.");
+  console.log(`PASS: ${BLOG_POSTS.length} complete article pages, metadata, images, sitemap, permanent redirect mappings, booking, 5 expandable coach cards, 3 sourced reviews, opening hours, 404, and hydration of all ${BLOG_POSTS.length + 3} pages.`);
 })().catch((error) => { console.error(error); process.exitCode = 1; });

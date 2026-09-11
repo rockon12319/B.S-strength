@@ -67,6 +67,60 @@ const toAbsoluteUrl = (path) => new URL(path, SITE_URL).toString();
 // Article content shared by the interactive site and static page generation.
 export const BLOG_POSTS = [
   {
+    id: 14,
+    title: "長者居家訓練：從椅子坐站開始，練習下肢肌力",
+    excerpt: "長輩還不敢踏進健身房，可以先在家練什麼？呂承諺教練分享椅子坐站的入門方式、扶持與膝蓋疼痛的注意事項，陪家人從日常活動開始，循序累積下肢肌力。",
+    date: "2026-09-12",
+    author: "呂承諺 教練",
+    category: "銀髮族訓練",
+    tags: ["#長者居家訓練", "#下肢肌力", "#桃園肌力訓練"],
+    image: "/chenyan-senior-chair-squat.jpg",
+    imageAlt: "B.S 力線體呂承諺教練在旁指導長輩扶著固定支架進行箱上深蹲",
+    content: `
+      <p>「我這個年紀，還能去健身房嗎？」「器材看起來好多，我怕自己不會用。」🤔</p>
+      <br/>
+      <p>長輩還沒準備好踏進健身房，也不用急著說服他們。<strong>長者居家訓練，可以從每天都會做的『坐下、站起來』開始。</strong>先在熟悉的環境裡找到信心，再慢慢增加活動與訓練，往往比一開始就追求做很多更容易持續。🌱</p>
+      <br/>
+      <h2 class="text-xl font-bold text-orange-500 mb-2">🪑 椅子坐站：把生活動作變成下肢肌力練習</h2>
+      <p>從椅子起身、上廁所後站起來，都需要腿部與臀部出力。反覆練習可控制的椅子坐站，是<strong>下肢肌力訓練</strong>的入門方式之一；難度是否合適，仍要看每個人的力量、平衡與關節狀況。</p>
+      <br/>
+      <p>這張上課照片，是承諺教練在旁指導長輩做箱上深蹲，利用固定支架輔助與箱子提供坐下的位置。居家練習可以借用這個「有穩定座面、慢慢坐站」的概念，<strong>但不要直接照搬課堂上的難度，也不必模仿照片赤腳練習。</strong>在家建議穿合腳、防滑的鞋子。</p>
+      <br/>
+      <h2 class="text-xl font-bold text-orange-500 mb-2">👣 在家怎麼開始？先求穩，再求多</h2>
+      <ol class="list-decimal list-inside space-y-3 my-4">
+        <li><strong>先把環境準備好：</strong>選不會滑動、沒有輪子的穩固椅子，靠牆放好，移開地毯邊緣與雜物。椅面不要太低或太軟，坐下時雙腳要能穩穩踩地。</li>
+        <li><strong>從坐姿出發：</strong>雙腳約與髖同寬，身體稍微前傾，再用腿部力量慢慢站起。正常呼吸，不用憋氣或甩動身體搶起身。</li>
+        <li><strong>控制坐回去：</strong>臀部往後移，慢慢彎曲髖部與膝蓋，輕輕坐回椅面，避免整個人突然往下掉。</li>
+        <li><strong>先少量嘗試：</strong>可先以約 5 次為入門目標，做不到也沒關係，依能力減少並充分休息。只有在動作穩定、沒有疼痛或不適時，才逐步增加。</li>
+      </ol>
+      <p class="text-sm text-gray-400">椅子選擇與坐站入門可參考 <a href="https://www.nhs.uk/live-well/exercise/strength-exercises/" target="_blank" rel="noopener noreferrer" class="text-orange-400 underline">NHS 居家肌力練習</a>；上述方式是一般性介紹，不是適合每位長輩的個別課表。</p>
+      <br/>
+      <h2 class="text-xl font-bold text-orange-500 mb-2">🤝 站不起來，可以扶東西嗎？</h2>
+      <p>可以依能力使用穩固的扶手，或經確認不會移動、傾倒的固定支撐物協助。不要抓有輪子的桌椅、會翻倒的椅背，也不要讓家人用拉扯手臂的方式把長輩拉起來。</p>
+      <br/>
+      <p>家人可以在旁陪伴，但<strong>若需要別人明顯出力才能起身、容易失去平衡，或曾經跌倒，先請物理治療師評估，再學習合適的練習與協助方式。</strong>教練也可以在確認適合運動後，協助調整座面高度與訓練難度，不必急著挑戰無扶持坐站。</p>
+      <br/>
+      <h2 class="text-xl font-bold text-orange-500 mb-2">🦵 膝蓋會痛，不是忍一下就好</h2>
+      <p>練習中如果出現膝蓋疼痛，先停止，不要為了湊次數硬做。疼痛不一定只是「姿勢錯了」，也可能與原有的關節狀況或當下負荷有關，建議找醫師或物理治療師評估；教練負責依評估結果協助調整動作與訓練，不代替醫療診斷。</p>
+      <br/>
+      <p>若疼痛持續、腫脹，或已影響走路與承重，應先就醫。練習時感到頭暈或其他明顯不適，也要停止並尋求協助。<a href="https://www.kentcht.nhs.uk/leaflet/strengthening-exercises-falls/" target="_blank" rel="noopener noreferrer" class="text-orange-400 underline">NHS 肌力練習安全提醒</a>同樣建議，疼痛或感到不安全時，先停下並諮詢醫療專業人員。</p>
+      <br/>
+      <h2 class="text-xl font-bold text-orange-500 mb-2">🏡 不愛「訓練」這個詞，就從多活動開始</h2>
+      <p>陪長輩在安全的環境散步、澆花、摺衣服、擦桌子，都是增加活動的機會。讓他們參與做得到、也願意做的事情，保留「我還能自己來」的成就感，比什麼都替他們做好更有意義。😊</p>
+      <br/>
+      <p>身體會隨活動需求改變，長期缺乏活動可能讓力量與體能逐漸下降；不過，功能改變也可能受疾病、營養等因素影響，不能把退化全歸咎於「不夠努力」。家事也要量力而為，避開爬高、搬重物與濕滑地面。</p>
+      <br/>
+      <p><strong>多走動與做家事是好的起點，但不一定能取代有足夠刺激的肌力訓練。</strong>依 <a href="https://www.cdc.gov/physical-activity-basics/adding-older-adults/what-counts.html" target="_blank" rel="noopener noreferrer" class="text-orange-400 underline">CDC 長者身體活動建議</a>，長者需要兼顧有氧、肌力與平衡活動，肌力活動一般建議每週至少 2 天，並依健康狀況與能力調整。椅子坐站主要練習下肢，也不是完整的全身訓練課表。</p>
+      <br/>
+      <h2 class="text-xl font-bold text-orange-500 mb-2">🌱 從家裡的一張椅子，到更有信心的日常</h2>
+      <p>長者訓練的目標，不是和別人比重量，而是讓起身、走動與生活中的小事，多一點從容。先從做得到的開始，再慢慢進步，就值得肯定。</p>
+      <br/>
+      <p>如果您正在尋找願意陪長輩循序練習的<strong>桃園健身房</strong>，歡迎到 <strong>B.S 力線體（bs-strength）</strong>，與呂承諺教練討論銀髮族訓練需求。可先<a href="/#team" class="text-orange-400 underline">認識教練團隊</a>、查看<a href="/#schedule" class="text-orange-400 underline">私人教練與團體課程</a>，或透過 LINE 詢問適合的起點。</p>
+      <br/>
+      <p>延伸閱讀：<a href="/articles/senior-strength-training-safety" class="text-orange-400 underline">長輩肌力訓練的安全觀念</a>。</p>
+    `,
+  },
+  {
     id: 13,
     title: "🌱 肌力訓練也能沒有壓力｜怪獸訓練系統背景的阿瑋教練",
     excerpt:
@@ -596,8 +650,8 @@ const BSGymWebsite = ({ initialPage }) => {
       longitude: 121.2934289,
     },
     openingHoursSpecification: [
-      { "@type": "OpeningHoursSpecification", dayOfWeek: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], opens: "11:00", closes: "21:30" },
-      { "@type": "OpeningHoursSpecification", dayOfWeek: "Saturday", opens: "10:30", closes: "15:30" },
+      { "@type": "OpeningHoursSpecification", dayOfWeek: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], opens: "10:00", closes: "21:30" },
+      { "@type": "OpeningHoursSpecification", dayOfWeek: "Saturday", opens: "10:00", closes: "15:30" },
     ],
     priceRange: "$$",
     hasMap:
@@ -853,7 +907,7 @@ const BSGymWebsite = ({ initialPage }) => {
                 B.S 力線體
               </h2>
               <p className="mb-1">桃園市桃園區壽星街60號1樓</p>
-              <p className="mb-1">週日至週五 11:00–21:30｜週六 10:30–15:30</p>
+              <p className="mb-1">週日至週五 10:00–21:30｜週六 10:00–15:30</p>
               <p>0936-624-385</p>
             </div>
             <div className="text-center md:text-right">
@@ -986,7 +1040,7 @@ const BlogList = () => {
                 <div className="h-64 md:h-72 overflow-hidden relative">
                   <img
                     src={post.image}
-                    alt={`B.S力線體文章附圖：${post.title}`}
+                    alt={post.imageAlt || `B.S力線體文章附圖：${post.title}`}
                     loading="lazy"
                     decoding="async"
                     className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-110"
@@ -1133,7 +1187,7 @@ const BlogPost = ({ postId }) => {
         <div className="rounded-2xl overflow-hidden mb-12 shadow-2xl border border-neutral-700 bg-neutral-950 flex justify-center">
           <img
             src={post.image}
-            alt={`桃園健身房 B.S力線體 - 文章圖片：${post.title}`}
+            alt={post.imageAlt || `桃園健身房 B.S力線體 - 文章圖片：${post.title}`}
             fetchPriority="high"
             decoding="async"
             className="w-full h-auto max-h-[85vh] object-contain"
@@ -1875,7 +1929,7 @@ const HomePageContent = ({ scrollToSection }) => {
                     <div>
                       <h4 className="font-bold text-white">地址</h4>
                       <p className="text-gray-400">桃園市桃園區壽星街60號1樓</p>
-                      <p className="text-gray-400 mt-3">週日至週五 11:00–21:30<br />週六 10:30–15:30</p>
+                      <p className="text-gray-400 mt-3">週日至週五 10:00–21:30<br />週六 10:00–15:30</p>
                       <p className="text-gray-500 text-sm mt-1">課程請先透過 LINE 預約。</p>
                       <a
                         href="https://www.google.com/maps/search/?api=1&query=B.S+力線體"
