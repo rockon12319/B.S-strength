@@ -7,6 +7,12 @@
   "redirects": [
     {
       "source": "/",
+      "has": [{ "type": "query", "key": "article", "value": "14" }],
+      "destination": "/articles/senior-home-chair-stand-training",
+      "permanent": true
+    },
+    {
+      "source": "/",
       "has": [
         {
           "type": "query",

@@ -1,4 +1,5 @@
 export const ARTICLE_SLUGS = {
+  14: "senior-home-chair-stand-training",
   1: "strength-training-healthy-aging",
   2: "muay-thai-sanda-benefits",
   3: "senior-strength-training-safety",
