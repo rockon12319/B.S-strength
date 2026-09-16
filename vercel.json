@@ -5,6 +5,8 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [
+    { "source": "/", "has": [{ "type": "query", "key": "article", "value": "15" }], "destination": "/articles/senior-personal-strength-training", "permanent": true },
+    { "source": "/", "has": [{ "type": "query", "key": "article", "value": "16" }], "destination": "/articles/taoyuan-beginner-group-strength-training", "permanent": true },
     {
       "source": "/",
       "has": [{ "type": "query", "key": "article", "value": "14" }],
