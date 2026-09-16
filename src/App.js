@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { articlePath, resolvePage } from "./routes";
 import "./styles.css";
+import ArticleLibrary, { ArticleVideo } from "./ArticleLibrary";
 import {
   Menu,
   X,
@@ -23,7 +24,6 @@ import {
   Clock,
   Tag,
   Sparkles,
-  Search,
   Share2,
   Check,
   Flower2,
@@ -66,6 +66,70 @@ const toAbsoluteUrl = (path) => new URL(path, SITE_URL).toString();
 
 // Article content shared by the interactive site and static page generation.
 export const BLOG_POSTS = [
+  {
+    id: 16,
+    title: "桃園新手友善團體課程：一起練肌力，也能有自己的進度",
+    excerpt: "B.S 力線體團體課程在做什麼？范哲瑋教練帶你看真實上課日常：一起練肌力、互相鼓勵，新手也有適合自己的動作與難度。所有團課含長者班皆限 65 歲以下，報名前由教練確認適合班別。",
+    date: "2026-09-16",
+    author: "范哲瑋 教練",
+    category: "團體課程",
+    tags: ["#桃園健身房", "#桃園肌力訓練", "#新手友善"],
+    image: "/beginner-group-training-cover.jpg",
+    imageAlt: "B.S 力線體新手友善肌力團課封面：一起練，一起變強",
+    videoId: "i0XrMzLktsY",
+    content: `
+      <p>「團體課是不是大家一起做同樣的動作？我完全沒練過，跟不上怎麼辦？」🤔</p><br/>
+      <p>先說答案：<strong>一起上課，不代表每個人都要做一模一樣的重量、動作與次數。</strong>在 B.S 力線體，我們希望團體課程是有人陪你練、也容得下個人差異的地方。先看看上面的影片，感受大家一起累積力量的日常！</p><br/>
+      <h2 class="text-xl font-bold text-orange-500 mb-2">🏋️ 我們的團體課程在做什麼？</h2>
+      <p>核心很單純：大家在教練帶領下練習肌力，一點一滴把身體練得更有力量。依當天課表，可能安排蹲、髖部發力、推、拉或軀幹穩定等練習。重點不只是做完，而是學會怎麼出力、怎麼控制，再逐步累積訓練。</p><br/>
+      <p>有人已經練了一段時間，有人第一次接觸重量訓練。大家可以在同一堂課努力，卻不用拿同一把尺比較；今天把一個動作做得更穩，也是進步。💪</p><br/>
+      <h2 class="text-xl font-bold text-orange-500 mb-2">🌱 新手友善，不是只說「你一定可以」</h2>
+      <p>如果你是新手，教練會先了解你的經驗與身體狀況，再安排目前能練習的動作。必要時調整重量、活動範圍、支撐方式或換一種練習，<strong>不會為了跟上全班，就強迫你完成還做不到的版本。</strong></p><br/>
+      <p>不懂就問，需要休息就說。新手不必先把自己練好，才有資格來上課；但如果有疼痛、傷病或需要持續個別照顧，也請在報名前告知，讓教練確認團課是否合適。</p><br/>
+      <h2 class="text-xl font-bold text-orange-500 mb-2">🤝 一起練的好處，是彼此鼓勵</h2>
+      <p>自己練偶爾會提不起勁，有同學一起，就多了一份陪伴。互相打氣、分享今天的小進步，慢慢讓訓練變成生活裡期待的一段時間。不是比誰舉得重，而是大家都朝自己的目標前進。😊</p><br/>
+      <h2 class="text-xl font-bold text-orange-500 mb-2">📌 誰適合參加？年齡與照顧需求要先說清楚</h2>
+      <p><strong>B.S 力線體所有團體課程皆限 65 歲以下，包含課表上的「長者肌力班」。</strong>這是工作室的課程與照顧安排，不是說超過 65 歲就不能訓練。</p><br/>
+      <p>超過 65 歲的長輩，請先與我們討論<strong>私人一對一長者訓練</strong>，讓教練更專注觀察動作、平衡與當天狀態。即使符合團課年齡，也仍需考量健康狀況及是否能在團體環境下練習。</p><br/>
+      <p>團課可以調整個別動作，但不等於整堂私人課。如果希望完整依照自己的時間、需求與目標安排，可以閱讀<a href="/articles/group-vs-personal-training" class="text-orange-400 underline">團體課與私人課怎麼選</a>。</p><br/>
+      <h2 class="text-xl font-bold text-orange-500 mb-2">📍 在桃園找一間願意陪你開始的健身工作室</h2>
+      <p>如果你正在找<strong>桃園健身房</strong>，希望有人帶領、氣氛友善，也想把<strong>桃園肌力訓練</strong>變成固定習慣，歡迎認識位於桃園區壽星街的 B.S 力線體。這間<strong>桃園健身工作室</strong>重視動作學習與循序進步，而不是一開始就要求你跟別人一樣。</p><br/>
+      <p>時間能配合的同學，歡迎呼朋引伴一起來！先<a href="/#schedule" class="text-orange-400 underline">查看團體課表與費用</a>，再<a href="https://line.me/ti/p/~rockon12319" target="_blank" rel="noopener noreferrer" class="text-orange-400 underline">加 LINE 詢問適合的班別</a>。一起練，也一起為彼此的進步開心。🙌</p>
+    `,
+  },
+  {
+    id: 15,
+    title: "長者訓練沒有想像中可怕：私人一對一，循序累積肌力",
+    excerpt: "怕器材太重，讓家中長輩不敢踏入健身房？呂承諺教練分享私人一對一長者訓練的安排，從做得到的動作開始，透過循序漸進的銀髮族訓練累積力量，並附真實上課影片。",
+    date: "2026-09-16",
+    author: "呂承諺 教練",
+    category: "銀髮族訓練",
+    tags: ["#私人一對一", "#長者訓練", "#銀髮族訓練"],
+    image: "/senior-personal-training-cover.jpg",
+    imageAlt: "B.S 力線體長者訓練日常封面：76 歲與 86 歲學員一起練習自在生活",
+    videoId: "Rdd6wExbIss",
+    content: `
+      <p>「健身房是不是都要舉很重？我年紀這麼大，會不會做不來？」這是許多長輩、也是許多家屬心裡的擔心。🌱</p><br/>
+      <p><strong>長者訓練不是一進門就扛大重量，而是先找到現在做得到的起點。</strong>上面的影片與封面分享 B.S 力線體的長者上課日常，希望讓大家先認識訓練的樣子，不必光靠想像就把健身房排除在外。</p><br/>
+      <h2 class="text-xl font-bold text-orange-500 mb-2">🤝 私人一對一：先認識這個人，再安排訓練</h2>
+      <p>同樣是長輩，每個人的力量、平衡、生活需求與運動經驗都不一樣。在<strong>私人一對一長者訓練</strong>中，教練會先了解目前狀況，從動作與反應觀察合適的難度，而不是單看年齡就決定能練什麼。</p><br/>
+      <p>有人想站起來更從容，有人希望走路、上下樓梯時更有餘裕。這些日常目標，才是我們安排<strong>銀髮族訓練</strong>時想放在心上的事情。家屬也可以一起討論需要注意的狀況，讓開始運動的過程更踏實。</p><br/>
+      <h2 class="text-xl font-bold text-orange-500 mb-2">📈 漸進式超負荷，不是每次都要更重</h2>
+      <p>我們重視循序漸進，其中一個原則是<strong>漸進式超負荷</strong>：當身體逐漸適應原有的訓練刺激，再依能力增加適當的挑戰。它不是「練到超過自己能承受」，也不是每堂課一定加重量。</p><br/>
+      <p>例如原本需要較多支撐的坐站，練穩後再由教練評估是否減少輔助；或是在可控制的範圍內，調整次數、活動幅度或阻力。每一種調整都可能改變難度，<strong>不能只追求數字增加，忽略動作與當天狀態。</strong></p><br/>
+      <p>若今天比較疲累，就可能維持原本難度或降低負荷。循序漸進也包含休息與調整，不需要用硬撐證明自己有進步。</p><br/>
+      <h2 class="text-xl font-bold text-orange-500 mb-2">🪑 從熟悉的生活動作，慢慢建立信心</h2>
+      <p>像坐下再站起、在穩固支撐下練習出力，都可以是依個人能力安排的起點。<a href="https://www.nhs.uk/live-well/exercise/strength-exercises/" target="_blank" rel="noopener noreferrer" class="text-orange-400 underline">NHS 的肌力練習建議</a>也強調慢慢建立能力，再逐步增加練習量。</p><br/>
+      <p>影片中的學員有自己的訓練安排，不是所有長輩都該直接照做。尤其有跌倒風險、疼痛或疾病限制時，先與醫師或物理治療師確認合適活動，再和教練討論。訓練過程若有疼痛、頭暈或其他不適，要停止並告知，不能用「忍一下就好」帶過。</p><br/>
+      <h2 class="text-xl font-bold text-orange-500 mb-2">💪 練力量，是為了多一點生活選擇</h2>
+      <p>長者肌力訓練的價值，不只是紀錄表上的重量，而是持續練習使用自己的身體。起身、提東西、出門走動，都需要不同程度的力量與協調；實際進步速度因人而異，不能保證每個人都有相同結果。</p><br/>
+      <p>對承諺教練來說，願意嘗試、慢慢學會、重新發現自己做得到，就是值得鼓勵的開始。😊</p><br/>
+      <h2 class="text-xl font-bold text-orange-500 mb-2">📍 想幫長輩預約，先聊聊需求就好</h2>
+      <p>歡迎到桃園 B.S 力線體（bs-strength）了解<strong>私人一對一、長者訓練與銀髮族訓練</strong>。先告訴我們長輩的活動習慣與需要照顧的地方，不用先把自己練好才來。</p><br/>
+      <p><strong>工作室所有團課（包含長者肌力班）皆限 65 歲以下；超過 65 歲的長輩，請先詢問私人一對一安排。</strong>我們希望保留教練專注觀察與即時調整的空間。</p><br/>
+      <p>可以<a href="/#team" class="text-orange-400 underline">認識呂承諺教練</a>、查看<a href="/#schedule" class="text-orange-400 underline">私人課程費用</a>，或<a href="https://line.me/ti/p/~rockon12319" target="_blank" rel="noopener noreferrer" class="text-orange-400 underline">加 LINE 諮詢</a>。還想先從家裡開始？也可以閱讀<a href="/articles/senior-home-chair-stand-training" class="text-orange-400 underline">長者居家椅子坐站練習</a>。</p>
+    `,
+  },
   {
     id: 14,
     title: "長者居家訓練：從椅子坐站開始，練習下肢肌力",
@@ -893,7 +957,7 @@ const BSGymWebsite = ({ initialPage }) => {
         {currentView === "home" && (
           <HomePageContent scrollToSection={scrollToSection} />
         )}
-        {currentView === "blog" && <BlogList />}
+        {currentView === "blog" && <ArticleLibrary posts={BLOG_POSTS} />}
         {currentView === "post" && (
           <BlogPost postId={selectedPostId} />
         )}
@@ -958,144 +1022,6 @@ const BSGymWebsite = ({ initialPage }) => {
 
 // --- View Components ---
 
-const BlogList = () => {
-  const [searchTerm, setSearchTerm] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState("全部");
-
-  // 取得所有不重複的分類
-  const categories = [
-    "全部",
-    ...new Set(BLOG_POSTS.map((post) => post.category)),
-  ];
-
-  // 根據搜尋與分類過濾文章
-  const filteredPosts = BLOG_POSTS.filter((post) => {
-    const matchCategory =
-      selectedCategory === "全部" || post.category === selectedCategory;
-    const matchSearch =
-      post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      post.excerpt.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      post.author.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      post.tags.some((tag) =>
-        tag.toLowerCase().includes(searchTerm.toLowerCase())
-      );
-    return matchCategory && matchSearch;
-  });
-
-  return (
-    <div className="pt-24 pb-12 min-h-screen bg-neutral-900">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-12 pt-10">
-          <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-6">
-            桃園肌力訓練專欄｜B.S{" "}
-            <span className="text-orange-500">力線體</span>
-          </h1>
-          <p className="text-gray-400 max-w-2xl mx-auto text-lg">
-            我們擁有五位專業教練，分享肌力訓練知識與教學經驗、抗老化觀念以及格鬥運動的樂趣。
-          </p>
-        </div>
-
-        {/* 搜尋與分類過濾區塊 */}
-        <div className="max-w-4xl mx-auto mb-12 space-y-6">
-          <div className="relative">
-            <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-              <Search className="h-5 w-5 text-gray-400" />
-            </div>
-            <input
-              type="text"
-              aria-label="搜尋文章、教練或主題"
-              placeholder="搜尋文章關鍵字、教練名稱或標籤..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full bg-neutral-800 border border-neutral-700 text-white rounded-full py-3 pl-12 pr-4 focus:outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500 transition-colors"
-            />
-          </div>
-
-          <div className="flex flex-wrap justify-center gap-2">
-            {categories.map((category) => (
-              <button
-                key={category}
-                onClick={() => setSelectedCategory(category)}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
-                  selectedCategory === category
-                    ? "bg-orange-500 text-white shadow-lg shadow-orange-500/20"
-                    : "bg-neutral-800 text-gray-400 hover:bg-neutral-700 hover:text-white"
-                }`}
-              >
-                {category}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {/* 文章列表 */}
-        {filteredPosts.length > 0 ? (
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredPosts.map((post) => (
-              <a
-                key={post.id}
-                href={articlePath(post.id)}
-                className="bg-neutral-800 rounded-2xl overflow-hidden border border-neutral-700/50 hover:border-orange-500/30 transition-all hover:-translate-y-2 hover:shadow-2xl group cursor-pointer flex flex-col"
-              >
-                <div className="h-64 md:h-72 overflow-hidden relative">
-                  <img
-                    src={post.image}
-                    alt={post.imageAlt || `B.S力線體文章附圖：${post.title}`}
-                    loading="lazy"
-                    decoding="async"
-                    className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-110"
-                  />
-                  <div className="absolute top-4 left-4 bg-orange-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">
-                    {post.category}
-                  </div>
-                </div>
-
-                <div className="p-6 flex-grow flex flex-col">
-                  <div className="flex items-center gap-4 text-xs text-gray-400 mb-3">
-                    <span className="flex items-center gap-1">
-                      <Clock size={12} /> {post.date}
-                    </span>
-                    <span className="flex items-center gap-1">
-                      <User size={12} /> {post.author}
-                    </span>
-                  </div>
-                  <h2 className="text-xl font-bold text-white mb-3 leading-snug group-hover:text-orange-400 transition-colors">
-                    {post.title}
-                  </h2>
-                  <p className="text-gray-400 text-sm line-clamp-3 mb-4 flex-grow">
-                    {post.excerpt}
-                  </p>
-                  <div className="mt-auto pt-4 border-t border-neutral-700/50 flex justify-between items-center">
-                    <span className="text-orange-500 font-bold text-sm flex items-center gap-1 group-hover:gap-2 transition-all">
-                      閱讀全文 <ArrowRight size={16} />
-                    </span>
-                  </div>
-                </div>
-              </a>
-            ))}
-          </div>
-        ) : (
-          <div className="text-center py-20">
-            <Search className="h-16 w-16 text-neutral-600 mx-auto mb-4" />
-            <h3 className="text-xl font-bold text-gray-300 mb-2">
-              找不到相關文章
-            </h3>
-            <p className="text-gray-500">請嘗試更換關鍵字或選擇其他分類。</p>
-            <button
-              onClick={() => {
-                setSearchTerm("");
-                setSelectedCategory("全部");
-              }}
-              className="mt-6 text-orange-500 hover:text-orange-400 underline"
-            >
-              清除搜尋條件
-            </button>
-          </div>
-        )}
-      </div>
-    </div>
-  );
-};
 
 const BlogPost = ({ postId }) => {
   const [copied, setCopied] = useState(false);
@@ -1184,7 +1110,7 @@ const BlogPost = ({ postId }) => {
           </div>
         </div>
 
-        <div className="rounded-2xl overflow-hidden mb-12 shadow-2xl border border-neutral-700 bg-neutral-950 flex justify-center">
+        {post.videoId ? <ArticleVideo key={post.id} post={post} /> : <div className="rounded-2xl overflow-hidden mb-12 shadow-2xl border border-neutral-700 bg-neutral-950 flex justify-center">
           <img
             src={post.image}
             alt={post.imageAlt || `桃園健身房 B.S力線體 - 文章圖片：${post.title}`}
@@ -1194,6 +1120,8 @@ const BlogPost = ({ postId }) => {
           />
         </div>
 
+        }
+        {[10, 13].includes(post.id) && <p className="mb-8 p-4 bg-orange-500/10 rounded-xl text-orange-200">報名前提醒：所有團體課程（含長者肌力班）皆限 65 歲以下；超過 65 歲請洽私人一對一訓練。</p>}
         <article className="prose prose-invert prose-lg max-w-none text-gray-300 leading-loose">
           <div dangerouslySetInnerHTML={{ __html: post.content }} />
         </article>
@@ -1332,6 +1260,7 @@ const HomePageContent = ({ scrollToSection }) => {
                 <CalendarCheck className="text-orange-500" size={28} />
                 <h3 className="text-2xl font-bold">每週團體課表</h3>
               </div>
+              <p className="text-base leading-relaxed text-orange-200 mb-6">所有團課含長者肌力班皆限 65 歲以下；超過 65 歲請洽私人一對一訓練。</p>
 
               <div className="space-y-4">
                 <ScheduleItem
@@ -1583,7 +1512,7 @@ const HomePageContent = ({ scrollToSection }) => {
               <div className="bg-neutral-800/50 p-4 rounded-xl text-sm text-gray-400 flex gap-2 items-start">
                 <div className="min-w-[4px] h-full bg-yellow-500 rounded-full"></div>
                 <p>
-                  小提醒：團體課程可以請假，但不予補課及退費。報名請私訊或加
+                  所有團體課程（包含長者肌力班）皆限 65 歲以下；超過 65 歲請洽私人一對一訓練。團體課程可以請假，但不予補課及退費。報名請私訊或加
                   LINE。
                 </p>
               </div>

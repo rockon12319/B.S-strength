@@ -4,6 +4,7 @@ const path = require("node:path");
 const cra = path.dirname(require.resolve("react-scripts/package.json"));
 const { JSDOM } = require(require.resolve("jsdom", { paths: [cra] }));
 const { default: App, BLOG_POSTS, articlePath, resolvePage } = require("./load-app.cjs")();
+const { dailyArticle, filterArticles, TOPICS, matchesTopic } = require("../src/articleDiscovery.js");
 const React = require("react");
 const root = path.resolve(__dirname, "..");
 const origin = "https://www.bs-strength.com";
@@ -11,7 +12,14 @@ const read = (route) => fs.readFileSync(path.join(root, "build", route === "/" ?
 const doc = (route) => new JSDOM(read(route)).window.document;
 const config = require("../vercel.json");
 const sitemap = fs.readFileSync(path.join(root, "build/sitemap.xml"), "utf8");
-assert.equal(BLOG_POSTS.length, 14);
+assert.equal(BLOG_POSTS.length, 16);
+assert.equal(filterArticles(BLOG_POSTS, "video", "").length, 2);
+assert(filterArticles(BLOG_POSTS, "senior", "呂承諺").some((p) => p.id === 15));
+for (const post of BLOG_POSTS) assert(TOPICS.some((t) => t.id !== "all" && matchesTopic(post, t.id)), `Missing topic: ${post.id}`);
+assert.equal(dailyArticle(BLOG_POSTS, new Date("2026-09-16T00:00:00+08:00")).id, dailyArticle(BLOG_POSTS, new Date("2026-09-16T23:59:59+08:00")).id);
+assert.notEqual(dailyArticle(BLOG_POSTS, new Date("2026-09-16T15:59:59Z")).id, dailyArticle(BLOG_POSTS, new Date("2026-09-16T16:00:00Z")).id);
+const cycle = Array.from({ length: BLOG_POSTS.length }, (_, i) => dailyArticle(BLOG_POSTS, new Date(Date.UTC(2026, 8, 16 + i))).id);
+assert.equal(new Set(cycle).size, BLOG_POSTS.length);
 assert.equal(new Set(BLOG_POSTS.map((p) => articlePath(p.id))).size, BLOG_POSTS.length);
 for (const post of BLOG_POSTS) {
   const route = articlePath(post.id);
@@ -58,10 +66,28 @@ async function hydrationCheck(route) {
   });
   assert.deepEqual(errors, [], `Hydration failed: ${route}`);
   if (route === "/articles") {
+    const visible = () => document.querySelectorAll('.article-tile:not([hidden])').length;
+    assert.equal(visible(), 8);
+    assert.equal(Number(document.querySelector('[data-daily-id]').dataset.dailyId), dailyArticle(BLOG_POSTS).id);
+    const topicButton = (label) => [...document.querySelectorAll('.topic-grid button')].find((b) => b.textContent.startsWith(label));
+    await React.act(async () => topicButton('上課影片').click());
+    assert.equal(visible(), 2);
+    await React.act(async () => topicButton('長輩與家屬').click());
+    assert.equal(visible(), 5);
+    await React.act(async () => topicButton('全部文章').click());
+    await React.act(async () => document.querySelector('.library-more').click());
+    assert.equal(visible(), 16);
     const search = document.querySelector('input');
     const setValue = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, "value").set;
     await React.act(async () => { setValue.call(search, "阿瑋"); search.dispatchEvent(new window.Event("input", { bubbles: true })); });
     assert(document.querySelector('a[href="/articles/awei-strength-training"]'));
+  }
+  const videoPost = BLOG_POSTS.find((p) => articlePath(p.id) === route && p.videoId);
+  if (videoPost) {
+    assert.equal(document.querySelectorAll('.shorts-frame iframe').length, 0);
+    assert(document.querySelector(`a[href="https://www.youtube.com/shorts/${videoPost.videoId}"]`));
+    await React.act(async () => document.querySelector('.shorts-frame button').click());
+    assert(document.querySelector('.shorts-frame iframe').src.includes(`/embed/${videoPost.videoId}`));
   }
   await React.act(async () => app.unmount());
   dom.window.close();
