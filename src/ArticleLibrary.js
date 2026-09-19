@@ -51,7 +51,7 @@ export default function ArticleLibrary({ posts }) {
         </button>)}
       </div>
       <label className="library-search"><Search size={21} aria-hidden="true" /><span className="sr-only">搜尋文章、教練或主題</span>
-        <input type="search" placeholder="例如：長輩、團課、呂承諺" value={query}
+        <input type="search" placeholder="例如：格鬥、肌力訓練、長者訓練" value={query}
           onChange={(event) => { setQuery(event.target.value); setLimit(8); }} />
       </label>
     </section>
@@ -70,7 +70,7 @@ export default function ArticleLibrary({ posts }) {
       </a>)}
     </div>
     {filtered.length > limit && <button className="library-more" onClick={() => setLimit((n) => n + 8)}>再看更多文章（還有 {filtered.length - limit} 篇）</button>}
-    {filtered.length === 0 && <div className="library-empty"><p>目前沒有符合的文章，試試「長輩」、「肌力」或教練姓名。</p>
+    {filtered.length === 0 && <div className="library-empty"><p>目前沒有符合的文章，試試「格鬥」、「肌力訓練」或「長者訓練」。</p>
       <button className="library-more" onClick={() => { setQuery(""); setTopic("all"); setLimit(8); }}>清除條件，查看全部</button></div>}
   </div>;
 }
