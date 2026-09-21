@@ -1,4 +1,5 @@
 export const ARTICLE_SLUGS = {
+  17: "taoyuan-personal-training-benefits",
   15: "senior-personal-strength-training",
   16: "taoyuan-beginner-group-strength-training",
   14: "senior-home-chair-stand-training",

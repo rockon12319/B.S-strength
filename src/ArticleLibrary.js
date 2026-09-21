@@ -86,6 +86,6 @@ export function ArticleVideo({ post }) {
           <span className="video-play"><Play size={24} aria-hidden="true" /> 點我觀看上課影片</span>
         </button>}
     </div>
-    <figcaption>真實上課紀錄，動作與強度依個別狀況安排。<br /><a href={`https://www.youtube.com/shorts/${post.videoId}`} target="_blank" rel="noopener noreferrer">在 YouTube 開啟影片 ↗</a></figcaption>
+    <figcaption>{post.videoCaption || "真實上課紀錄，動作與強度依個別狀況安排。"}<br /><a href={`https://www.youtube.com/shorts/${post.videoId}`} target="_blank" rel="noopener noreferrer">在 YouTube 開啟影片 ↗</a></figcaption>
   </figure>;
 }

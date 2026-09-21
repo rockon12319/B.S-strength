@@ -67,6 +67,44 @@ const toAbsoluteUrl = (path) => new URL(path, SITE_URL).toString();
 // Article content shared by the interactive site and static page generation.
 export const BLOG_POSTS = [
   {
+    id: 17,
+    title: "桃園私人教練一對一的好處：從長者訓練到個人目標，專注於你",
+    excerpt: "一對一訓練不只適合新手。陳麒舜教練分享桃園私人教練如何依長者的肌力、活動度與照顧需求調整課程，也協助一般學員及專項選手朝個人目標循序進步，附私人課程影片。",
+    date: "2026-09-22",
+    author: "陳麒舜 教練",
+    category: "私人教練",
+    tags: ["#桃園私人教練", "#桃園一對一", "#長者訓練", "#肌力訓練", "#專項體能"],
+    image: "/personal-training-benefits-cover.jpg",
+    imageAlt: "B.S 力線體私人教練課程宣傳封面：一對一，專注於你",
+    videoId: "5FQyhSCKddQ",
+    videoCaption: "私人一對一課程介紹；封面為宣傳設計，實際動作與強度依個人狀況安排。",
+    content: `
+      <p>「我是不是要先有一點體能，才能找私人教練？」「家裡的長輩需要多一點照顧，適合跟大家一起上課嗎？」🤔</p><br/>
+      <p><strong>私人一對一訓練的重點，不是把課表變得更累，而是讓訓練更適合你。</strong>在桃園 B.S 力線體，我們會先了解你的運動經驗、身體狀況與想完成的事情，再一起找出能持續前進的起點。先看看上面的私人課程影片，認識一對一訓練的樣子。🌱</p><br/>
+      <h2 class="text-xl font-bold text-orange-500 mb-2">👤 私人一對一的好處：教練的注意力，留給你的需求</h2>
+      <p>有人想學會基本動作，有人希望提東西、爬樓梯更有餘裕，也有人已經規律訓練，想針對弱項加強。同一份課表，不一定適合這些不同需求。</p><br/>
+      <p>一對一課程能把更多時間放在<strong>動作觀察、即時回饋與個別調整</strong>：重量是否合適、活動範圍能不能控制、今天是否需要多休息，都可以依你的反應安排。不必趕著跟上全班，有疑問也有時間問清楚。😊</p><br/>
+      <h2 class="text-xl font-bold text-orange-500 mb-2">🧓 為什麼我們建議超過 65 歲的長輩選擇一對一？</h2>
+      <p><strong>B.S 力線體的團體課程皆限 65 歲以下，包含長者肌力班；超過 65 歲的長輩，建議先預約私人一對一。</strong>這是工作室依照教學與照顧需求訂定的安排，不是說到了某個年齡就不能運動，也不代表所有長者都不適合團體訓練。</p><br/>
+      <p>每位長輩的差異可能很大：有人走路穩、肌力足，有人活動度受限、容易疲累，或需要較多平衡支撐。只看年齡，並不能決定應該練什麼；有些人也不適合直接跟著同一個團課節奏。</p><br/>
+      <p>私人一對一能讓教練<strong>更密切留意動作與當下狀態</strong>，依需要調整支撐方式、動作幅度、阻力及休息，保留隨時回饋與協助的空間。我們希望長輩在更重視安全、循序漸進的安排下練習，而不是為了跟上別人硬撐。</p><br/>
+      <p>即使符合團課年齡，若需要持續個別協助，也可能更適合一對一。反過來說，<strong>一對一不是零風險的保證，也不取代醫療評估或照護。</strong>有疾病限制、疼痛、近期手術或跌倒風險時，請先和醫師或物理治療師確認適合的活動，再與教練討論；運動中若有疼痛、頭暈等不適，應停止並尋求協助。</p><br/>
+      <h2 class="text-xl font-bold text-orange-500 mb-2">🌱 長者訓練，從做得到的開始，再逐步增加挑戰</h2>
+      <p>對長輩而言，訓練目標可以很生活化：練習從椅子起身、提拿物品，或提升日常活動所需的力量。教練會依個人能力挑選練習，不要求每位長輩都做相同的動作。</p><br/>
+      <p>循序漸進也不是每堂課一定加重量。先把動作練穩，再評估調整阻力、次數或活動範圍；狀態不好時，維持或降低難度同樣是合理安排。<a href="https://www.cdc.gov/physical-activity-basics/guidelines/older-adults.html" target="_blank" rel="noopener noreferrer" class="text-orange-400 underline">CDC 長者身體活動建議</a>也提醒，活動應配合個人的能力與健康狀況，並兼顧有氧、肌力及平衡，而不是只看舉了多重。</p><br/>
+      <h2 class="text-xl font-bold text-orange-500 mb-2">💪 一般學員也適合：把個人目標變成有方向的練習</h2>
+      <p>私人教練不只服務長者。如果你是健身新手，可以花時間建立蹲、推、拉等基礎，慢慢理解怎麼出力；如果你已經有訓練習慣，則能針對想加強的肌力、動作控制或體能，討論更明確的方向。</p><br/>
+      <p>對忙碌的上班族或照顧家庭的學員來說，課程也需要考量作息、恢復與能投入的時間。<strong>適合自己的計畫，是能跟著生活調整，而不是一味增加訓練量。</strong>透過紀錄與回饋，逐步檢視安排是否合適；實際成果仍受規律程度、休息與其他個人因素影響。</p><br/>
+      <h2 class="text-xl font-bold text-orange-500 mb-2">🥊 專項選手：依運動需求加強，而不是練得越累越好</h2>
+      <p>有比賽或專項目標的選手，也可以透過一對一討論需要補強的肌力與體能。例如格鬥選手的力量、軀幹控制或體能安排，就需要同時考量技術課、對練與比賽時程。</p><br/>
+      <p>教練會依目前能力與訓練負荷，協助規劃要加強的方向；<strong>肌力與體能訓練是支持專項表現，不是取代技術練習，更不保證比賽成績。</strong>有需要時，也應與原本的專項教練協調。想了解更多，可閱讀<a href="/articles/strength-and-sport-performance" class="text-orange-400 underline">肌力訓練與運動表現</a>。</p><br/>
+      <h2 class="text-xl font-bold text-orange-500 mb-2">📍 在桃園找私人教練，先聊聊你想改善什麼</h2>
+      <p>如果你正在尋找<strong>桃園私人教練、桃園一對一肌力訓練</strong>，歡迎到位於桃園區壽星街的 B.S 力線體（bs-strength）。不論是陪長輩開始活動、建立自己的運動習慣，還是為專項目標補強，都可以先說說需求，不必先把自己練好才來。🙌</p><br/>
+      <p>預約時可以告訴我們：目前的運動經驗、希望加強的目標、需要注意的身體狀況，以及方便上課的時段。先<a href="/#schedule" class="text-orange-400 underline">查看私人課程費用</a>、<a href="/#team" class="text-orange-400 underline">認識教練團隊</a>，或<a href="https://line.me/ti/p/~rockon12319" target="_blank" rel="noopener noreferrer" class="text-orange-400 underline">加 LINE 諮詢與預約</a>。</p><br/>
+      <p>還在比較上課方式？延伸閱讀：<a href="/articles/group-vs-personal-training" class="text-orange-400 underline">團體課與私人課怎麼選</a>、<a href="/articles/senior-personal-strength-training" class="text-orange-400 underline">長者一對一訓練的循序安排</a>。</p>
+    `,
+  },
+  {
     id: 16,
     title: "桃園新手友善團體課程：一起練肌力，也能有自己的進度",
     excerpt: "B.S 力線體團體課程在做什麼？范哲瑋教練帶你看真實上課日常：一起練肌力、互相鼓勵，新手也有適合自己的動作與難度。所有團課含長者班皆限 65 歲以下，報名前由教練確認適合班別。",
