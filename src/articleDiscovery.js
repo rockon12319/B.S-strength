@@ -1,8 +1,8 @@
 export const TOPICS = [
   { id: "all", label: "全部文章", description: "從最新內容開始看" },
-  { id: "senior", label: "長輩與家屬", description: "長者肌力、居家活動", posts: [1, 3, 9, 14, 15, 17] },
-  { id: "beginner", label: "第一次練肌力", description: "新手觀念、女性訓練", posts: [1, 5, 7, 8, 12, 13, 16, 17] },
-  { id: "courses", label: "選課與上課方式", description: "私人一對一、團體課", posts: [10, 13, 15, 16, 17] },
+  { id: "senior", label: "長輩與家屬", description: "長者肌力、居家活動", posts: [1, 3, 9, 14, 15, 17, 18] },
+  { id: "beginner", label: "第一次練肌力", description: "新手觀念、女性訓練", posts: [1, 5, 7, 8, 12, 13, 16, 17, 18] },
+  { id: "courses", label: "選課與上課方式", description: "私人一對一、團體課", posts: [10, 13, 15, 16, 17, 18] },
   { id: "sport", label: "格鬥與運動表現", description: "泰拳、散打、專項體能", posts: [2, 6, 11, 17] },
   { id: "recovery", label: "按摩與恢復", description: "運動後的身體照顧", posts: [4] },
   { id: "video", label: "上課影片", description: "先看看真實上課情況" },
