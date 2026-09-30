@@ -67,6 +67,61 @@ const toAbsoluteUrl = (path) => new URL(path, SITE_URL).toString();
 // Article content shared by the interactive site and static page generation.
 export const BLOG_POSTS = [
   {
+    id: 18,
+    title: "桃園健身新手第一次上課：肌力訓練怎麼開始？需要準備什麼？",
+    excerpt: "沒運動習慣、不同年齡也能開始肌力訓練嗎？呂承諺教練介紹第一次上課的溝通、動作學習與準備方向，說明成人、長者及青少年的個別安排，陪桃園健身新手找到合適起點。",
+    date: "2026-10-01",
+    author: "呂承諺 教練",
+    category: "新手入門",
+    tags: ["#桃園健身新手", "#桃園肌力訓練", "#私人教練", "#青少年肌力訓練"],
+    image: "/beginner-first-class-senior.jpg",
+    imageAlt: "B.S 力線體教練在旁觀察長者從訓練椅起身，依個人能力練習肌力",
+    content: `
+      <p>「我完全沒練過，會不會跟不上？」「是不是要年輕、有體力，才適合進健身房？」🤔</p><br/>
+      <p><strong>第一次上肌力課，不需要先證明自己很厲害。</strong>你可以從不熟悉器材、還不確定怎麼出力開始；教練的工作，就是陪你找到現在做得到、也適合繼續練習的起點。🌱</p><br/>
+      <p>我是 B.S 力線體的呂承諺教練。這篇想和正在尋找<strong>桃園健身房、桃園肌力訓練課程</strong>的你聊聊：第一次來可以先了解什麼，以及不同年齡的學員，為什麼不必用同一個標準開始。</p><br/>
+      <h2 class="text-xl font-bold text-orange-500 mb-2">👋 沒運動習慣也可以來，不必先把自己練好</h2>
+      <p>新手最常擔心的，不一定是重量，而是「我會不會做錯」「大家會不會都比我厲害」。其實，學會一個陌生動作本來就需要時間。第一次上課的重點，是認識自己的狀況、練習聽懂提示，而不是比誰舉得重或流最多汗。</p><br/>
+      <p>需要休息就說，不懂就問。如果有疼痛、疾病限制、近期手術或醫療人員交代的注意事項，請在預約及上課前告知；必要時先完成醫療評估，再討論合適的活動。教練的動作觀察不等於醫療診斷。</p><br/>
+      <h2 class="text-xl font-bold text-orange-500 mb-2">📝 第一次上課會做什麼？先認識你，再決定怎麼練</h2>
+      <p>實際內容會依選擇的課程與個人狀況調整，不是每個人都有一模一樣的第一堂。你可以先把以下幾件事準備好，和教練一起討論：</p>
+      <ol class="list-decimal list-inside space-y-3 my-4">
+        <li><strong>聊目標與經驗：</strong>平常有沒有運動？想讓生活更有力、建立固定習慣，還是為喜歡的運動加強體能？不用專業術語，說出你的需求就好。</li>
+        <li><strong>說明身體狀態：</strong>哪些動作會不舒服、過去有哪些傷病、今天是否特別疲累，都有助於教練安排。</li>
+        <li><strong>從合適的基本練習開始：</strong>依能力安排暖身及動作學習，例如坐下再站起、推或拉的練習；不一定一開始就使用槓鈴。</li>
+        <li><strong>邊做邊調整：</strong>教練觀察控制與反應，再調整阻力、活動範圍、支撐方式和休息，最後討論後續適合的上課方式。</li>
+      </ol>
+      <p><strong>第一堂不是考試，也不需要做到筋疲力盡才算有效。</strong>先找到可以理解、可以控制的練習，比急著追求大重量更重要。😊</p><br/>
+      <h2 class="text-xl font-bold text-orange-500 mb-2">🧓 不同年齡都可以找起點，但安排不會完全相同</h2>
+      <p>成人、長者，甚至青少年，都可以依自己的條件接觸肌力訓練；<strong>年齡不是唯一判斷依據，動作能力、健康狀況、理解指令的能力與訓練目標同樣重要。</strong></p><br/>
+      <p>封面照片呈現教練在旁觀察長輩練習起身。有些學員從椅子坐站開始，有些人已能使用器材；這些都是不同的訓練階段，不需要互相比較。照片是課堂紀錄，不表示這位學員正在上第一堂課，也不是要所有人照著做。</p><br/>
+      <p>對長者，我們會更留意力量、平衡、活動度與當天狀態。<strong>B.S 力線體所有團課（包含長者肌力班）皆限 65 歲以下；超過 65 歲的長輩，請先詢問私人一對一安排。</strong>這是工作室的課程安排，不是超過這個年齡就不能訓練；即使符合團課年齡，需要密切個別協助的人也可能更適合一對一。</p><br/>
+      <h2 class="text-xl font-bold text-orange-500 mb-2">🌱 青少年也能練肌力嗎？重點是合適的指導與進度</h2>
+      <p>可以討論安排，但不是把成人課表直接縮小。青少年肌力訓練需要考量成熟度、能否理解並遵守指令、動作能力與運動經驗，先學控制與技術，再逐步增加挑戰。</p><br/>
+      <p><a href="https://publications.aap.org/pediatrics/article/145/6/e20201011/76942/Resistance-Training-for-Children-and-Adolescents" target="_blank" rel="noopener noreferrer" class="text-orange-400 underline">美國兒科學會的青少年阻力訓練報告</a>指出，以技術為核心的漸進安排，以及合格人員的指導與監督，是重要條件。這不代表每位青少年都適合相同動作或重量。</p><br/>
+      <p>家長可以先和教練討論孩子的經驗、需求與健康狀況，再確認課程是否合適；有疾病、疼痛或其他疑慮時，先諮詢兒科醫師。<strong>基於保護青少年隱私，本文不刊登青少年上課照片。</strong></p><br/>
+      <figure class="my-8">
+        <img src="/beginner-first-class-coaching.jpg" alt="B.S 力線體學員使用負重器材練習，教練在旁觀察動作" width="1200" height="1600" loading="lazy" decoding="async" style="display:block;width:100%;height:auto;max-height:85vh;object-fit:contain;border-radius:16px;background:#171717" />
+        <figcaption class="text-sm text-gray-400 mt-3">課堂紀錄：學員依自己的能力與訓練階段使用器材，教練在旁觀察。照片中的重量、器材與裝備不是新手第一堂的必備要求，也不需直接模仿。</figcaption>
+      </figure>
+      <h2 class="text-xl font-bold text-orange-500 mb-2">🎒 第一次去健身工作室，需要準備什麼？</h2>
+      <ul class="list-disc list-inside space-y-3 my-4">
+        <li><strong>方便活動的衣物：</strong>以能舒適蹲下、抬手、不妨礙動作為原則，不必先買整套專業裝備。</li>
+        <li><strong>飲水與毛巾：</strong>帶上個人用品；鞋襪與場地使用規範請在預約時確認，不要只依照片中的穿著自行判斷。</li>
+        <li><strong>要告訴教練的事情：</strong>例如目標、既往傷病、醫療人員提供的活動限制與可上課時段，先記在手機裡也可以。</li>
+        <li><strong>願意慢慢學的心情：</strong>不必事先測試最大重量，也不用為了怕跟不上，在上課前把自己練到很累。</li>
+      </ul>
+      <h2 class="text-xl font-bold text-orange-500 mb-2">💬 新手常問：私人教練還是團課？會不會跟不上？</h2>
+      <p><strong>想要更多個別指導：</strong>可以先討論私人一對一，讓教練更專注於你的動作、節奏與問題。尤其需要密切協助、或有明確個人目標時，值得先了解。</p><br/>
+      <p><strong>喜歡有人一起練：</strong>符合年齡與上課條件、時間也能配合，可以詢問新手友善團課。新手友善不代表完全沒有挑戰，而是依能力調整，不強迫你使用和別人相同的重量。團課仍不等同整堂一對一，報名前請先讓教練確認適合的班別。</p><br/>
+      <p><strong>擔心第一堂就要很重：</strong>照片裡的負重不是你的起跑線。教練會依當下狀況安排，不需要拿別人的進度當標準；練習中有疼痛、頭暈或其他不適，應立即停止並告知。</p><br/>
+      <p>想比較兩種方式，可以閱讀<a href="/articles/group-vs-personal-training" class="text-orange-400 underline">團體課與私人課怎麼選</a>，或了解<a href="/articles/taoyuan-personal-training-benefits" class="text-orange-400 underline">私人一對一訓練的好處</a>。</p><br/>
+      <h2 class="text-xl font-bold text-orange-500 mb-2">📍 桃園健身新手，先預約聊聊就好</h2>
+      <p>B.S 力線體（bs-strength）位於<strong>桃園市桃園區壽星街 60 號 1 樓</strong>。如果你正在找願意帶你從基礎開始的<strong>桃園私人教練</strong>，或想陪家人認識肌力訓練，可以先告訴我們：「我是新手，想了解適合的課程。」</p><br/>
+      <p>預約前可查看<a href="/#schedule" class="text-orange-400 underline">課程費用與團體課表</a>、<a href="/#location" class="text-orange-400 underline">地址與附近停車資訊</a>，或<a href="/#team" class="text-orange-400 underline">認識呂承諺教練與團隊</a>。歡迎<a href="https://line.me/ti/p/~rockon12319" target="_blank" rel="noopener noreferrer" class="text-orange-400 underline">加 LINE 諮詢與預約</a>，從適合自己的第一步開始。🙌</p>
+    `,
+  },
+  {
     id: 17,
     title: "桃園私人教練一對一的好處：從長者訓練到個人目標，專注於你",
     excerpt: "一對一訓練不只適合新手。陳麒舜教練分享桃園私人教練如何依長者的肌力、活動度與照顧需求調整課程，也協助一般學員及專項選手朝個人目標循序進步，附私人課程影片。",

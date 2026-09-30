@@ -12,7 +12,18 @@ const read = (route) => fs.readFileSync(path.join(root, "build", route === "/" ?
 const doc = (route) => new JSDOM(read(route)).window.document;
 const config = require("../vercel.json");
 const sitemap = fs.readFileSync(path.join(root, "build/sitemap.xml"), "utf8");
-assert.equal(BLOG_POSTS.length, 17);
+assert.equal(BLOG_POSTS.length, 18);
+const beginnerPost = BLOG_POSTS.find((p) => p.id === 18);
+assert.equal(beginnerPost.author, "呂承諺 教練");
+for (const topic of ["senior", "beginner", "courses"]) assert(matchesTopic(beginnerPost, topic));
+for (const query of ["桃園健身新手", "青少年", "第一次上課"]) assert(filterArticles(BLOG_POSTS, "all", query).includes(beginnerPost));
+const beginnerDoc = doc(articlePath(18));
+for (const image of ["/beginner-first-class-senior.jpg", "/beginner-first-class-coaching.jpg"]) {
+  assert(beginnerDoc.querySelector(`img[src="${image}"]`));
+  assert(fs.existsSync(path.join(root, "public", image)));
+}
+assert(beginnerDoc.querySelector('article img').alt.length > 0);
+assert(beginnerDoc.querySelector('article img').getAttribute('loading') === 'lazy');
 assert.equal(filterArticles(BLOG_POSTS, "video", "").length, 3);
 const personalPost = BLOG_POSTS.find((p) => p.id === 17);
 assert.equal(personalPost.author, "陳麒舜 教練");
@@ -78,12 +89,12 @@ async function hydrationCheck(route) {
     await React.act(async () => topicButton('上課影片').click());
     assert.equal(visible(), 3);
     await React.act(async () => topicButton('長輩與家屬').click());
-    assert.equal(visible(), 6);
+    assert.equal(visible(), 7);
     await React.act(async () => topicButton('全部文章').click());
     await React.act(async () => document.querySelector('.library-more').click());
     assert.equal(visible(), 16);
     await React.act(async () => document.querySelector('.library-more').click());
-    assert.equal(visible(), 17);
+    assert.equal(visible(), 18);
     const search = document.querySelector('input');
     const setValue = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, "value").set;
     await React.act(async () => { setValue.call(search, "阿瑋"); search.dispatchEvent(new window.Event("input", { bubbles: true })); });

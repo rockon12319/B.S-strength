@@ -1,4 +1,5 @@
 export const ARTICLE_SLUGS = {
+  18: "taoyuan-beginner-first-strength-class",
   17: "taoyuan-personal-training-benefits",
   15: "senior-personal-strength-training",
   16: "taoyuan-beginner-group-strength-training",
