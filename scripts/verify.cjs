@@ -55,6 +55,18 @@ for (const post of BLOG_POSTS) {
   assert(config.redirects.some((r) => r.has[0].key === "article" && r.has[0].value === String(post.id) && r.destination === route && r.permanent));
 }
 const home = doc("/");
+const expectedCoaches = {
+  星期一: ["阿瑋教練"], 星期二: ["阿瑋教練"], 星期三: ["阿瑋教練"],
+  星期四: ["麒舜教練", "麒舜教練"], 星期六: ["承諺教練"], 星期日: ["麒舜教練", "張立教練"],
+};
+for (const [day, coaches] of Object.entries(expectedCoaches)) {
+  assert.deepEqual([...home.querySelectorAll(`[data-schedule-day="${day}"] [data-schedule-coach]`)].map((e) => e.textContent), coaches);
+}
+assert.equal(home.querySelectorAll('[data-schedule-coach]').length, 8);
+const corporate = home.querySelector('[aria-label="企業班開班說明"]');
+assert(corporate.textContent.includes('4 人以上可開班'));
+assert(corporate.textContent.includes('開課時間可與教練討論'));
+assert(corporate.textContent.includes('收費方式與團體課程相同'));
 assert(home.querySelector('a[href="https://line.me/ti/p/~rockon12319"]').textContent.includes("LINE"));
 assert.equal(home.querySelectorAll("details.coach-credentials").length, 5);
 assert(home.body.textContent.includes("週六 10:00–15:30"));
