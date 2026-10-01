@@ -1362,6 +1362,7 @@ const HomePageContent = ({ scrollToSection }) => {
                     {
                       time: "19:30 - 20:50",
                       title: "進階肌力班",
+                      coach: "阿瑋教練",
                       beginnerFriendly: true,
                     },
                   ]}
@@ -1373,6 +1374,7 @@ const HomePageContent = ({ scrollToSection }) => {
                     {
                       time: "20:00 - 21:20",
                       title: "進階肌力班",
+                      coach: "阿瑋教練",
                       beginnerFriendly: true,
                     },
                   ]}
@@ -1381,7 +1383,7 @@ const HomePageContent = ({ scrollToSection }) => {
                 <ScheduleItem
                   day="星期三"
                   classes={[
-                    { time: "20:00 - 21:20", title: "進階肌力班" },
+                    { time: "20:00 - 21:20", title: "進階肌力班", coach: "阿瑋教練" },
                   ]}
                 />
 
@@ -1389,10 +1391,11 @@ const HomePageContent = ({ scrollToSection }) => {
                   day="星期四"
                   accent="green"
                   classes={[
-                    { time: "18:00 - 19:20", title: "進階肌力班" },
+                    { time: "18:00 - 19:20", title: "進階肌力班", coach: "麒舜教練" },
                     {
                       time: "19:30 - 20:50",
                       title: "長者肌力班",
+                      coach: "麒舜教練",
                       beginnerFriendly: true,
                     },
                   ]}
@@ -1404,6 +1407,7 @@ const HomePageContent = ({ scrollToSection }) => {
                     {
                       time: "14:00 - 15:20",
                       title: "初階肌力班",
+                      coach: "承諺教練",
                       beginnerFriendly: true,
                     },
                   ]}
@@ -1413,8 +1417,8 @@ const HomePageContent = ({ scrollToSection }) => {
                   day="星期日"
                   accent="red"
                   classes={[
-                    { time: "18:00 - 19:00", title: "泰拳 Muay Thai" },
-                    { time: "19:00 - 20:00", title: "柔術 Jiu-Jitsu" },
+                    { time: "18:00 - 19:00", title: "泰拳 Muay Thai", coach: "麒舜教練" },
+                    { time: "19:00 - 20:00", title: "柔術 Jiu-Jitsu", coach: "張立教練" },
                   ]}
                 />
               </div>
@@ -1554,6 +1558,11 @@ const HomePageContent = ({ scrollToSection }) => {
                   </div>
                 </div>
               </div>
+
+              <aside className="rounded-xl border border-green-500/30 bg-green-500/5 p-5" aria-label="企業班開班說明">
+                <h4 className="font-bold text-green-300 mb-2">企業班｜4 人以上可開班</h4>
+                <p className="text-sm text-gray-300 leading-relaxed">開課時間可與教練討論，收費方式與團體課程相同。</p>
+              </aside>
 
               <div className="bg-neutral-900 rounded-2xl shadow-xl border border-neutral-700/50 overflow-hidden group hover:border-purple-500/40 transition-colors">
                 <div className="relative h-48 overflow-hidden bg-neutral-800">
@@ -2221,6 +2230,7 @@ const SCHEDULE_ACCENT_CLASSES = {
 
 const ScheduleItem = ({ day, classes, accent = "orange" }) => (
   <div
+    data-schedule-day={day}
     className={`p-4 rounded-xl border-l-4 bg-neutral-800 hover:bg-neutral-700/80 transition-colors ${
       SCHEDULE_ACCENT_CLASSES[accent] || SCHEDULE_ACCENT_CLASSES.orange
     }`}
@@ -2228,8 +2238,9 @@ const ScheduleItem = ({ day, classes, accent = "orange" }) => (
     <span className="font-bold text-lg text-white block mb-3">{day}</span>
 
     <div className="divide-y divide-neutral-700/70">
-      {classes.map(({ time, title, beginnerFriendly }) => (
+      {classes.map(({ time, title, coach, beginnerFriendly }) => (
         <div
+          data-schedule-class={title}
           key={`${day}-${time}-${title}`}
           className="grid grid-cols-[minmax(6.5rem,auto)_1fr] items-center gap-3 py-3 first:pt-0 last:pb-0"
         >
@@ -2241,6 +2252,7 @@ const ScheduleItem = ({ day, classes, accent = "orange" }) => (
             <span className="px-3 py-1 rounded-full text-sm font-bold bg-neutral-700 text-white whitespace-nowrap">
               {title}
             </span>
+            <span className="text-sm text-orange-200 whitespace-nowrap" data-schedule-coach>{coach}</span>
 
             {beginnerFriendly && (
               <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full border border-green-500/40 bg-green-500/10 text-green-300 text-xs font-bold whitespace-nowrap">
