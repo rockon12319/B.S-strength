@@ -67,6 +67,89 @@ const toAbsoluteUrl = (path) => new URL(path, SITE_URL).toString();
 // Article content shared by the interactive site and static page generation.
 export const BLOG_POSTS = [
   {
+    id: 19,
+    title: "桃園健身工作室怎麼選？開始重量訓練前，先看這 5 件事",
+    excerpt: "桃園健身工作室怎麼選？范哲瑋（阿瑋教練）從教練溝通、重量訓練調整、上課方式、費用規則與環境交通，帶你找到適合自己的訓練起點，並說明 B.S 力線體自主訓練預約規定。",
+    date: "2026-10-12",
+    author: "范哲瑋（阿瑋教練）",
+    category: "選課指南",
+    tags: ["#桃園健身工作室", "#桃園重量訓練", "#桃園私人教練", "#新手入門"],
+    image: "/taoyuan-fitness-studio-group.jpg",
+    imageAlt: "B.S 力線體學員在訓練架旁持啞鈴練習深蹲，呈現工作室空間與團課氣氛",
+    content: `
+      <p>想開始運動，搜尋「桃園健身工作室」或「桃園重量訓練」，卻發現選擇好多：大型健身房、私人教練工作室、肌力團體課……到底哪一種才適合自己？🤔</p><br/>
+      <p>其實，不一定是器材最多、裝潢最漂亮，或練得最厲害的人最多，就最適合你。</p><br/>
+      <p>更值得在意的是：<strong>這個地方能不能理解你的需求，讓你學會訓練，並且願意持續來。</strong></p><br/>
+      <p>在報名前，可以先從下面 5 件事觀察起。</p><br/>
+      <h2 class="text-xl font-bold text-orange-500 mb-2">1. 教練會先了解你，還是直接叫你開始練？💬</h2>
+      <p>同樣說「我想變健康」，每個人需要的訓練卻可能很不一樣。</p><br/>
+      <p>有人希望爬樓梯輕鬆一點，有人想增加肌力、改善體能，也有人是為了球類、跑步或格鬥等運動，想加強自己的表現。</p><br/>
+      <p>開始之前，你可以留意教練是否願意了解：</p>
+      <ul class="list-disc list-inside space-y-3 my-4">
+        <li>你過去有沒有運動或重量訓練經驗？</li>
+        <li>有沒有傷病史、疼痛，或醫療人員提醒的活動限制？</li>
+        <li>你最想改善什麼？一週能安排多少時間？</li>
+        <li>哪些動作讓你不安，或需要多一點協助？</li>
+      </ul>
+      <p>好的開始，不是先證明你能舉多重，而是找到你目前適合的起點。如果有需要醫療評估的狀況，也應先釐清，而不是勉強練過去。</p>
+      <figure class="my-8">
+        <img src="/taoyuan-fitness-studio-coaching.jpg" alt="B.S 力線體阿瑋教練與學員在課堂中交流，一同查看手機畫面" width="1200" height="1600" loading="lazy" decoding="async" style="display:block;width:100%;height:auto;max-height:85vh;object-fit:contain;border-radius:16px;background:#171717" />
+        <figcaption class="text-sm text-gray-400 mt-3">課堂紀錄：阿瑋教練與學員交流。願意提問、能夠溝通，也是選擇訓練環境的重要考量。</figcaption>
+      </figure>
+      <h2 class="text-xl font-bold text-orange-500 mb-2">2. 訓練能不能調整，而不是每個人都做一樣？🌱</h2>
+      <p>看到別人深蹲扛著槓鈴，可能會想：「我連徒手蹲下去都不穩，這樣也能上課嗎？」</p><br/>
+      <p><strong>可以從更適合你的方式開始，不必一開始就跟別人一樣。</strong></p><br/>
+      <p>以蹲下、站起來的動作為例，有人先練習從椅子坐站，有人需要扶穩固的支撐物，也有人已經能拿著重量練習。不同安排，都是為了配合當下的能力。</p><br/>
+      <p>重量訓練也不是每堂課都一定要加重量。教練可以依照動作表現、身體狀況與恢復情形，調整重量、次數、活動範圍或練習方式。</p><br/>
+      <p>報名前不妨問一句：</p><br/>
+      <p>「如果我做不到，或今天狀況比較差，課程會怎麼調整？」</p><br/>
+      <p>答案往往比「這堂課會不會很累」更值得參考。</p><br/>
+      <h2 class="text-xl font-bold text-orange-500 mb-2">3. 私人一對一、團體課，還是自己練？先看你的需求 🏋️</h2>
+      <p>不同上課方式沒有絕對的好壞，重點是你目前需要多少協助，以及喜歡什麼樣的訓練環境。</p><br/>
+      <h3 class="text-lg font-bold text-white mb-2">私人一對一：希望安排更貼近自己</h3>
+      <p>如果你有明確目標、需要較多動作指導，或身體狀況需要更細緻的調整，可以考慮私人教練課程。</p><br/>
+      <p>除了新手，想加強專項運動能力的選手，或需要教練持續留意動作與反應的長輩，也可能適合這種方式。</p><br/>
+      <p>一對一的價值，不只是「教練只看你一個人」，而是課程內容、進度與回饋，都能更貼近你的需求。</p><br/>
+      <h3 class="text-lg font-bold text-white mb-2">團體課：喜歡有人一起練、互相鼓勵</h3>
+      <p>如果你喜歡固定時間上課，也享受一起練習的氣氛，團體課會是可以考慮的選擇。</p><br/>
+      <p>不過，團課不代表每個人都必須做相同難度。報名前可以先確認，新手是否有動作調整，以及教練如何照顧不同程度的學員。</p><br/>
+      <p>在 B.S 力線體，所有團體課程包含長者肌力班，皆限 65 歲以下；超過 65 歲的學員請洽私人一對一。這是工作室依教學照顧方式訂定的安排，不代表超過某個年齡就不能訓練。</p><br/>
+      <h3 class="text-lg font-bold text-white mb-2">自主訓練：僅開放給私人課程學員預約使用</h3>
+      <p>自主訓練僅對內開放給正在上私人課程的學生，並需事先預約使用時段。由於可預約的時段不包含私人課程上課時間，實際能安排自主訓練的人數較少，建議有需求的學員先與教練確認可預約時段。</p><br/>
+      <p>如果你已熟悉器材、能掌握動作與訓練安排，也希望彈性運用時間，可以在符合規定的時段進行自主訓練。</p><br/>
+      <h2 class="text-xl font-bold text-orange-500 mb-2">4. 費用清楚嗎？除了單堂價格，也要看上課規則 📝</h2>
+      <p>比較桃園健身工作室時，價格當然重要，但別只看「一堂多少錢」。</p><br/>
+      <p>你也可以一起確認：</p>
+      <ul class="list-disc list-inside space-y-3 my-4">
+        <li>一堂課多久？是一對一、一對二，還是團體課？</li>
+        <li>是否需要另外支付入場費或其他費用？</li>
+        <li>購買的堂數有沒有使用期限？</li>
+        <li>請假、改期、補課與退費規則是什麼？</li>
+        <li>有沒有單堂體驗，可以先認識教練與上課方式？</li>
+      </ul>
+      <p>先了解完整內容，再決定是否報名，比只看優惠數字更容易做出適合自己的選擇。</p><br/>
+      <p>也不用因為當下不好意思拒絕，就急著買很多堂。讓自己有時間了解課程，是很正常的事。</p><br/>
+      <h2 class="text-xl font-bold text-orange-500 mb-2">5. 交通、時間與氣氛，能不能讓你願意一直來？📍</h2>
+      <p>選訓練場地，除了專業，也要考慮真實的日常生活。</p><br/>
+      <p>下班過來順不順路？開車是否方便停車？課程時間能不能配合？有問題時，你敢不敢直接問教練？</p><br/>
+      <p>這些看起來很小的事情，都會影響你能不能持續。</p><br/>
+      <p>如果每次上課都擔心被比較、怕自己做不好，久了可能就越來越不想來。相反地，能安心提問、知道動作可以調整，也能慢慢看見自己的進步，通常更容易把訓練融入生活。</p><br/>
+      <p><strong>訓練可以有挑戰，但不需要靠羞辱或比較來推動。</strong></p>
+      <figure class="my-8">
+        <img src="/taoyuan-fitness-studio-group.jpg" alt="桃園 B.S 力線體團課學員持啞鈴練習深蹲，後方可見訓練架與器材" width="1200" height="1600" loading="lazy" decoding="async" style="display:block;width:100%;height:auto;max-height:85vh;object-fit:contain;border-radius:16px;background:#171717" />
+        <figcaption class="text-sm text-gray-400 mt-3">工作室團課日常：除了器材與空間，也可以了解自己是否喜歡這樣的上課氣氛。</figcaption>
+      </figure>
+      <h2 class="text-xl font-bold text-orange-500 mb-2">在桃園開始重量訓練，不必先把自己準備得很厲害 💪</h2>
+      <p>「等我體力好一點再去。」<br/>「等我瘦一點再找教練。」<br/>「我年紀比較大，會不會跟不上？」</p><br/>
+      <p>你不需要先達到某個標準，才有資格了解訓練。</p><br/>
+      <p>不同年齡、經驗與身體狀況，都可以先與教練討論，評估合適的起點。重要的不是第一天能做多少，而是找到適合自己的方式，逐步累積能力。</p><br/>
+      <p>B.S 力線體位於桃園區壽星街 60 號，提供私人教練與肌力團體課程，依照學員的目標、經驗與身體狀況安排訓練。</p><br/>
+      <p>如果你正在找桃園健身工作室，還不確定自己適合哪一種課程，歡迎透過<a href="https://line.me/ti/p/~rockon12319" target="_blank" rel="noopener noreferrer" class="text-orange-400 underline">官網 LINE 預約諮詢</a>，告訴我們你想改善的事情，以及方便上課的時間。</p><br/>
+      <p>不用先知道所有器材怎麼用，也不用先練得很厲害。從認識自己、找到適合的起點開始就好。🌱</p><br/>
+      <p>延伸閱讀：<a href="/articles/taoyuan-beginner-first-strength-class" class="text-orange-400 underline">新手第一次上課準備指南</a>｜<a href="/articles/group-vs-personal-training" class="text-orange-400 underline">團體課與私人課怎麼選</a>。預約前也可以查看<a href="/#schedule" class="text-orange-400 underline">課表與費用</a>、<a href="/#location" class="text-orange-400 underline">附近停車資訊</a>，或<a href="/#team" class="text-orange-400 underline">認識教練團隊</a>。</p>
+    `,
+  },
+  {
     id: 18,
     title: "桃園健身新手第一次上課：肌力訓練怎麼開始？需要準備什麼？",
     excerpt: "沒運動習慣、不同年齡也能開始肌力訓練嗎？呂承諺教練介紹第一次上課的溝通、動作學習與準備方向，說明成人、長者及青少年的個別安排，陪桃園健身新手找到合適起點。",

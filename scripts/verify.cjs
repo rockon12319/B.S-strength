@@ -12,7 +12,18 @@ const read = (route) => fs.readFileSync(path.join(root, "build", route === "/" ?
 const doc = (route) => new JSDOM(read(route)).window.document;
 const config = require("../vercel.json");
 const sitemap = fs.readFileSync(path.join(root, "build/sitemap.xml"), "utf8");
-assert.equal(BLOG_POSTS.length, 18);
+assert.equal(BLOG_POSTS.length, 19);
+const studioPost = BLOG_POSTS.find((p) => p.id === 19);
+assert.equal(studioPost.author, "范哲瑋（阿瑋教練）");
+assert.equal(studioPost.date, "2026-10-12");
+for (const topic of ["beginner", "courses"]) assert(matchesTopic(studioPost, topic));
+for (const query of ["桃園健身工作室", "桃園重量訓練", "阿瑋"]) assert(filterArticles(BLOG_POSTS, "all", query).includes(studioPost));
+const studioDoc = doc(articlePath(19));
+for (const image of ["/taoyuan-fitness-studio-group.jpg", "/taoyuan-fitness-studio-coaching.jpg"]) {
+  assert(studioDoc.querySelector(`img[src="${image}"]`));
+  assert(fs.existsSync(path.join(root, "public", image)));
+}
+for (const phrase of ["自主訓練僅對內開放給正在上私人課程的學生", "需事先預約使用時段", "可預約的時段不包含私人課程上課時間"]) assert(studioDoc.body.textContent.includes(phrase));
 const beginnerPost = BLOG_POSTS.find((p) => p.id === 18);
 assert.equal(beginnerPost.author, "呂承諺 教練");
 for (const topic of ["senior", "beginner", "courses"]) assert(matchesTopic(beginnerPost, topic));
@@ -106,7 +117,7 @@ async function hydrationCheck(route) {
     await React.act(async () => document.querySelector('.library-more').click());
     assert.equal(visible(), 16);
     await React.act(async () => document.querySelector('.library-more').click());
-    assert.equal(visible(), 18);
+    assert.equal(visible(), BLOG_POSTS.length);
     const search = document.querySelector('input');
     const setValue = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, "value").set;
     await React.act(async () => { setValue.call(search, "阿瑋"); search.dispatchEvent(new window.Event("input", { bubbles: true })); });
