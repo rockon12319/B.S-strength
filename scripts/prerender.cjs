@@ -9,7 +9,7 @@ const origin = "https://www.bs-strength.com";
 const template = fs.readFileSync(path.join(build, "index.html"), "utf8");
 const escape = (text) => String(text).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 const pages = [
-  { pathname: "/", title: "B.S 力線體 - 桃園專業肌力與體能訓練", description: "B.S 力線體位於桃園區壽星街，提供一對一私人教練、肌力與體能、銀髮族抗老化、泰拳散打 MMA 與運動按摩。價格透明，歡迎預約體驗。", image: "/yoyi.jpg" },
+  { pathname: "/", title: "桃園健身房與私人教練｜銀髮肌力訓練－B.S 力線體", description: "B.S 力線體位於桃園區壽星街，提供一對一私人教練、肌力與體能、銀髮族抗老化、泰拳散打 MMA 與運動按摩。價格透明，歡迎預約體驗。", image: "/yoyi.jpg" },
   { pathname: "/articles", title: "桃園肌力訓練與健身知識｜B.S 力線體", description: "B.S 力線體教練團隊分享肌力訓練、銀髮族抗老化、泰拳散打 MMA、運動表現與恢復知識。", image: "/yoyi.jpg" },
   ...BLOG_POSTS.map((post) => ({ pathname: articlePath(post.id), title: `${post.title}｜B.S 力線體`, description: post.excerpt, image: post.image, post })),
   { pathname: "/404", title: "找不到這個頁面｜B.S 力線體", description: "您要找的頁面不存在，歡迎查看 B.S 力線體肌力訓練文章。", image: "/yoyi.jpg", notfound: true },
