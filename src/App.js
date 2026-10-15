@@ -33,7 +33,7 @@ import {
 } from "lucide-react";
 
 const SITE_URL = "https://www.bs-strength.com/";
-const DEFAULT_TITLE = "B.S 力線體 - 桃園專業肌力與體能訓練";
+const DEFAULT_TITLE = "桃園健身房與私人教練｜銀髮肌力訓練－B.S 力線體";
 const DEFAULT_DESCRIPTION =
   "B.S 力線體位於桃園區壽星街，提供一對一私人教練、肌力與體能、銀髮族抗老化、泰拳散打 MMA 與運動按摩。價格透明，歡迎預約體驗。";
 const DEFAULT_IMAGE = `${SITE_URL}yoyi.jpg`;
@@ -1346,22 +1346,20 @@ const HomePageContent = ({ scrollToSection }) => {
           <div className="absolute inset-0 bg-gradient-to-t from-neutral-900 via-neutral-900/40 to-neutral-900/60"></div>
         </div>
 
-        <div className="container mx-auto px-4 pt-32 pb-20 md:py-40 z-10 relative text-center md:text-left flex flex-col justify-center">
+        <div className="container mx-auto px-4 pt-28 pb-12 md:pt-32 md:pb-16 z-10 relative text-center md:text-left flex flex-col justify-center">
           <div className="md:max-w-3xl mt-auto mb-auto">
-            <div className="text-orange-500 font-bold tracking-widest uppercase mb-4 text-sm md:text-base animate-pulse">
+            <div className="text-orange-500 font-bold tracking-widest mb-4 text-sm md:text-base">
               桃園專業肌力與體能訓練工作室
             </div>
-            <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold text-white leading-tight mb-6 tracking-tight">
-              不論幾歲，都能開始<br />
-              累積自己的{" "}
-              <span className="text-orange-500">肌力儲蓄</span>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white leading-tight mb-5 tracking-tight">
+              桃園肌力訓練<br />與私人教練
             </h1>
+            <p className="text-xl md:text-2xl font-bold text-white mb-5 leading-relaxed">不論幾歲，都能開始<br className="sm:hidden" />累積自己的<span className="text-orange-400 whitespace-nowrap">肌力儲蓄</span></p>
             <p className="text-lg md:text-xl text-gray-300 mb-8 leading-relaxed max-w-2xl">
-              B.S 力線體專注於真正的力量建立。從競技運動員到銀髮族抗老化，
-              透過五位專業教練組成的團隊，為您建立終身受用的身體素質。
+              從新手到銀髮族，依照個人狀況安排肌力訓練。五位教練提供私人一對一與肌力團體課，陪你循序累積力量。
             </p>
             <div className="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center justify-center md:justify-start gap-3">
-              <a href="https://line.me/ti/p/~rockon12319" target="_blank" rel="noopener noreferrer"
+              <a href="https://line.me/ti/p/~rockon12319" target="_blank" rel="noopener noreferrer" aria-describedby="hero-booking-guide"
                 className="inline-flex items-center justify-center gap-2 rounded-xl bg-green-700 hover:bg-green-800 px-7 py-4 text-white text-lg font-bold shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">
                 <MessageCircle size={22} aria-hidden="true" /> 加 LINE 預約體驗
               </a>
@@ -1369,9 +1367,41 @@ const HomePageContent = ({ scrollToSection }) => {
                 查看課表與費用 <ArrowRight size={18} aria-hidden="true" />
               </a>
             </div>
-            <p className="mt-4 text-sm text-gray-300">桃園區壽星街 60 號｜私人教練・肌力團課・銀髮訓練</p>
+            <a href="/#senior-training" className="mt-5 inline-flex items-center gap-2 py-3 text-base font-bold text-orange-200 underline underline-offset-4 hover:text-white">替爸媽了解長輩訓練 <ArrowRight size={18} aria-hidden="true" /></a>
+            <BookingGuide id="hero-booking-guide" />
           </div>
 
+        </div>
+      </section>
+
+      <section id="senior-training" aria-labelledby="senior-heading" className="py-16 md:py-20 bg-neutral-900 border-b border-neutral-800">
+        <div className="container mx-auto px-4">
+          <div className="grid lg:grid-cols-2 gap-8 items-start">
+            <div className="rounded-2xl bg-neutral-800 border border-orange-500/30 p-6 md:p-8">
+              <p className="text-orange-300 font-bold mb-3">給長輩，也給想陪爸媽開始的你</p>
+              <h2 id="senior-heading" className="text-2xl md:text-3xl font-bold text-white leading-relaxed mb-4">想替爸媽詢問銀髮肌力訓練？<br />先和教練聊聊適合的起點</h2>
+              <p className="text-gray-300 text-base md:text-lg leading-relaxed mb-4">可以由子女先透過 LINE 詢問，告訴我們長輩的年齡、目前活動情形、想改善的日常需求與方便時段，教練會協助確認適合的課程安排。</p>
+              <p className="text-orange-200 text-base leading-relaxed rounded-xl bg-neutral-900/70 p-4 mb-5">團體課程限 65 歲以下，超過 65 歲請洽私人一對一訓練。包含長者肌力班在內皆適用；需要較多個別協助的學員，也可先討論一對一安排。</p>
+              <div className="flex flex-col sm:flex-row gap-3">
+                <a href="https://line.me/ti/p/~rockon12319" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 bg-green-700 hover:bg-green-800 rounded-xl px-5 py-4 font-bold text-white"><MessageCircle size={20} aria-hidden="true" />替自己或爸媽詢問課程</a>
+                <a href="/#schedule" className="inline-flex items-center justify-center rounded-xl border border-neutral-500 px-5 py-4 font-bold text-white hover:bg-neutral-700">查看課程費用</a>
+              </div>
+            </div>
+            <div className="p-2 md:p-4">
+              <h3 className="text-xl font-bold text-white mb-5">從詢問到體驗，怎麼開始？</h3>
+              <ol className="space-y-5 text-base md:text-lg leading-relaxed text-gray-300 list-decimal pl-6">
+                <li><strong className="text-white">先傳需求：</strong>加 LINE 後傳送想體驗的課程、年齡、居住地區與方便時段；有需要注意的活動限制，也請先告訴教練。</li>
+                <li><strong className="text-white">確認課程與交通：</strong>與教練確認適合的上課方式、費用和可安排時間，再評估往返是否方便。</li>
+                <li><strong className="text-white">約好再到店：</strong>確認預約後，依約定時間前來；教練會了解狀況，依個人能力安排體驗內容。</li>
+              </ol>
+              <p className="mt-6 text-base text-gray-300 leading-relaxed"><MapPin size={18} className="inline mr-1 text-orange-400" aria-hidden="true" />桃園市桃園區壽星街 60 號。從其他地區過來也歡迎先詢問，並<a href="/#location" className="text-orange-300 underline underline-offset-4">確認交通是否方便、查看地圖與停車資訊</a>。</p>
+              <div className="mt-6 space-y-3 text-base">
+                <a href="/articles/senior-personal-strength-training" className="block py-2 text-orange-300 underline underline-offset-4">先看：長者私人一對一訓練與上課影片</a>
+                <a href="/articles/taoyuan-personal-training-benefits" className="block py-2 text-orange-300 underline underline-offset-4">了解：私人一對一如何配合不同需求</a>
+                <a href="/articles/senior-home-chair-stand-training" className="block py-2 text-orange-300 underline underline-offset-4">延伸閱讀：長者居家訓練，從椅子坐站開始</a>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -2231,6 +2261,9 @@ const HomePageContent = ({ scrollToSection }) => {
           </p>
 
           <div className="max-w-4xl mx-auto">
+            <a href="https://line.me/ti/p/~rockon12319" target="_blank" rel="noopener noreferrer" aria-describedby="contact-booking-guide" className="inline-flex w-full sm:w-auto items-center justify-center gap-3 rounded-xl bg-green-700 hover:bg-green-800 px-8 py-5 text-lg font-bold text-white shadow-xl mb-2"><MessageCircle size={24} aria-hidden="true" />加 LINE 詢問課程與預約體驗</a>
+            <BookingGuide id="contact-booking-guide" light />
+            <p className="text-base text-white mt-5 mb-6"><a href="/#senior-training" className="underline underline-offset-4 py-2 inline-block">替爸媽詢問？先了解長輩課程與體驗流程</a></p>
             <div className="flex flex-col sm:flex-row justify-center gap-4 mb-6">
               <a
                 href="https://www.facebook.com/profile.php?id=100083143876394"
@@ -2252,14 +2285,6 @@ const HomePageContent = ({ scrollToSection }) => {
 
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <a
-                href="https://line.me/ti/p/~rockon12319"
-                target="_blank"
-                rel="noreferrer noopener"
-                className="sm:w-auto bg-black/20 text-white px-6 py-3 rounded-lg font-medium hover:bg-black/30 transition-colors flex items-center justify-center gap-2 border border-white/10"
-              >
-                <MessageCircle size={18} /> 加 LINE 諮詢
-              </a>
-              <a
                 href="tel:0936624385"
                 className="sm:w-auto bg-black/20 text-white px-6 py-3 rounded-lg font-medium hover:bg-black/30 transition-colors flex items-center justify-center gap-2 border border-white/10"
               >
@@ -2277,6 +2302,14 @@ const HomePageContent = ({ scrollToSection }) => {
 };
 
 // Sub-components
+
+const BookingGuide = ({ id, light = false }) => (
+  <div id={id} className={`mt-4 max-w-2xl rounded-xl p-4 md:p-5 text-left text-base leading-relaxed ${light ? "mx-auto bg-black/20 text-white" : "bg-neutral-900/80 border border-white/15 text-gray-200"}`}>
+    <p>加好友後，請傳送想體驗的課程、年齡、居住地區與方便時段，教練會協助確認適合的課程。</p>
+    <p className="mt-3 font-bold text-white">桃園市桃園區壽星街 60 號</p>
+    <p className="mt-1">從其他地區前來，建議先確認交通是否方便，再與教練約定體驗時間。<a href="/#location" className={`underline underline-offset-4 ${light ? "text-white" : "text-orange-300"}`}>查看地圖與停車資訊</a></p>
+  </div>
+);
 
 const FeatureCard = ({ image, title, description, altText }) => (
   <div className="bg-neutral-800 rounded-2xl border border-neutral-700/50 hover:border-orange-500/50 transition-all hover:-translate-y-1 hover:shadow-2xl hover:shadow-orange-500/10 group h-full flex flex-col overflow-hidden">
