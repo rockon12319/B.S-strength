@@ -82,7 +82,7 @@ export function ArticleVideo({ post }) {
       {loaded ? <iframe title={`${post.title}：上課影片`} src={`https://www.youtube-nocookie.com/embed/${post.videoId}?autoplay=1&rel=0`}
         allow="autoplay; encrypted-media; picture-in-picture; web-share" allowFullScreen referrerPolicy="strict-origin-when-cross-origin" /> :
         <button onClick={() => setLoaded(true)} aria-label={`播放${post.title}的上課影片`}>
-          <img src={post.image} alt={post.imageAlt || post.title} fetchPriority="high" />
+          <img src={post.image} alt={post.imageAlt || post.title} fetchPriority="high" style={post.videoPosterFit ? { objectFit: post.videoPosterFit } : undefined} />
           <span className="video-play"><Play size={24} aria-hidden="true" /> 點我觀看上課影片</span>
         </button>}
     </div>

@@ -67,6 +67,67 @@ const toAbsoluteUrl = (path) => new URL(path, SITE_URL).toString();
 // Article content shared by the interactive site and static page generation.
 export const BLOG_POSTS = [
   {
+    id: 20,
+    title: "長輩居家練腿怎麼做？3 個下肢肌力訓練動作與影片示範",
+    excerpt: "長輩在家想練腿，可以從哪裡開始？陳麒舜教練以影片介紹椅子坐站、扶握深蹲與登階，說明銀髮族居家訓練的支撐選擇、難度調整與注意事項，陪長輩及家屬找到合適的下肢肌力訓練起點。",
+    date: "2026-10-19",
+    author: "陳麒舜 教練",
+    category: "銀髮族居家訓練",
+    tags: ["#銀髮族訓練", "#長輩居家訓練", "#下肢肌力訓練", "#桃園肌力訓練"],
+    image: "/senior-home-leg-training-video.jpg",
+    imageAlt: "B.S 力線體長輩居家訓練影片封面：椅子坐站、扶握深蹲、登階三個動作",
+    videoId: "r3cwP0ZZR1c",
+    videoPosterFit: "cover",
+    videoCaption: "長輩居家練腿示範：椅子坐站、扶握深蹲與登階。影片中的蹲深與箱高是示範，居家請依能力調整，登階先選低、穩固且有扶手的階面。",
+    content: `
+      <p>「想讓爸媽在家動一動，可是除了散步，還能做什麼？」🦵🏠</p><br/>
+      <p><strong>長輩居家練腿，可以先認識每天都用得到的動作：坐下再站起、扶著支撐物蹲起，以及踏上低階。</strong>不需要一開始就拿很重，也不必和影片中的教練做得一模一樣。</p><br/>
+      <p>我是 B.S 力線體的陳麒舜教練。這支影片整理了 3 個下肢肌力訓練動作；本文再補上居家怎麼選支撐、怎麼降低難度，以及什麼時候適合先找人協助。可以先收藏，也和家中長輩一起看。🌱</p><br/>
+      <h2 class="text-xl font-bold text-orange-500 mb-2">🪑 ① 箱上蹲／椅子坐站：從坐下、站起來開始</h2>
+      <p>影片用箱子示範「坐下再站起來」，也提供側面角度，方便觀察身體移動。在家可先選<strong>不會滑動、沒有輪子、座面穩固的椅子</strong>，確認椅高能讓雙腳踩穩地面；必要時將椅背靠牆，避免向後移動。</p>
+      <ol class="list-decimal list-inside space-y-3 my-4">
+        <li>站在椅子前，雙腳踩穩，確認身後就是座面。</li>
+        <li>屁股往後移、慢慢彎曲髖部與膝蓋，輕輕坐下，不要直接往後跌坐。</li>
+        <li>準備起身時，身體自然前傾，雙腳穩定出力，站起時吐氣，再慢慢坐回。</li>
+      </ol>
+      <p><strong>如果站不起來，不要勉強反覆嘗試。</strong>可先與教練討論較高且穩固的座面、固定扶手或適當協助；家人若不熟悉扶持方式，先請專業人員示範。想看更詳細的入門說明，可以閱讀<a href="/articles/senior-home-chair-stand-training" class="text-orange-400 underline">長者居家椅子坐站訓練</a>。</p><br/>
+      <h2 class="text-xl font-bold text-orange-500 mb-2">🤝 ② 扶握深蹲：扶穩之後，練習自己能控制的幅度</h2>
+      <p>對於蹲下時比較沒信心的人，扶握可以提供支撐。但重點是<strong>支撐物真的固定、牢靠，不會被你拉動或拉倒</strong>。活動式餐椅、帶輪家具或不穩的門把，都不適合隨手拿來扶。</p>
+      <ol class="list-decimal list-inside space-y-3 my-4">
+        <li>面向固定支撐物，先扶好，雙腳踩穩。</li>
+        <li>慢慢彎曲髖部與膝蓋，下降到自己仍能控制、沒有疼痛的位置。</li>
+        <li>保持扶穩，慢慢站回來，過程自然呼吸。</li>
+      </ol>
+      <p><strong>蹲不深沒關係，不用追求和教練一樣低。</strong>可以先練很小的幅度；如果需要用手猛拉、身體明顯搖晃，或膝蓋開始疼痛，就先停止，重新確認動作與難度是否合適。</p><br/>
+      <h2 class="text-xl font-bold text-orange-500 mb-2">👣 ③ 登階：用低階，練習上下樓梯的出力與控制</h2>
+      <p>影片由承諺教練示範登階。<strong>教練示範的箱高不是每位長輩的起點。</strong>居家請先選低、穩固、防滑的階面，旁邊有可握牢的扶手；不要踩餐椅、摺疊凳，或把物品疊起來代替階梯。</p>
+      <ol class="list-decimal list-inside space-y-3 my-4">
+        <li>先握好扶手，把一隻腳穩穩踩上階面，避免只有腳尖踩到邊緣。</li>
+        <li>確認踩穩後再慢慢上去，不要用跳的，也不要急著趕次數。</li>
+        <li>下來時同樣保持扶穩、控制速度，確認腳落地後再做下一次。</li>
+      </ol>
+      <p>如果需要明顯甩動身體、用手大力把自己拉上去，或上下階時站不穩，就可能太難了。<strong>家裡沒有合適的低階與扶手，可以先不做登階</strong>，改從已能掌握的坐站練習開始，讓教練協助確認下一步。</p><br/>
+      <h2 class="text-xl font-bold text-orange-500 mb-2">💡 長輩居家訓練怎麼安排？先選做得到的，不必一次練完 3 個</h2>
+      <p>這 3 個動作是選項，不是要求所有長輩每天全部做完的固定課表。剛開始可先選一個容易理解、能穩定完成的動作，少量練習、充分休息，再觀察當天與之後的反應。</p><br/>
+      <p>次數、組數與頻率，要依肌力、平衡、健康狀況及恢復情形調整。能穩定完成後，再和教練討論增加練習量或難度；不需要同時降低椅高、加重量又增加次數。</p><br/>
+      <p>平常也可以維持適合自己的走動與日常活動。散步和肌力訓練的刺激不同，可以依能力搭配；不要為了練這幾個動作，就忽略原本能持續的活動習慣。😊</p><br/>
+      <h2 class="text-xl font-bold text-orange-500 mb-2">🏠 家屬可以先幫忙確認這幾件事</h2>
+      <ul class="list-disc list-inside space-y-3 my-4">
+        <li><strong>環境：</strong>清開走道雜物，注意地面乾燥、防滑與照明，穿合腳、防滑的鞋子。</li>
+        <li><strong>支撐：</strong>椅子、扶手與階面都要穩固，先確認不會滑移或傾倒。</li>
+        <li><strong>狀態：</strong>有近期跌倒、手術、疾病相關活動限制，或平常就無法穩定站立時，先諮詢醫療人員及合適的運動專業人員。</li>
+        <li><strong>反應：</strong>練習中若疼痛、頭暈、明顯不適或站不穩，立即停止；持續或反覆發生的狀況，請就醫評估，不要靠硬撐完成。</li>
+      </ul>
+      <p>若長輩需要持續攙扶才能完成，先別讓他單獨照影片練習。影片與文章提供一般性介紹，個人的動作安排仍需要依實際狀況確認。</p><br/>
+      <h2 class="text-xl font-bold text-orange-500 mb-2">📍 想替自己或爸媽了解桃園銀髮族訓練？</h2>
+      <p>居家練習遇到「不知道椅子要多高」「扶著還是不穩」「不知道怎麼調整」等問題，都可以先和教練聊聊。如果你正在找<strong>桃園健身房、長輩訓練或私人一對一課程</strong>，B.S 力線體會依學員的狀況討論合適的起點。</p><br/>
+      <p><strong>團體課程限 65 歲以下，超過 65 歲請洽私人一對一訓練。</strong>包含長者肌力班在內皆適用；需要較多個別協助的學員，也可以先詢問一對一安排。</p><br/>
+      <p>歡迎<a href="https://line.me/ti/p/~rockon12319" target="_blank" rel="noopener noreferrer" class="text-orange-400 underline">加 LINE 傳送「長輩訓練」</a>，並告訴我們想了解的課程、年齡、居住地區與方便時段。工作室位於<strong>桃園市桃園區壽星街 60 號</strong>，可以先<a href="/#location" class="text-orange-400 underline">確認交通與停車是否方便</a>，再與教練約定時間。</p><br/>
+      <p>延伸了解：<a href="/articles/senior-personal-strength-training" class="text-orange-400 underline">長者一對一訓練與上課影片</a>｜<a href="/#schedule" class="text-orange-400 underline">課程費用與課表</a>｜<a href="/#senior-training" class="text-orange-400 underline">子女替爸媽詢問的體驗流程</a>。</p><br/>
+      <p class="text-sm text-gray-400">一般動作與環境準備可參考 NHS 的<a href="https://www.nhs.uk/live-well/exercise/strength-exercises/" target="_blank" rel="noopener noreferrer" class="text-orange-400 underline">居家肌力練習</a>及<a href="https://www.nhs.uk/live-well/exercise/balance-exercises/" target="_blank" rel="noopener noreferrer" class="text-orange-400 underline">平衡與登階練習</a>。本文不以參考資料中的次數取代個別安排。</p>
+    `,
+  },
+  {
     id: 19,
     title: "桃園健身工作室怎麼選？開始重量訓練前，先看這 5 件事",
     excerpt: "桃園健身工作室怎麼選？范哲瑋（阿瑋教練）從教練溝通、重量訓練調整、上課方式、費用規則與環境交通，帶你找到適合自己的訓練起點，並說明 B.S 力線體自主訓練預約規定。",
