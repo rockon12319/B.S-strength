@@ -12,7 +12,19 @@ const read = (route) => fs.readFileSync(path.join(root, "build", route === "/" ?
 const doc = (route) => new JSDOM(read(route)).window.document;
 const config = require("../vercel.json");
 const sitemap = fs.readFileSync(path.join(root, "build/sitemap.xml"), "utf8");
-assert.equal(BLOG_POSTS.length, 20);
+assert.equal(BLOG_POSTS.length, 21);
+const qizhiPost = BLOG_POSTS.find((p) => p.id === 21);
+assert.equal(qizhiPost.author, "陳麒智 教練");
+assert.equal(qizhiPost.date, "2026-10-23");
+for (const topic of ["senior", "beginner", "sport"]) assert(matchesTopic(qizhiPost, topic));
+for (const query of ["健力", "漸進式訓練", "週期化訓練", "桃園重量訓練"]) assert(filterArticles(BLOG_POSTS, "all", query).includes(qizhiPost));
+const qizhiDoc = doc(articlePath(21));
+for (const image of ["/qizhi-powerlifting-squat.jpg", "/qizhi-powerlifting-deadlift.jpg"]) {
+  assert(qizhiDoc.querySelector(`img[src="${image}"]`));
+  assert(fs.existsSync(path.join(root, "public", image)));
+}
+for (const phrase of ["2022 總統盃單項臥舉銅牌", "2023 新北市出力館盃單項臥舉銅牌", "不能保證完全不受傷", "不需要每堂課都加重量"]) assert(qizhiDoc.body.textContent.includes(phrase));
+assert(!/健力專項教學|健力教練課|健力選手培訓/.test(qizhiPost.content));
 const studioPost = BLOG_POSTS.find((p) => p.id === 19);
 assert.equal(studioPost.author, "范哲瑋（阿瑋教練）");
 assert.equal(studioPost.date, "2026-10-12");
