@@ -67,6 +67,60 @@ const toAbsoluteUrl = (path) => new URL(path, SITE_URL).toString();
 // Article content shared by the interactive site and static page generation.
 export const BLOG_POSTS = [
   {
+    id: 21,
+    title: "從健力比賽經驗談漸進式訓練：穩扎穩打，比急著加重更重要",
+    excerpt: "有泰拳國家代表選手、健力比賽與長期訓練經驗的陳麒智教練，分享週期化訓練與漸進式訓練的觀念。從新手到長輩，如何依能力調整難度、安排恢復？給正在找桃園重量訓練與私人教練的你，一個穩定累積肌力的方向。",
+    date: "2026-10-23",
+    author: "陳麒智 教練",
+    category: "肌力訓練觀念",
+    tags: ["#健力比賽經驗", "#漸進式訓練", "#週期化訓練", "#桃園重量訓練"],
+    image: "/qizhi-powerlifting-squat.jpg",
+    imageAlt: "陳麒智教練於健力比賽中準備槓鈴深蹲，分享長期訓練與漸進式訓練心得",
+    content: `
+      <p>「想變強，是不是每次都要比上次更重？」🏋️</p><br/>
+      <p><strong>不需要每堂課都加重量，也不是練到最累，才算認真。</strong>我更在意的是：這次的安排適不適合現在的自己？動作能不能控制？練完之後，有沒有恢復到能好好完成下一次訓練？</p><br/>
+      <p>我是 B.S 力線體的陳麒智教練。有泰拳國家代表選手的經歷，也持續投入自己的健力訓練、參加健力比賽。從格鬥到槓鈴，我學到很重要的一件事：<strong>真正能累積下來的進步，往往來自有計畫地練習，而不是每次都硬拚。</strong>🌱</p><br/>
+      <h2 class="text-xl font-bold text-orange-500 mb-2">🥊 從泰拳國家代表選手，到健力比賽與長期訓練</h2>
+      <p>我的參賽經歷包含：</p>
+      <ul class="list-disc list-inside space-y-3 my-4">
+        <li>2013 海峽兩岸暨港澳地區泰拳邀請賽，擔任國家代表選手，獲得第四名。</li>
+        <li>2022 總統盃單項臥舉銅牌。</li>
+        <li>2023 新北市出力館盃單項臥舉銅牌。</li>
+      </ul>
+      <p>健力以深蹲、臥舉、硬舉三個項目為核心，也有單項賽事；上面列出的兩面銅牌，都是<strong>單項臥舉</strong>的成績。這篇想分享的是我自己的健力訓練與參賽心得，以及能帶回一般肌力訓練的觀念，不是要大家照著比賽選手的重量或課表練。</p><br/>
+      <h2 class="text-xl font-bold text-orange-500 mb-2">📒 週期化訓練，讓努力有方向，也讓恢復有位置</h2>
+      <p>我對自己的訓練很認真，也重視按計畫執行週期化訓練。簡單說，就是把不同階段的目標、訓練量、強度與休息安排好，並依實際狀態調整，而不是每天到場後才決定要挑戰多重。</p><br/>
+      <p><strong>有計畫，不等於不能調整。</strong>睡不好、疲勞累積，或當天動作狀態不理想，都需要納入判斷。適時降低難度、把動作練穩，也是訓練的一部分，不代表不夠努力。</p><br/>
+      <p>不過，一般新手不需要一開始就使用複雜的週期化課表。先建立能持續的頻率、學會基本動作，並記錄自己的反應，通常比追求很華麗的安排更實際。😊</p><br/>
+      <h2 class="text-xl font-bold text-orange-500 mb-2">🌱 漸進式訓練是什麼？不只是把槓片越加越多</h2>
+      <p>身體會對適當的訓練刺激產生適應；當原本的安排已能穩定完成，再逐步調整挑戰，有助於繼續累積能力。這就是常聽到的<strong>漸進式超負荷</strong>觀念。但「漸進」的前提，是先看清楚自己的起點。</p>
+      <ul class="list-disc list-inside space-y-3 my-4">
+        <li><strong>先穩定：</strong>從能控制的重量與活動幅度開始，把動作學清楚。</li>
+        <li><strong>再觀察：</strong>記錄完成情形、出力感受，以及之後的疲勞與恢復。</li>
+        <li><strong>小幅調整：</strong>準備好之後，再與教練討論增加次數、重量或動作難度，不必一次全部增加。</li>
+      </ul>
+      <p>同一個重量做得更穩、原本需要協助的動作能更自主完成，也都是值得記下來的進步。不是只有槓鈴上的數字變大，才叫變強。</p><br/>
+      <figure class="my-8">
+        <img src="/qizhi-powerlifting-deadlift.jpg" alt="陳麒智教練於健力比賽中完成硬舉，呈現個人長期健力訓練與參賽經驗" width="1200" height="1800" loading="lazy" decoding="async" style="display:block;width:100%;height:auto;max-height:85vh;object-fit:contain;border-radius:16px;background:#171717" />
+        <figcaption class="text-sm text-gray-400 mt-3">麒智教練的健力比賽紀錄。比賽重量是個人長期準備的結果，不是新手或長輩需要模仿的訓練起點。</figcaption>
+      </figure>
+      <h2 class="text-xl font-bold text-orange-500 mb-2">🪑 新手與長輩，也需要循序漸進，但起點不會一樣</h2>
+      <p>對第一次接觸重量訓練的人來說，可能先學會穩定蹲起、推、拉，再逐步加入合適的阻力。對長輩來說，從較高的穩固椅子坐下再站起、必要時使用固定扶手，也可能是很有意義的起點。</p><br/>
+      <p><strong>同樣叫深蹲，不代表每個人都要蹲一樣深、拿一樣重。</strong>年齡之外，過去活動習慣、肌力、平衡、健康狀況和恢復能力，都會影響安排。不要把「別人做得到」當成自己今天一定要完成的標準。</p><br/>
+      <p>想了解居家練習，可以接著看<a href="/articles/senior-home-leg-strength-exercises" class="text-orange-400 underline">長輩居家練腿的 3 個動作與注意事項</a>；準備第一次到工作室上課，則可先閱讀<a href="/articles/taoyuan-beginner-first-strength-class" class="text-orange-400 underline">新手第一次肌力訓練怎麼開始</a>。</p><br/>
+      <h2 class="text-xl font-bold text-orange-500 mb-2">⚠️ 穩扎穩打，是管理風險，不是保證不受傷</h2>
+      <p>一下增加太多重量、次數與頻率，或疲勞時仍反覆硬撐，可能讓身體負擔超出當下能承受的程度，影響動作品質與後續訓練。<strong>循序漸進、適當恢復與個別調整，有助於管理訓練風險，但不能保證完全不受傷。</strong></p><br/>
+      <p>也不是沒有複雜課表就一定會受傷，或某一次表現下降就代表退步。先了解原因、調整安排，比急著用更重的重量證明自己更重要。</p><br/>
+      <p>如果訓練時出現疼痛、頭暈、胸部不適或明顯站不穩，請先停止；有持續或不明原因的症狀，應先請醫療專業人員評估。不要把疼痛當成必須忍過去的進步門檻。</p><br/>
+      <h2 class="text-xl font-bold text-orange-500 mb-2">💪 桃園重量訓練：從自己的起點，練出能持續的肌力</h2>
+      <p>不管目標是日常活動更有力、重新建立運動習慣，還是想把一般肌力基礎練好，都不需要先拿出比賽成績才能開始。找到適合自己的安排，按部就班地做，讓進步能一直累積下去。</p><br/>
+      <p>正在找桃園私人教練或桃園肌力訓練課程，可以先看看我們的<a href="/#team" class="text-orange-400 underline">教練介紹</a>與<a href="/#schedule" class="text-orange-400 underline">課程方式及費用</a>，再透過 LINE 告訴我們你的訓練經驗、目標與方便時段，由教練協助確認合適的起點。</p><br/>
+      <p>替爸媽詢問也很歡迎。<strong>團體課程限 65 歲以下，超過 65 歲請洽私人一對一訓練。</strong>我們會依個別狀況討論安排，不要求長輩跟上別人的進度。</p><br/>
+      <p>📍 B.S 力線體｜桃園市桃園區壽星街 60 號<br/>來上課前，也請先確認交通與時段是否方便。<br/>💬 <a href="https://line.me/ti/p/~rockon12319" target="_blank" rel="noopener noreferrer" class="text-orange-400 underline">加入 LINE，詢問適合自己的肌力訓練</a></p><br/>
+      <p class="text-sm text-gray-400">延伸參考：<a href="https://acsm.org/resistance-training-guidelines-update-2026/" target="_blank" rel="noopener noreferrer" class="underline">ACSM 2026 阻力訓練指引更新</a>強調規律參與與個別化安排；一般健康成人不必依賴複雜週期化才能獲益。本文為一般訓練觀念分享，不能取代個別醫療評估或適合個人的運動處方。</p>
+    `,
+  },
+  {
     id: 20,
     title: "長輩居家練腿怎麼做？3 個下肢肌力訓練動作與影片示範",
     excerpt: "長輩在家想練腿，可以從哪裡開始？陳麒舜教練以影片介紹椅子坐站、扶握深蹲與登階，說明銀髮族居家訓練的支撐選擇、難度調整與注意事項，陪長輩及家屬找到合適的下肢肌力訓練起點。",
