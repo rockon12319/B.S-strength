@@ -1,4 +1,5 @@
 export const ARTICLE_SLUGS = {
+  22: "strength-conditioning-combat-to-daily-life",
   21: "powerlifting-experience-progressive-strength-training",
   20: "senior-home-leg-strength-exercises",
   19: "taoyuan-fitness-studio-weight-training-guide",

@@ -12,7 +12,7 @@ const read = (route) => fs.readFileSync(path.join(root, "build", route === "/" ?
 const doc = (route) => new JSDOM(read(route)).window.document;
 const config = require("../vercel.json");
 const sitemap = fs.readFileSync(path.join(root, "build/sitemap.xml"), "utf8");
-assert.equal(BLOG_POSTS.length, 21);
+assert.equal(BLOG_POSTS.length, 22);
 const qizhiPost = BLOG_POSTS.find((p) => p.id === 21);
 assert.equal(qizhiPost.author, "陳麒智 教練");
 assert.equal(qizhiPost.date, "2026-10-23");
@@ -47,7 +47,7 @@ for (const image of ["/beginner-first-class-senior.jpg", "/beginner-first-class-
 }
 assert(beginnerDoc.querySelector('article img').alt.length > 0);
 assert(beginnerDoc.querySelector('article img').getAttribute('loading') === 'lazy');
-assert.equal(filterArticles(BLOG_POSTS, "video", "").length, 4);
+assert.equal(filterArticles(BLOG_POSTS, "video", "").length, 5);
 const personalPost = BLOG_POSTS.find((p) => p.id === 17);
 assert.equal(personalPost.author, "陳麒舜 教練");
 assert.equal(personalPost.videoId, "5FQyhSCKddQ");
@@ -122,7 +122,7 @@ async function hydrationCheck(route) {
     assert.equal(Number(document.querySelector('[data-daily-id]').dataset.dailyId), dailyArticle(BLOG_POSTS).id);
     const topicButton = (label) => [...document.querySelectorAll('.topic-grid button')].find((b) => b.textContent.startsWith(label));
     await React.act(async () => topicButton('上課影片').click());
-    assert.equal(visible(), 4);
+    assert.equal(visible(), 5);
     await React.act(async () => topicButton('長輩與家屬').click());
     assert.equal(visible(), 8);
     await React.act(async () => topicButton('全部文章').click());
